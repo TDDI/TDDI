@@ -17,7 +17,7 @@ describe('CheckboxWithLabel', function() {
 
   it('changes the text after click', function() {
     var React = require('react/addons');
-    var CheckboxWithLabel = require('../src/CheckboxWithLabel');
+    var CheckboxWithLabel = require('../public/app/src/CheckboxWithLabel');
     var TestUtils = React.addons.TestUtils;
 
     // Render a checkbox with label in the document
