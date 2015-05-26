@@ -7,6 +7,7 @@
 
 var React = require('react');
 var CodeBox = require('./components/CodeBox');
+var ContentPanel = require('./components/ContentPanel');
 
 var App = React.createClass({
   getInitialState: function( ){
@@ -56,8 +57,10 @@ var App = React.createClass({
     // }
 
     var code = "";
+    var content = "";
     if(this.state.selection){
       code = this.state.sectionData[this.state.selection].code;
+      content = this.state.sectionData[this.state.selection].content;
     }
     return (
       <table>
@@ -75,6 +78,9 @@ var App = React.createClass({
           </td>
           <td>
             <CodeBox code = { code } />
+          </td>
+          <td>
+            <ContentPanel content = { content } />
           </td>
         </tr>
       </table>
