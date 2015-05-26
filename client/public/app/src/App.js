@@ -6,57 +6,75 @@
 */
 
 var React = require('react');
-
-var FileView = require('./components/FileView');
+var CodeBox = require('./components/CodeBox');
 
 var App = React.createClass({
   getInitialState: function( ){
     return {
       selection: null,
-      fileList: [ {
-        //name:               name of field
-        //type:               type of field
-        //tests(optional):    array of tests to run on field
-        //children(optional): object or array containing children
-        name: "addUp.js", type: "file", children: {
-          add: { name:"add", type:"function", tests:[
-            {args:[1,2],expect:3,result:3,pass:true},
-            {args:[1,2],expect:8,result:3,pass:false}
-          ]},
-          values: { name:"values", type:"array", children:[
-            { name:"0", type:"number"},
-            { name:"1", type:"number"},
-            { name:"2", type:"number"}
-          ]},
-          lib: {  name:"lib", type:"object",  children: {
-            sub: { name:"sub", type:"function", tests:[ ] },
-            div: { name:"div", type:"function", tests:[ ] }
-          }}
+      tableOfContents: ["section1", "section2", "section3"],
+
+      sectionData: { 
+        section1: {
+          name: 'section1',
+          contents: "foo bar", // TODO: Markdown Library research
+          code: "var example = 1",
+          preopCode: "var mocha = requires(mocha);",
+          postopCode: "console.log('PANIC');"
+        },
+        section2: {
+          name: 'section2',
+          contents: "bar of foo",
+          code: "console.log('YOU GET NOTHING')",
+          preopCode: "var hat = 'cat'",
+          postopCode: "console.log(hat)"
+        },
+        section3: {
+          name: 'section3',
+          contents: "no no no",
+          code: "//TODO fill this in",
+          preopCode: "var stacks = true",
+          postopCode: "var ondeck = stacks"
         }
-      } ] // list of file names
+      }
+
     };
   },
   render: function() {
     var that = this;
+
     var handleClick = function( selection ){
       that.setState( {selection: selection} );
+    };
+
+    // var loadSectionData = function(sectionName){
+    //   if(//not loaded then reload it
+    //     ){
+    //     var serverstuff = get(serverstuff)//get stuff from server and set equal in sectionData
+    //     that.sectionData[sectionName] = serverstuff;
+    //   }
+    // }
+
+    var code = "";
+    if(this.state.selection){
+      code = this.state.sectionData[this.state.selection].code;
     }
     return (
       <table>
+      <tr><td>
+      </td></tr>
         <tr>
           <td width="200px">
             <ul>
               {
-                this.state.fileList.map(function(v,k,c){
-                  return <li onClick={handleClick.bind(this, k)} key={k}>{v.name}</li>;
+                this.state.tableOfContents.map(function(v,k,c){
+                  return <li onClick={handleClick.bind(this, v)} key={k}>{v}</li>;
                 })
               }
             </ul>
           </td>
           <td>
-            <FileView
-              tree = {this.state.fileList[this.state.selection]}
-            />
+            <CodeBox code = { code } />
           </td>
         </tr>
       </table>
