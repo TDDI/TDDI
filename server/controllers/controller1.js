@@ -1,4 +1,5 @@
-var utils = require('../config/utils.js')
+var db = require('../db');
+var utils = require('../config/utils.js');
 
 module.exports = function(router){
 	router.get('/', function(req, res){
