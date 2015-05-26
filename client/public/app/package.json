@@ -1,21 +1,14 @@
 {
-  "name": "youtube-react",
+  "name": "TDDI",
   "version": "0.0.0",
-  "description": "A personal Youtube channel using React/Flux and Firebase",
-  "author": "Matt Conrad <mmconrad@gmail.com>",
-  "contributors": [
-    {
-      "name": "Jake Obron",
-      "email": "jbobron@gmail.com"
-    }
-  ],
+  "description": "Testing educational site",
   "bin": {
     "module-name": "./bin/module-name"
   },
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/conrad/youtube-react"
+    "url": "https://github.com/sinisterbrunch/TDDI"
   },
   "keywords": [],
   "dependencies": {
