@@ -12,14 +12,23 @@ var sequelize = new Sequelize("postgres", "postgres", "postgres",{
 });
 
 var User = sequelize.define('User', {
+  user_id: Sequelize.INTEGER,
   username: Sequelize.STRING
 });
 
+var Section = sequelize.define('Section', {
+  user_id: Sequelize.STRING,
+  username: Sequelize.STRING,
+  content: Sequelize.TEXT,
+  lesson: Sequelize.STRING,
+  editorcode: Sequelize.STRING,
+  precode: Sequelize.STRING,
+  postcode: Sequelize.STRING
+  
+});
 
-User.sync().then(function () {
+
+sequelize.sync().then(function () {
   // Table created
-  return User.create({
-    firstName: 'John',
-    lastName: 'Hancock'
-  });
+  console.log('success');
 });
