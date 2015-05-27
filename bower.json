@@ -1,0 +1,26 @@
+{
+  "name": "TDDI",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sinisterbrunch/TDDI",
+  "authors": [
+    "John Winstead",
+    "Brian Liu",
+    "Lu Yin",
+    "Kurt Bartholomew"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.3",
+    "bootstrap": "~3.3.4"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "TDDI",
+  "version": "1.0.0",
+  "description": "Test Driven Development Initializer ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/bin/www & gulp serve",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinisterbrunch/TDDI"
+  },
+  "keywords": [
+    "TDD"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sinisterbrunch/TDDI/issues"
+  },
+  "homepage": "https://github.com/sinisterbrunch/TDDI",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "morgan": "^1.5.3",
+    "pg": "^4.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.1.1",
+    "bower": "~1.4.1"
+  },
+  "devDependencies": {
+    "gulp-jshint": "~1.11.0",
+    "gulp": "~3.8.11",
+    "jshint-stylish": "~2.0.0",
+    "chai": "~2.3.0",
+    "mocha": "~2.2.5",
+    "supertest": "~1.0.1",
+    "gulp-react": "~3.0.1",
+    "browser-sync": "~2.7.5"
+  }
+}

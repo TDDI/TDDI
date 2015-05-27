@@ -5,7 +5,7 @@ module.exports = function(app, express){
 	console.log('go to middleware');
 	app.use(morgan('common'));
 	app.use(bodyParser.json());
-	app.use(express.static(__dirname + '../../client/public'))
+	app.use(express.static('client/public/src'));
 
 	var ctrlRouter = express.Router();
 	app.use('/', ctrlRouter);
