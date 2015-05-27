@@ -24,6 +24,7 @@ var Section = sequelize.define('Section', {
   editorcode: Sequelize.STRING,
   precode: Sequelize.STRING,
   postcode: Sequelize.STRING
+  
 });
 
 
