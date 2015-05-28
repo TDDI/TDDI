@@ -1,4 +1,4 @@
-// var React = require('react');
+window.React = require('react');
 
 var CodeBox = require('./components/CodeBox');
 var ContentPanel = require('./components/ContentPanel');
