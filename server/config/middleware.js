@@ -8,9 +8,9 @@ module.exports = function(app, express){
 	app.use(bodyParser.json());
 	app.use(express.static('client/public/dist'));
 
-	// var userRouter = express.Router();
-	// app.use('/user', userRouter);
-	// require('../user/userRoutes.js')(userRouter);
+	var userRouter = express.Router();
+	app.use('/', userRouter);
+	require('../user/userRoutes.js')(userRouter);
 
 	var router = express.Router();
 	app.use('/', router);

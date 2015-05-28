@@ -34,9 +34,9 @@ var Section = sequelize.define('Section', {
 
 sequelize.sync({force:true}).then(function () {
   User.bulkCreate([
-    {user_id:'1234',username:'Stephen'},
-    {user_id:'3654',username:'Klay'},
-    {user_id:'5436',username:'Bogut'}
+    {user_id:'1234',username:'stephen'},
+    {user_id:'3654',username:'klay'},
+    {user_id:'5436',username:'bogut'}
     ]);
 
   Section.bulkCreate([
