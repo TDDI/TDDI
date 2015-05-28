@@ -24,7 +24,7 @@ var User = sequelize.define('User', {
 var Section = sequelize.define('Section', {
   sectionNumber: Sequelize.INTEGER,
   content: Sequelize.TEXT,
-  lesson: Sequelize.STRING,
+  lesson: Sequelize.INTEGER,
   editorcode: Sequelize.STRING,
   precode: Sequelize.STRING,
   postcode: Sequelize.STRING
@@ -34,20 +34,20 @@ var Section = sequelize.define('Section', {
 
 sequelize.sync({force:true}).then(function () {
   User.bulkCreate([
-    {user_id:'1234',username:'Stephen'},
-    {user_id:'3654',username:'Klay'},
-    {user_id:'5436',username:'Bogut'}
+    {user_id:'1234',username:'stephen'},
+    {user_id:'3654',username:'klay'},
+    {user_id:'5436',username:'bogut'}
     ]);
 
   Section.bulkCreate([
     {sectionNumber: '1', content:'ould have to be', 
-    lesson:'unity for us to consider', editorcode:'ething like t', 
+    lesson:'1', editorcode:'ething like t', 
     precode:'ould listen if presented', postcode:'Kupchak admitted tha'},
     {sectionNumber: '2', content:'u came across someth', 
-    lesson:' team better quicke', editorcode:'s something you would cons', 
+    lesson:' 2', editorcode:'s something you would cons', 
     precode:'but there’s some', postcode:'ng the No. 2 pick in t'},
     {sectionNumber: '3',content:'a team traded a to', 
-    lesson:' a veteran was in', editorcode:'Clippers traded th', 
+    lesson:' 1', editorcode:'Clippers traded th', 
     precode:'wo prospects are', postcode:'anuel Mudiay could'},
     ]);
 
