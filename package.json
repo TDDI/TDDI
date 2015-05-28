@@ -38,6 +38,11 @@
     "mocha": "~2.2.5",
     "supertest": "~1.0.1",
     "gulp-react": "~3.0.1",
-    "browser-sync": "~2.7.5"
+    "browser-sync": "~2.7.5",
+    "browserify": "~10.2.1",
+    "gulp-uglify": "~1.2.0",
+    "vinyl-source-stream": "~1.1.0",
+    "vinyl-buffer": "~1.0.0",
+    "reactify": "~1.1.1"
   }
 }
