@@ -1,8 +1,8 @@
 // var React = require('react');
 
-// var CodeBox = require('./components/CodeBox');
-// var ContentPanel = require('./components/ContentPanel');
-// var NavigationBar = require('./components/NavigationBar');
+var CodeBox = require('./components/CodeBox');
+var ContentPanel = require('./components/ContentPanel');
+var NavigationBar = require('./components/NavigationBar');
 
 var App = React.createClass({
   getInitialState: function( ){

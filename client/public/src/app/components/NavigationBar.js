@@ -1,7 +1,6 @@
-// var React = require('react/addons');
 var arrowStyles = {
 
-}
+};
 
 var NavigationBar = React.createClass({
   render: function() {
@@ -25,4 +24,4 @@ var NavigationBar = React.createClass({
 
 })
 
-// module.exports = NavigationBar;
+module.exports = NavigationBar;

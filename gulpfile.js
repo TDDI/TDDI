@@ -13,7 +13,7 @@ var browserSyncOptions = {
 };
 
 var paths = {
-  images: 'client/public/src/assets/img/*.*',
+  images: 'client/public/src/assets/images/*.*',
   styles: 'client/public/src/assets/css/*.css',
   appScripts: 'client/public/src/app/**/*.js',
   html: 'client/public/src/index.html',
@@ -55,8 +55,8 @@ gulp.task('css', function() {
 });
 
 gulp.task('img', function() {
-  return gulp.src(paths.styles)
-    .pipe(gulp.dest(paths.distfolder+'/assets/css'));
+  return gulp.src(paths.images)
+    .pipe(gulp.dest(paths.distfolder+'/assets/images'));
 });
 
 gulp.task('vendor', function() {

@@ -1,5 +1,3 @@
-// var React = require('react');
-
 var ContentPanel = React.createClass({
 
   render: function() {
@@ -12,4 +10,4 @@ var ContentPanel = React.createClass({
 
 })
 
-// module.exports = ContentPanel;
+module.exports = ContentPanel;

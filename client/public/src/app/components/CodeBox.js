@@ -1,5 +1,3 @@
-// var React = require('react/addons');
-
 var CodeBox = React.createClass({
 
   render: function() {
@@ -11,4 +9,4 @@ var CodeBox = React.createClass({
 
 });
 
-// module.exports = CodeBox;
+module.exports = CodeBox;
