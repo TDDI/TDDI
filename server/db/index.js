@@ -22,8 +22,7 @@ var User = sequelize.define('User', {
 });
 
 var Section = sequelize.define('Section', {
-  user_id: Sequelize.STRING,
-  username: Sequelize.STRING,
+  sectionNumber: Sequelize.INTEGER,
   content: Sequelize.TEXT,
   lesson: Sequelize.STRING,
   editorcode: Sequelize.STRING,
@@ -41,13 +40,13 @@ sequelize.sync({force:true}).then(function () {
     ]);
 
   Section.bulkCreate([
-    {user_id:'1234',username:'Stephen',content:'ould have to be', 
+    {sectionNumber: '1', content:'ould have to be', 
     lesson:'unity for us to consider', editorcode:'ething like t', 
     precode:'ould listen if presented', postcode:'Kupchak admitted tha'},
-    {user_id:'3654',username:'Klay',content:'u came across someth', 
+    {sectionNumber: '2', content:'u came across someth', 
     lesson:' team better quicke', editorcode:'s something you would cons', 
     precode:'but there’s some', postcode:'ng the No. 2 pick in t'},
-    {user_id:'5436',username:'Bogut',content:'a team traded a to', 
+    {sectionNumber: '3',content:'a team traded a to', 
     lesson:' a veteran was in', editorcode:'Clippers traded th', 
     precode:'wo prospects are', postcode:'anuel Mudiay could'},
     ]);
@@ -55,3 +54,6 @@ sequelize.sync({force:true}).then(function () {
   // Table created
   console.log('success');
 });
+
+exports.User = User;
+exports.Section = Section;
