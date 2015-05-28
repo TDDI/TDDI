@@ -1,21 +1,24 @@
-/* 
-* @Author: John Winstead
-* @Date:   2015-05-22 11:11:25
-* @Last Modified by:   awate
-* @Last Modified time: 2015-05-25 13:28:17
-*/
-
 // var React = require('react');
+
 // var CodeBox = require('./components/CodeBox');
 // var ContentPanel = require('./components/ContentPanel');
+// var NavigationBar = require('./components/NavigationBar');
 
 var App = React.createClass({
   getInitialState: function( ){
     return {
-      selection: null,
+      currentUser: "Krazy Kurt",
+      selection: "sectionDefault",
       tableOfContents: ["section1", "section2", "section3"],
 
-      sectionData: { 
+      sectionData: {
+        sectionDefault: {
+          name: 'sectionDefault',
+          contents: "defaultstuff",
+          code: "default code here",
+          preopCode: "defaultpreopCode",
+          postopCode: "defaultpostopCode"
+        }, 
         section1: {
           name: 'section1',
           contents: "foo bar", // TODO: Markdown Library research
@@ -57,33 +60,39 @@ var App = React.createClass({
     // }
 
     var code = "";
-    var content = "";
+    var contents = "";
+    
     if(this.state.selection){
       code = this.state.sectionData[this.state.selection].code;
-      content = this.state.sectionData[this.state.selection].content;
+      contents = this.state.sectionData[this.state.selection].contents;
     }
     return (
-      <table>
-      <tr><td>
-      </td></tr>
-        <tr>
-          <td width="200px">
-            <ul>
+      <div>
+        <NavigationBar />
+
+        <div class="module">
+
+          <div id="tableofcontents">
+            <ul style={{border: '10px'}}>
               {
                 this.state.tableOfContents.map(function(v,k,c){
                   return <li onClick={handleClick.bind(this, v)} key={k}>{v}</li>;
                 })
               }
             </ul>
-          </td>
-          <td>
+          </div>
+
+          <div id="codearea">
             <CodeBox code = { code } />
-          </td>
-          <td>
-            <ContentPanel content = { content } />
-          </td>
-        </tr>
-      </table>
+          </div>
+
+          <div id="contents">
+            <ContentPanel contents = { contents } />
+          </div>
+
+        </div>
+
+      </div>
     );
   }
 })
