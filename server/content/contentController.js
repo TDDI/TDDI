@@ -4,8 +4,12 @@ module.exports = {
 	findInfo: function(req, res, next){
 		console.log('req.lesson:',req.lesson);
 		console.log('req.section:',req.section);
+		var lessonNumber = req.lesson;
 		var sectionNumber = req.section;
-		db.Section.find({where:{sectionNumber: sectionNumber}})
+		db.Section.find({where:
+			{sectionNumber: sectionNumber,
+			 lesson: lessonNumber,	
+			}})
 			.then(function(data){
 				if(!data){
 					next(new Error('no available data from database'));
