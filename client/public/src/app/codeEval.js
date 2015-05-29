@@ -1,3 +1,10 @@
+/* 
+* @Author: John Winstead
+* @Date:   2015-05-25 16:14:16
+* @Last Modified by:   awate
+* @Last Modified time: 2015-05-28 16:22:58
+*/
+
 var CodeEval=function( code, callback, options){
   if (!!window.Worker) {
     var result = {

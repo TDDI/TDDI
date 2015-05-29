@@ -1,3 +1,10 @@
+/* 
+* @Author: Brian Liu
+* @Date:   2015-05-26 16:14:16
+* @Last Modified by:   awate
+* @Last Modified time: 2015-05-28 19:31:36
+*/
+
 var arrowStyles = {
 
 };
@@ -19,9 +26,7 @@ var NavigationBar = React.createClass({
         </div>
       </div>
     )
-  },
-
-
+  }
 })
 
 module.exports = NavigationBar;
