@@ -1,0 +1,98 @@
+html, body {
+  height: 100%;
+  background-color: purple;
+  background-image: url('http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg');
+  background-size: 100% 100%;
+}
+
+.NavBarContainer {
+  /*width: auto;*/
+  border: 3px solid #fd8a17;
+  border-radius: 3px;
+  font-family: 'Fredericka the Great', sans-serif;
+  line-height: 1.5;
+  background: #f7f7f7;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+/*.NavBarContainer > ul > span > li {
+  display: inline;
+}*/
+
+.NavBarContainer > ul > .AlignRight > li {
+  float: right;
+}
+.NavBarContainer > ul > span > li {
+  list-style: none;
+}
+.NavBarContainer > ul > span > li > a {
+  padding: 10px 25px;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000000;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+
+.AppBodyContainer {
+  background-color: gray;
+  opacity: 0.6;
+  height: 80%;
+  margin: 2%;
+  margin-left: 2%;
+}
+
+.AppBodyContainer .TableOfContentsContainer {
+  border: 3px solid #fd8a17;
+  padding-left: 2%;
+  margin-right: 2%;
+  border-radius: 3px;
+  font-family: 'Fredericka the Great', sans-serif;
+  line-height: 2;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background-color: blue;
+  min-height: 90%;
+}
+
+.AppBodyContainer .TableOfContentsContainer > ul > li {
+  list-style: none;
+}
+
+.AppBodyContainer .LessonContainer {
+  /*margin-top: 2%;*/
+  min-height: 90%;
+  border: 3px solid #fd8a17;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+.AppBodyContainer .LessonContainer > .ContentContainer {
+  height: 150px;
+  border: 3px solid #000000;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+.AppBodyContainer > .LessonContainer > .CodeboxContainer > .LessonResponseContainer {
+  border: 3px solid #000000;
+  /*height: 150px;*/
+  position:relative;
+  top: -50px;
+}
+
+.AppBodyContainer > .LessonContainer > .CodeboxContainer {
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  border: 3px solid #000000;
+}
+
+textarea {
+     width: 100%;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
+}
