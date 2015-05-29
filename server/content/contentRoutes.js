@@ -18,8 +18,11 @@ module.exports = function(app){
 		next();
 	})
 
-	app.get('/lesson/:lesson/section/:section', 
-		contentController.findInfo);
+	app.get('/',contentController.getLessons);
+	app.get('/:lesson/section',contentController.getSections);
+
+	// app.get('/:lesson/section/:section', 
+	// 	contentController.findInfo);
 
 };
 
