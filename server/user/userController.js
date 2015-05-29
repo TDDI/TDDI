@@ -1,15 +1,26 @@
 var db = require('../db');
 
-
+// add content
+// change content
+// remove content
+// hidden content
 module.exports = {
-  addUserInfo: function(req, res, next){
+  userControl: function(req, res, next){
+  //need to build in a check  
+    
+
+
+
+
+
+  
     db.User.create({
       user_id: req.body.user_id,
       username: req.body.username
     })
     .then(function(results){
       res.json(results);
-      console.log('done deal baby')
+      console.log('done deal user data saved baby')
     })
     .catch(function(error){
       next(new Error('could not add user to db', error));
@@ -30,32 +41,20 @@ module.exports = {
       .catch(function(error){
         next(new Error('failed user get operation'))
       });
-  }
+  },
+
+
 };
 
-
-  //     .then(function(data){
-  //       if(!data){
-  //         next(new Error('no available data from database'));
-  //       } else {
-  //         res.json(data)
-  //         console.log('data sent baby!');
-  //       }
-  //     })
-  //     .catch(function(error){
-  //       next(new Error('failed get operation'))
-  //     });
-  // },
+//testing get and post for user side
 /*
  curl -H 'Content-Type: application/json' -H 'Accept: application/json'
  -x post -d '{"user_id":"4567","username":"kevin"}' 
  http://localhost:3000/login
 
 curl --data '{"user_id":"4577","username":"bobby"}' http://localhost:3000/login
-
-curl -H "Content-Type: application/json" -X POST -d 
-'{"user_id":"4777","username":"Steve"}' 
- http://localhost:3000/login
+curl -H "Content-Type: application/json" -X POST -d '{"user_id":"4770","username":"bobby"}' http://localhost:3000/login
+curl -H "Content-Type: application/json" -X POST -d '{"user_id":"4777","username":"steve"}' http://localhost:3000/login
 */
 
 

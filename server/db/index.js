@@ -22,13 +22,15 @@ var User = sequelize.define('User', {
 });
 
 var Section = sequelize.define('Section', {
-  sectionNumber: Sequelize.INTEGER,
+  section_id: Sequelize.INTEGER,
+  sectionName: Sequelize.STRING,
   content: Sequelize.TEXT,
-  lesson: Sequelize.INTEGER,
-  editorcode: Sequelize.STRING,
-  precode: Sequelize.STRING,
-  postcode: Sequelize.STRING
-  
+  lesson_id: Sequelize.INTEGER,
+});
+
+var Lesson = sequelize.define('Lesson', {
+  lesson_id: Sequelize.INTEGER,
+  lessonName: Sequelize.STRING
 });
 
 
@@ -40,15 +42,19 @@ sequelize.sync({force:true}).then(function () {
     ]);
 
   Section.bulkCreate([
-    {sectionNumber: '1', content:'ould have to be', 
-    lesson:'1', editorcode:'ething like t', 
-    precode:'ould listen if presented', postcode:'Kupchak admitted tha'},
-    {sectionNumber: '2', content:'u came across someth', 
-    lesson:' 2', editorcode:'s something you would cons', 
-    precode:'but there’s some', postcode:'ng the No. 2 pick in t'},
-    {sectionNumber: '3',content:'a team traded a to', 
-    lesson:' 1', editorcode:'Clippers traded th', 
-    precode:'wo prospects are', postcode:'anuel Mudiay could'},
+    {section_id: '1', sectionName: 'section1', content:'ould have to be', lesson_id:'1'},
+    {section_id: '1', sectionName: 'section1', content:'u came across someth', lesson_id:' 1'},
+    {section_id: '2', sectionName: 'section2', content:'e across someth', lesson_id:' 2'},
+    {section_id: '2', sectionName: 'section2', content:'u came oss someth', lesson_id:' 2'},
+    {section_id: '3', sectionName: 'section3', content:'came across someth', lesson_id:'3'},
+    {section_id: '3', sectionName: 'section3', content:'across someth', lesson_id:'3'},
+    {section_id: '3', sectionName: 'section3', content:'a team traded a to',lesson_id:'3'}
+    ]);
+
+  Lesson.bulkCreate([
+    {lesson_id: '1', lessonName:'lesson1'},
+    {lesson_id: '2', lessonName:'lesson2'},
+    {lesson_id: '3', lessonName:'lesson3'},
     ]);
 
   // Table created
@@ -57,3 +63,4 @@ sequelize.sync({force:true}).then(function () {
 
 exports.User = User;
 exports.Section = Section;
+exports.Lesson = Lesson;
