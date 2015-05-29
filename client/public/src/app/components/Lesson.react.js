@@ -13,7 +13,7 @@ var Lesson = React.createClass({
     return {
       currentUser: "Krazy Kurt",
       selection: "sectionDefault",
-      tableOfContents: ["section1", "section2", "section3"],
+      tableOfContents: ["section1", "section2", "section3", "section4", "section5", "section6", "section7"],
 
       sectionData: {
         sectionDefault: {
@@ -81,12 +81,9 @@ var Lesson = React.createClass({
       contents = this.state.sectionData[this.state.selection].contents;
     }
     return (
-      <div>
-
-        <div class="module">
-
-          <div id="tableofcontents">
-            <ul style={{border: '10px'}}>
+      <div className="row AppBodyContainer">
+          <div className="col-md-2 TableOfContentsContainer container-fluid">
+            <ul>
               {
                 this.state.tableOfContents.map(function(v,k,c){
                   return <li onClick={handleClick.bind(this, v)} key={k}>{v}</li>;
@@ -95,16 +92,22 @@ var Lesson = React.createClass({
             </ul>
           </div>
 
-          <CodeMirror
-            value={this.state.sectionData[this.state.selection].code}
-            onChange={this.updateCode}
-            options={editorOptions} />
-
-          <div id="contents">
-            <ContentPanel contents = { contents } />
+          <div className="col-md-9 LessonContainer container-fluid">
+            <div className="ContentContainer">
+              <ContentPanel contents = { contents } />
+            </div>
+            
+            <div className="CodeBoxContainer">
+              <div className="LessonResponseContainer">
+                <p>This is a response</p>
+              </div>
+              <CodeMirror
+                value={this.state.sectionData[this.state.selection].code}
+                onChange={this.updateCode}
+                options={editorOptions} />
+            </div>
+          
           </div>
-
-        </div>
 
       </div>
     );

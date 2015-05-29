@@ -1,46 +1,26 @@
-@import url(http://fonts.googleapis.com/css?family=Rock+Salt|Black+Ops+One|Oswald|Fredericka+the+Great);
-#cssmenu,
-#cssmenu ul,
-#cssmenu ul li,
-#cssmenu ul .right,
-#cssmenu ul li a,
-#cssmenu #menu-button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  list-style: none;
-  line-height: 1;
-  display: block;
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+html, body {
+  height: 100%;
+  background-color: #000000;
+  background-image: url('http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg');
+  background-size: 100% 100%;
 }
-#cssmenu:after,
-#cssmenu > ul:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
-}
-#cssmenu #menu-button {
-  display: none;
-}
-#cssmenu {
-  width: auto;
+
+.NavBarContainer {
   border: 3px solid #fd8a17;
   border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
-  line-height: 1;
-  /*background: #f7f7f7;*/
+  line-height: 1.5;
+  background: #f7f7f7;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
-#cssmenu > ul > li {
-  float: left;
+
+.NavBarContainer > ul > .AlignRight > li {
+  float: right;
 }
-#cssmenu > ul > li > a {
+.NavBarContainer > ul > span > li {
+  list-style: none;
+}
+.NavBarContainer > ul > span > li > a {
   padding: 10px 25px;
   font-size: 20px;
   text-transform: uppercase;
@@ -52,89 +32,50 @@
   -o-transition: all .2s ease;
   transition: all .2s ease;
 }
-#cssmenu > ul > li > a:hover,
-#cssmenu > ul > li:hover > a,
-#cssmenu > ul > li.active > a {
-  color: #444444;
-}
-/*#cssmenu #menu-indicator {
-  position: absolute;
-  bottom: 0;
-  display: block;
-  height: 0;
-  width: 0;
-  border: 5px solid transparent;
-  border-bottom-color: #fd8a17;
-  -webkit-transition: all 0.25s ease-out;
-  -moz-transition: all 0.25s ease-out;
-  -ms-transition: all 0.25s ease-out;
-  -o-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}*/
-#arrow {
-  position:absolute;
-  width: 30px;
-  top: 25px;
-  left: 40px;
-  z-index:1;
+
+.AppBodyContainer {
+  background-color: gray;
+  opacity: 0.6;
+  height: 80%;
+  margin: 2%;
+  margin-left: 2%;
 }
 
-#tableofcontents,
-#tableofcontents ul,
-
-#tableofcontents #menu-button{
-  margin: 25px;
-  padding: 15px;
-  border: 0;
-  list-style:none;
-  line-height: 2;
-  display: inline-block;
-  position: relative;
-}
-#tableofcontents:after,
-#tableofcontents > ul:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 100px;
-}
-#tableofcontents #menu-button {
-  display: none;
-}
-#tableofcontents {
-  width: auto;
+.AppBodyContainer .TableOfContentsContainer {
   border: 3px solid #fd8a17;
+  padding-left: 2%;
+  margin-right: 2%;
   border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
-  line-height: 1;
-  /*background: #f7f7f7;*/
-  float:left;
+  line-height: 2;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  opacity: 0.9;
+  height: 90%;
+  overflow: scroll;
+}
+
+.AppBodyContainer .TableOfContentsContainer > ul > li {
+  list-style: none;
+  color: black;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.AppBodyContainer .LessonContainer {
+  min-height: 90%;
+  border: 3px solid #fd8a17;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 
-#tableofcontents > ul > li {
-  margin:15px;
-  padding: 10px 25px;
-  font-size: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #000000;
-}
-
-.module {
-  width: 100%;
-}
-
 .codearea {
-  width: auto;
+  width: 80%;
   line-height: 1;
   border-radius: 3px;
   border: 2px solid #8AC007;
   padding: 2px; 
-  width: 200px;
-  height: 150px; 
+  /*width: 200px;*/
+  height: 60px; 
   float:left;
 }
 
@@ -143,11 +84,36 @@
   height:100%;
 }
 
-#contents {
-  border-radius: 25px;
-  border: 2px solid #8AC007;
-  padding: 20px; 
-  width: 200px;
-  height: 150px; 
-  float:left;
+.AppBodyContainer .LessonContainer > .ContentContainer {
+  background-color: white;
+  opacity: 0.9;
+  margin: 1%;
+  min-height: 150px;
+  border: 3px solid #000000;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+
+.AppBodyContainer > .LessonContainer > .CodeboxContainer > .LessonResponseContainer {
+  border: 3px solid #000000;
+  background-color: white;
+  opacity: 0.9;
+  position:relative;
+  top: -50px;
+}
+
+.AppBodyContainer > .LessonContainer > .CodeboxContainer {
+  background-color: white;
+  opacity: 0.9;
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  border: 3px solid #000000;
+>>>>>>> Preparing to implement template to JSX
+}
+
+textarea {
+     width: 100%;
+     -webkit-box-sizing: border-box; 
+     -moz-box-sizing: border-box;    
+     box-sizing: border-box;         
 }
