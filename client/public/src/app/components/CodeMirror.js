@@ -56,15 +56,14 @@ var CodeMirror = React.createClass({
   render: function() {
     var className = 'codearea';
     if (this.state.isFocused) {
-      className += ' ReactCodeMirror--focused';
+      className += ' codearea--focused';
     }
     return (
       <div className = {className}>
-        <textarea 
+        <textarea
           ref ='codemirror'
           name = {this.props.path}
-          value = {this.props.value}
-          onChange = {this.valueChanged}
+          defaultValue = {this.props.value}
           autoComplete = 'off'>
         </textarea>
       </div>

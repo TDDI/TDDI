@@ -48,8 +48,18 @@ var Lesson = React.createClass({
 
     };
   },
+  updateCode: function(newCode) {
+    console.log(newCode);
+    this.setState({
+      code: newCode
+    });
+  },
   render: function() {
     var that = this;
+
+    var editorOptions = {
+      lineNumbers: true
+    };
 
     var handleClick = function( selection ){
       that.setState( {selection: selection} );
@@ -85,9 +95,10 @@ var Lesson = React.createClass({
             </ul>
           </div>
 
-          <div id="codearea">
-            <CodeMirror code = { code } />
-          </div>
+          <CodeMirror
+            value={this.state.sectionData[this.state.selection].code}
+            onChange={this.updateCode}
+            options={editorOptions} />
 
           <div id="contents">
             <ContentPanel contents = { contents } />
