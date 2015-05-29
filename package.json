@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/bin/www & gulp serve",
+    "start": "gulp serve",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
@@ -30,7 +30,8 @@
     "sequelize": "^3.1.1",
     "bower": "~1.4.1",
     "react": "~0.13.3",
-    "flux": "~2.0.3"
+    "flux": "~2.0.3",
+    "codemirror": "~5.3.0"
   },
   "devDependencies": {
     "gulp-jshint": "~1.11.0",
@@ -44,6 +45,7 @@
     "gulp-uglify": "~1.2.0",
     "vinyl-source-stream": "~1.1.0",
     "vinyl-buffer": "~1.0.0",
-    "reactify": "~1.1.1"
+    "reactify": "~1.1.1",
+    "gulp-nodemon": "~2.0.3"
   }
 }
