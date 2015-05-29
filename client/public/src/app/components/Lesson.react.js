@@ -2,13 +2,13 @@
 * @Author: John Winstead
 * @Date:   2015-05-28 16:14:16
 * @Last Modified by:   awate
-* @Last Modified time: 2015-05-28 16:16:40
+* @Last Modified time: 2015-05-28 19:39:07
 */
 
-var CodeBox = require('./components/CodeBox');
-var ContentPanel = require('./components/ContentPanel');
+var CodeBox = require('./CodeBox');
+var ContentPanel = require('./ContentPanel');
 
-var App = React.createClass({
+var Lesson = React.createClass({
   getInitialState: function( ){
     return {
       currentUser: "Krazy Kurt",
@@ -72,7 +72,6 @@ var App = React.createClass({
     }
     return (
       <div>
-        <NavigationBar />
 
         <div class="module">
 
@@ -100,3 +99,5 @@ var App = React.createClass({
     );
   }
 })
+
+module.exports = Lesson;
