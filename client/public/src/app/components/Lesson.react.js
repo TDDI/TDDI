@@ -2,10 +2,10 @@
 * @Author: John Winstead
 * @Date:   2015-05-28 16:14:16
 * @Last Modified by:   awate
-* @Last Modified time: 2015-05-28 19:39:07
+* @Last Modified time: 2015-05-28 20:07:51
 */
 
-var CodeBox = require('./CodeBox');
+var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 
 var Lesson = React.createClass({
@@ -86,7 +86,7 @@ var Lesson = React.createClass({
           </div>
 
           <div id="codearea">
-            <CodeBox code = { code } />
+            <CodeMirror code = { code } />
           </div>
 
           <div id="contents">
