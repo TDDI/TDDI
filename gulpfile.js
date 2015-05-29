@@ -6,6 +6,7 @@ var browserify = require('browserify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var nodemon = require('gulp-nodemon');
 
 var browserSyncOptions = {
   proxy: "localhost:8000",
@@ -25,6 +26,15 @@ var paths = {
   distfolder: 'client/public/dist',
   main: 'App.js'
 };
+
+gulp.task('server-start', function(){
+  nodemon({
+    script: 'server/bin/www',
+    ext: 'js html',
+    watch: 'server/**/*.*',
+    env: { 'NODE_ENV': 'development' }
+  });
+});
 
 gulp.task('browserify', function(){
   return browserify(paths.appsource)
@@ -64,7 +74,8 @@ gulp.task('vendor', function() {
     .pipe(gulp.dest(paths.distfolder+'/assets/lib'));
 });
 
-gulp.task('serve',['browserify','html','css','img','vendor'], function(event) {
+gulp.task('serve',['browserify','html','css','img','vendor','server-start'], function(event) {
+  
   browserSync(browserSyncOptions);
   gulp.watch(paths.html, ['html-watch']);
   gulp.watch(paths.styles, ['css-watch']);
