@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Test Driven Development Initializer ",
   "main": "server.js",
+  "engines": {
+    "node": "0.10.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp serve",
