@@ -31,27 +31,43 @@ module.exports = {
 			});
 	},
 
-	// findInfo: function(req, res, next){
-	// 	console.log('req.lesson:',req.lesson);
-	// 	console.log('req.section:',req.section);
-	// 	var lessonID = req.lesson;
-	// 	var SectionID = req.section;
-	// 	db.Section.find({where:
-	// 		{lesson_id: lessonID,
-	// 		 section_id: sectionID,	
-	// 		}})
-	// 		.then(function(data){
-	// 			if(!data){
-	// 				next(new Error('no available data from database'));
-	// 			} else {
-	// 				res.json(data)
-	// 				console.log('data sent baby!');
-	// 			}
-	// 		})
-	// 		.catch(function(error){
-	// 			next(new Error('failed get operation'))
-	// 		})
-	// }
+	findLessonInfo: function(req, res, next){
+		var lessonID = req.lesson;
+		db.Lesson.find({where:
+			{lesson_id: lessonID,
+			}})
+			.then(function(data){
+				if(!data){
+					next(new Error('no available data from database'));
+				} else {
+					res.json(data)
+					console.log('data sent baby!');
+				}
+			})
+			.catch(function(error){
+				next(new Error('failed get operation'))
+			})
+	},
+
+	findSectionInfo: function(req, res, next){
+		var sectionID = req.section;
+		var lessonID = req.lesson;
+		db.Section.find({where:
+			{lesson_id: lessonID,
+			section_id: sectionID
+			}})
+			.then(function(data){
+				if(!data){
+					next(new Error('no available data from database'));
+				} else {
+					res.json(data)
+					console.log('data sent baby!');
+				}
+			})
+			.catch(function(error){
+				next(new Error('failed get operation'))
+			})
+	},
 }
 
 

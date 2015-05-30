@@ -21,6 +21,11 @@ var User = sequelize.define('User', {
   username: Sequelize.STRING
 });
 
+var Lesson = sequelize.define('Lesson', {
+  lesson_id: Sequelize.INTEGER,
+  lessonName: Sequelize.STRING
+});
+
 var Section = sequelize.define('Section', {
   section_id: Sequelize.INTEGER,
   sectionName: Sequelize.STRING,
@@ -28,10 +33,7 @@ var Section = sequelize.define('Section', {
   lesson_id: Sequelize.INTEGER,
 });
 
-var Lesson = sequelize.define('Lesson', {
-  lesson_id: Sequelize.INTEGER,
-  lessonName: Sequelize.STRING
-});
+
 
 
 sequelize.sync({force:true}).then(function () {
@@ -41,21 +43,23 @@ sequelize.sync({force:true}).then(function () {
     {user_id:'5436',username:'bogut'}
     ]);
 
-  Section.bulkCreate([
-    {section_id: '1', sectionName: 'section1', content:'ould have to be', lesson_id:'1'},
-    {section_id: '1', sectionName: 'section1', content:'u came across someth', lesson_id:' 1'},
-    {section_id: '2', sectionName: 'section2', content:'e across someth', lesson_id:' 2'},
-    {section_id: '2', sectionName: 'section2', content:'u came oss someth', lesson_id:' 2'},
-    {section_id: '3', sectionName: 'section3', content:'came across someth', lesson_id:'3'},
-    {section_id: '3', sectionName: 'section3', content:'across someth', lesson_id:'3'},
-    {section_id: '3', sectionName: 'section3', content:'a team traded a to',lesson_id:'3'}
-    ]);
-
   Lesson.bulkCreate([
     {lesson_id: '1', lessonName:'lesson1'},
     {lesson_id: '2', lessonName:'lesson2'},
     {lesson_id: '3', lessonName:'lesson3'},
     ]);
+
+  Section.bulkCreate([
+    {section_id: '1', sectionName: 'section1', content:'ould have to be', lesson_id:'1'},
+    {section_id: '1', sectionName: 'section1', content:'u came across someth', lesson_id:'1'},
+    {section_id: '2', sectionName: 'section2', content:'e across someth', lesson_id:'2'},
+    {section_id: '2', sectionName: 'section2', content:'u came oss someth', lesson_id:'2'},
+    {section_id: '3', sectionName: 'section3', content:'came across someth', lesson_id:'3'},
+    {section_id: '3', sectionName: 'section3', content:'across someth', lesson_id:'3'},
+    {section_id: '3', sectionName: 'section3', content:'a team traded a to',lesson_id:'3'}
+    ]);
+
+ 
 
   // Table created
   console.log('success');
