@@ -13,7 +13,7 @@ module.exports = function(app, express){
 	// require('../user/userRoutes.js')(userRouter);
 
 	var contentRouter = express.Router();
-	app.use('/lesson', contentRouter);
+	app.use('/api/lesson', contentRouter);
 	require('../content/contentRoutes.js')(contentRouter);
 };
 
