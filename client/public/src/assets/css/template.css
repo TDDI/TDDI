@@ -1,12 +1,11 @@
 html, body {
   height: 100%;
-  background-color: purple;
+  background-color: #000000;
   background-image: url('http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg');
   background-size: 100% 100%;
 }
 
 .NavBarContainer {
-  /*width: auto;*/
   border: 3px solid #fd8a17;
   border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
@@ -14,10 +13,6 @@ html, body {
   background: #f7f7f7;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
-
-/*.NavBarContainer > ul > span > li {
-  display: inline;
-}*/
 
 .NavBarContainer > ul > .AlignRight > li {
   float: right;
@@ -55,12 +50,15 @@ html, body {
   font-family: 'Fredericka the Great', sans-serif;
   line-height: 2;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
-  background-color: blue;
+  background-color: white;
+  opacity: 0.9;
   min-height: 90%;
+  /*display: none;*/
 }
 
 .AppBodyContainer .TableOfContentsContainer > ul > li {
   list-style: none;
+  color: black;
 }
 
 .AppBodyContainer .LessonContainer {
@@ -71,19 +69,26 @@ html, body {
 }
 
 .AppBodyContainer .LessonContainer > .ContentContainer {
-  height: 150px;
+  background-color: white;
+  opacity: 0.9;
+  margin: 1%;
+  min-height: 200px;
   border: 3px solid #000000;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 
 .AppBodyContainer > .LessonContainer > .CodeboxContainer > .LessonResponseContainer {
   border: 3px solid #000000;
+  background-color: white;
+  opacity: 0.9;
   /*height: 150px;*/
   position:relative;
   top: -50px;
 }
 
 .AppBodyContainer > .LessonContainer > .CodeboxContainer {
+  background-color: white;
+  opacity: 0.9;
   position: absolute;
   width: 95%;
   bottom: 0;

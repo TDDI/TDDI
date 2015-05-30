@@ -18,17 +18,17 @@ var App = React.createClass({
     return { currentUser: "Krazy Kurt" };
   },
   render: function( ) {
-    var Route=Main;
+    var Route=Lesson;
     switch (window.location.hash) {
       case '#lesson': Route = Lesson; break;
       case '#profile': Route = Profile; break;
     }
 
     return (
-      <div>
+      <span>
         <NavigationBar />
         <Route />
-      </div>
+      </span>
     );
   }
 });
