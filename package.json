@@ -7,9 +7,8 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "gulp serve",
     "test": "gulp test",
+    "start": "gulp serve",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
@@ -55,6 +54,7 @@
     "gulp-jest": "~0.4.0",
     "harmonize": "~1.4.2",
     "gulp-minify-css": "~1.1.1",
-    "gulp-concat": "~2.5.2"
+    "gulp-concat": "~2.5.2",
+    "react-tools": "~0.13.3"
   }
 }
