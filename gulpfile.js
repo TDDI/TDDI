@@ -28,6 +28,7 @@ var paths = {
   appsource: 'client/public/src/app/App.js',
   appdist: 'client/public/dist/app/App.js',
   distfolder: 'client/public/dist',
+  buildfolder: 'client/public/build',
   main: 'App.js',
   servertest: 'test/server.spec.js'
 };
@@ -80,7 +81,7 @@ gulp.task('browserify:min', function(){
   .pipe(source(paths.main))
   .pipe(buffer())
   .pipe(uglify())
-  .pipe(gulp.dest('client/public/dist/app'));
+  .pipe(gulp.dest('client/public/build/app'));
 });
 
 gulp.task('html', function() {
@@ -90,7 +91,7 @@ gulp.task('html', function() {
 
 gulp.task('html:min', function() {
   return gulp.src(paths.html)
-    .pipe(gulp.dest(paths.distfolder));
+    .pipe(gulp.dest(paths.buildfolder));
 });
 
 gulp.task('css', function() {
@@ -102,7 +103,7 @@ gulp.task('css:min', function() {
   return gulp.src(paths.styles)
     .pipe(concat('styles.css'))
     .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest(paths.distfolder+'/assets/css'));
+    .pipe(gulp.dest(paths.buildfolder+'/assets/css'));
 });
 
 gulp.task('img', function() {
@@ -112,7 +113,7 @@ gulp.task('img', function() {
 
 gulp.task('img:min', function() {
   return gulp.src(paths.images)
-    .pipe(gulp.dest(paths.distfolder+'/assets/images'));
+    .pipe(gulp.dest(paths.buildfolder+'/assets/images'));
 });
 
 gulp.task('vendor', function() {
@@ -122,7 +123,7 @@ gulp.task('vendor', function() {
 
 gulp.task('vendor:min', function() {
   return gulp.src(paths.vendor)
-    .pipe(gulp.dest(paths.distfolder+'/assets/lib'));
+    .pipe(gulp.dest(paths.buildfolder+'/assets/lib'));
 });
 
 gulp.task('serve',['browserify','html','css','img','vendor','server-start'], function(event) {
@@ -141,6 +142,8 @@ gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
-gulp.task('build',['browserify','html','css','img','vendor','test-client','test-server']);
+gulp.task('dist',['browserify','html','css','img','vendor','test-client','test-server']);
+
+gulp.task('build',['browserify:min','html:min','css:min','img:min','vendor:min','test-client','test-server']);
 
 gulp.task('default', ['serve']);
