@@ -13,7 +13,7 @@ module.exports = {
 					}
 					res.json(lessonNames);
 
-					console.log('lesson data sent baby!');
+					console.log('getlesson sent baby!');
 				}
 			})
 			.catch(function(error){
@@ -21,9 +21,10 @@ module.exports = {
 			});
 	},
 
-	getSections: function(req, res, next){
+	getSectionsInLesson: function(req, res, next){
 		var sectionNames = [];
-		db.Section.findAll({})
+		var lessonID = req.lesson;
+		db.Section.findAll({where:{lesson_id:lessonID}})
 			.then(function(data){
 				if(!data){
 					next(new Error('no available data from database'));
@@ -31,9 +32,8 @@ module.exports = {
 					for(var i = 0; i<data.length; i++){
 						sectionNames.push(data[i].sectionName);
 					}
-					console.log('sectionNames:', sectionNames)
 					res.json(sectionNames);
-					console.log('section data sent baby!');
+					console.log('getSectionsInLesson sent baby!');
 				}
 			})
 			.catch(function(error){
@@ -53,7 +53,7 @@ module.exports = {
 				} else {
 					lessonName.push(data.lessonName);
 					res.json(lessonName);
-					console.log('data sent baby!');
+					console.log('findLessonInfo sent baby!');
 				}
 			})
 			.catch(function(error){
@@ -75,7 +75,7 @@ module.exports = {
 				} else {
 					sectionName.push(data.sectionName);
 					res.json(sectionName);
-					console.log('data sent baby!');
+					console.log('findSectionInfo sent baby!');
 				}
 			})
 			.catch(function(error){
