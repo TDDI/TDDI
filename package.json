@@ -46,6 +46,11 @@
     "vinyl-source-stream": "~1.1.0",
     "vinyl-buffer": "~1.0.0",
     "reactify": "~1.1.1",
-    "gulp-nodemon": "~2.0.3"
+    "gulp-nodemon": "~2.0.3",
+    "gulp-mocha": "~2.1.0",
+    "gulp-jest": "~0.4.0",
+    "harmonize": "~1.4.2",
+    "gulp-minify-css": "~1.1.1",
+    "gulp-concat": "~2.5.2"
   }
 }

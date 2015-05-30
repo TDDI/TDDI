@@ -1,12 +1,16 @@
+require('harmonize')();
 var gulp = require('gulp');
-//var jshint = require('gulp-jshint');
-//var stylish = require('jshint-stylish');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
 var nodemon = require('gulp-nodemon');
+var mocha = require('gulp-mocha');
+var jest = require('gulp-jest');
+var minifyCss = require('gulp-minify-css');
+var concat = require('gulp-concat');
 
 var browserSyncOptions = {
   proxy: "localhost:8000",
@@ -24,8 +28,33 @@ var paths = {
   appsource: 'client/public/src/app/App.js',
   appdist: 'client/public/dist/app/App.js',
   distfolder: 'client/public/dist',
-  main: 'App.js'
+  main: 'App.js',
+  servertest: 'test/server.spec.js'
 };
+
+gulp.task('test-client', function () {
+  return gulp.src('client/__tests__').pipe(jest({
+    scriptPreprocessor: "./spec/support/preprocessor.js",
+    unmockedModulePathPatterns: [
+      "node_modules/react"
+    ],
+    testDirectoryName: "spec",
+    testPathIgnorePatterns: [
+      "node_modules",
+      "spec/support"
+    ],
+    moduleFileExtensions: [
+      "js",
+      "json",
+      "react"
+    ]
+  }));
+});
+
+gulp.task('test-server', function() {
+  return gulp.src(paths.servertest)
+           .pipe(mocha({reporter: 'nyan'}));
+});
 
 gulp.task('server-start', function(){
   nodemon({
@@ -59,8 +88,20 @@ gulp.task('html', function() {
     .pipe(gulp.dest(paths.distfolder));
 });
 
+gulp.task('html:min', function() {
+  return gulp.src(paths.html)
+    .pipe(gulp.dest(paths.distfolder));
+});
+
 gulp.task('css', function() {
   return gulp.src(paths.styles)
+    .pipe(gulp.dest(paths.distfolder+'/assets/css'));
+});
+
+gulp.task('css:min', function() {
+  return gulp.src(paths.styles)
+    .pipe(concat('styles.css'))
+    .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest(paths.distfolder+'/assets/css'));
 });
 
@@ -69,7 +110,17 @@ gulp.task('img', function() {
     .pipe(gulp.dest(paths.distfolder+'/assets/images'));
 });
 
+gulp.task('img:min', function() {
+  return gulp.src(paths.images)
+    .pipe(gulp.dest(paths.distfolder+'/assets/images'));
+});
+
 gulp.task('vendor', function() {
+  return gulp.src(paths.vendor)
+    .pipe(gulp.dest(paths.distfolder+'/assets/lib'));
+});
+
+gulp.task('vendor:min', function() {
   return gulp.src(paths.vendor)
     .pipe(gulp.dest(paths.distfolder+'/assets/lib'));
 });
@@ -90,6 +141,6 @@ gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
-gulp.task('default', ['serve']);
+gulp.task('build',['browserify','html','css','img','vendor','test-client','test-server']);
 
-gulp.task('build',['browserify','html','css','img','vendor']);
+gulp.task('default', ['serve']);

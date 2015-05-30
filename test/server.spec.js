@@ -14,7 +14,7 @@ var server = require('../server/server.js');
 var request = require('request');
 
 // 'chai' allows for the use of expect functions (not to be confused with .expect)
-var expect = require('Chai').expect;
+var expect = require('chai').expect;
 
 //===============================================================
 
