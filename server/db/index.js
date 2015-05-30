@@ -30,6 +30,9 @@ var Section = sequelize.define('Section', {
   section_id: Sequelize.INTEGER,
   sectionName: Sequelize.STRING,
   content: Sequelize.TEXT,
+  code: Sequelize.TEXT,
+  preOp: Sequelize.TEXT,
+  postOp: Sequelize.TEXT,
   lesson_id: Sequelize.INTEGER,
 });
 
@@ -52,16 +55,15 @@ sequelize.sync({force:true}).then(function () {
     ]);
 
   Section.bulkCreate([
-    {section_id: '1', sectionName: 'lesson1section1', content:'ould have to be', lesson_id:'1'},
-    {section_id: '2', sectionName: 'lesson1section2', content:'u came across someth', lesson_id:'1'},
-    {section_id: '1', sectionName: 'lesson2section1', content:'e across someth', lesson_id:'2'},
-    {section_id: '2', sectionName: 'lesson2section2', content:'u came oss someth', lesson_id:'2'},
-    {section_id: '1', sectionName: 'lesson3section1', content:'came across someth', lesson_id:'3'},
-    {section_id: '2', sectionName: 'lesson3section2', content:'across someth', lesson_id:'3'},
-    {section_id: '3', sectionName: 'lesson3section3', content:'a team traded a to',lesson_id:'3'}
+    {section_id: '1', sectionName: 'lesson1section1', content:'ould have to be', code:'qasdwer', preOp:'wert', postOp:'edfart', lesson_id:'1'},
+    {section_id: '2', sectionName: 'lesson1section2', content:'u came across someth', code:'qwdfder', preOp:'wert', postOp:'erdfdt',lesson_id:'1'},
+    {section_id: '1', sectionName: 'lesson2section1', content:'e across someth', code:'qdfdwer', preOp:'dfdfd', postOp:'sdfert', lesson_id:'2'},
+    {section_id: '2', sectionName: 'lesson2section2', content:'u came oss someth', code:'qw43er', preOp:'weerrt', postOp:'ersdt',lesson_id:'2'},
+    {section_id: '1', sectionName: 'lesson3section1', content:'came across someth',code:'qw43er', preOp:'ttww', postOp:'erjhjt', lesson_id:'3'},
+    {section_id: '2', sectionName: 'lesson3section2', content:'across someth', code:'qaswer', preOp:'wdfdert', postOp:'erdfdt',lesson_id:'3'},
+    {section_id: '3', sectionName: 'lesson3section3', content:'a team traded a to',code:'qweewr', preOp:'awert', postOp:'ecvrt',lesson_id:'3'}
     ]);
 
- 
 
   // Table created
   console.log('success');

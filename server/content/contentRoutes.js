@@ -19,7 +19,7 @@ module.exports = function(app){
 	})
 
 	app.get('/',contentController.getLessons);
-	app.get('/:lesson/section',contentController.getSections);
+	app.get('/:lesson/section',contentController.getSectionsInLesson);
 
 	app.get('/:lesson', 
 		contentController.findLessonInfo);
