@@ -35,7 +35,9 @@ var Section = sequelize.define('Section', {
 
 
 
-
+if(process.env.DATABASE_URL){
+  sequelize.sync();
+} else {
 sequelize.sync({force:true}).then(function () {
   User.bulkCreate([
     {user_id:'1234',username:'stephen'},
@@ -64,6 +66,8 @@ sequelize.sync({force:true}).then(function () {
   // Table created
   console.log('success');
 });
+  
+}
 
 exports.User = User;
 exports.Section = Section;
