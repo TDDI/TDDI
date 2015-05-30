@@ -5,6 +5,9 @@ html, body {
   background-size: 100% 100%;
 }
 
+div {
+  overflow: auto;
+}
 .NavBarContainer {
   border: 3px solid #fd8a17;
   border-radius: 3px;
@@ -14,7 +17,7 @@ html, body {
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
 }
 
-.NavBarContainer > ul > .AlignRight > li {
+.AlignRight > li {
   float: right;
 }
 .NavBarContainer > ul > span > li {
@@ -36,7 +39,8 @@ html, body {
 .AppBodyContainer {
   background-color: gray;
   opacity: 0.6;
-  height: 80%;
+  height: 90%;
+  /*width: 100%;*/
   margin: 2%;
   margin-left: 2%;
 }
@@ -52,7 +56,8 @@ html, body {
   background-color: white;
   opacity: 0.9;
   height: 90%;
-  overflow: scroll;
+  width: 20%;
+  /*display: none;*/
 }
 
 .AppBodyContainer .TableOfContentsContainer > ul > li {
@@ -108,7 +113,6 @@ html, body {
   width: 95%;
   bottom: 0;
   border: 3px solid #000000;
->>>>>>> Preparing to implement template to JSX
 }
 
 textarea {

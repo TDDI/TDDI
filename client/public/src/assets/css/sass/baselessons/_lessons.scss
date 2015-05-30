@@ -1,0 +1,87 @@
+.AppBodyContainer {
+  background-color: gray;
+  opacity: 0.6;
+  height: 90%;
+  /*width: 100%;*/
+  margin: 2%;
+  margin-left: 2%;
+}
+
+.TableOfContentsContainer {
+  border: 3px solid #fd8a17;
+  padding-left: 2%;
+  margin-right: 2%;
+  border-radius: 3px;
+  font-family: 'Fredericka the Great', sans-serif;
+  line-height: 2;
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background-color: white;
+  opacity: 0.9;
+  height: 90%;
+  width: 20%;
+
+  li {
+    list-style:none;
+    color: black;
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+
+.LessonContainer {
+    min-height: 90%;
+    border: 3px solid #fd8a17;
+    box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+
+    .ContentContainer {
+      background-color: white;
+      opacity: 0.9;
+      margin: 1%;
+      min-height: 150px;
+      border: 3px solid #000000;
+      box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+
+
+
+.CodeboxContainer {
+  background-color: white;
+  opacity: 0.9;
+  position: absolute;
+  width: 95%;
+  bottom: 0;
+  border: 3px solid #000000;
+
+  .LessonResponseContainer {
+    border: 3px solid #000000;
+    background-color: white;
+    opacity: 0.9;
+    position:relative;
+    top: -50px;
+  }
+
+  .codearea {
+    width: 80%;
+    line-height: 1;
+    border-radius: 3px;
+    border: 2px solid #8AC007;
+    padding: 2px; 
+    /*width: 200px;*/
+    height: 60px; 
+    float:left;
+
+    textarea {
+      width: 100%;
+      height: 100%
+    }
+  }
+}
+
+textarea {
+  width: 100%;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;  
+}

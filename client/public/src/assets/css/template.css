@@ -5,6 +5,10 @@ html, body {
   background-size: 100% 100%;
 }
 
+div {
+  overflow: auto;
+}
+
 .NavBarContainer {
   border: 3px solid #fd8a17;
   border-radius: 3px;
@@ -19,6 +23,7 @@ html, body {
 }
 .NavBarContainer > ul > span > li {
   list-style: none;
+  display: inline;
 }
 .NavBarContainer > ul > span > li > a {
   padding: 10px 25px;
@@ -52,8 +57,11 @@ html, body {
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
   background-color: white;
   opacity: 0.9;
-  min-height: 90%;
+  height: 90%;
+  width: 20%;
+  /*display: inline-block;*/
   /*display: none;*/
+  float: left;
 }
 
 .AppBodyContainer .TableOfContentsContainer > ul > li {
@@ -63,6 +71,9 @@ html, body {
 
 .AppBodyContainer .LessonContainer {
   /*margin-top: 2%;*/
+  /*width: 70%;*/
+  background-color: blue;
+  display: inline-block;
   min-height: 90%;
   border: 3px solid #fd8a17;
   box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
