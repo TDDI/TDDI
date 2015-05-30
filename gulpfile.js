@@ -1,4 +1,4 @@
-require('harmonize')();
+//require('harmonize')();
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
@@ -7,8 +7,8 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var nodemon = require('gulp-nodemon');
-var mocha = require('gulp-mocha');
-var jest = require('gulp-jest');
+//var mocha = require('gulp-mocha');
+//var jest = require('gulp-jest');
 var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 
@@ -33,31 +33,31 @@ var paths = {
   servertest: 'test/server.spec.js'
 };
 
-gulp.task('test-client', function (cb) {
-  gulp.src('client/__tests__').pipe(jest({
-    scriptPreprocessor: "./spec/support/preprocessor.js",
-    unmockedModulePathPatterns: [
-      "node_modules/react"
-    ],
-    testDirectoryName: "spec",
-    testPathIgnorePatterns: [
-      "node_modules",
-      "spec/support"
-    ],
-    moduleFileExtensions: [
-      "js",
-      "json",
-      "react"
-    ]
-  }));
-  cb();
-});
+// gulp.task('test-client', function (cb) {
+//   gulp.src('client/__tests__').pipe(jest({
+//     scriptPreprocessor: "./spec/support/preprocessor.js",
+//     unmockedModulePathPatterns: [
+//       "node_modules/react"
+//     ],
+//     testDirectoryName: "spec",
+//     testPathIgnorePatterns: [
+//       "node_modules",
+//       "spec/support"
+//     ],
+//     moduleFileExtensions: [
+//       "js",
+//       "json",
+//       "react"
+//     ]
+//   }));
+//   cb();
+// });
 
-gulp.task('test-server', function(cb) {
-  gulp.src(paths.servertest)
-    .pipe(mocha({reporter: 'nyan'}));
-  cb();
-});
+// gulp.task('test-server', function(cb) {
+//   gulp.src(paths.servertest)
+//     .pipe(mocha());
+//   cb();
+// });
 
 gulp.task('server-start', function(){
   nodemon({
@@ -144,9 +144,9 @@ gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
-gulp.task('test', ['test-client', 'test-server']);
+//gulp.task('test', ['test-client', 'test-server']);
 
-gulp.task('dist',['browserify','html','css','img','vendor','test-client','test-server']);
+gulp.task('dist',['browserify','html','css','img','vendor']);
 
 gulp.task('build',['browserify:min','html:min','css:min','img:min','vendor:min','test-client','test-server']);
 

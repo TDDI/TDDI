@@ -7,7 +7,9 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "gulp test",
+    "client-test": "./node_modules/.bin/mocha ./client/test/component --compilers js:babel/register --recursive",
+    "server-test": "./node_modules/.bin/mocha",
+    "test": "npm run client-test &  npm run server-test",
     "start": "gulp serve",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
@@ -50,11 +52,10 @@
     "vinyl-buffer": "~1.0.0",
     "reactify": "~1.1.1",
     "gulp-nodemon": "~2.0.3",
-    "gulp-mocha": "~2.1.0",
-    "gulp-jest": "~0.4.0",
-    "harmonize": "~1.4.2",
     "gulp-minify-css": "~1.1.1",
     "gulp-concat": "~2.5.2",
-    "react-tools": "~0.13.3"
+    "react-tools": "~0.13.3",
+    "babel": "~5.4.7",
+    "jsdom": "~3.1.2"
   }
 }
