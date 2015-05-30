@@ -33,8 +33,8 @@ var paths = {
   servertest: 'test/server.spec.js'
 };
 
-gulp.task('test-client', function () {
-  return gulp.src('client/__tests__').pipe(jest({
+gulp.task('test-client', function (cb) {
+  gulp.src('client/__tests__').pipe(jest({
     scriptPreprocessor: "./spec/support/preprocessor.js",
     unmockedModulePathPatterns: [
       "node_modules/react"
@@ -50,11 +50,13 @@ gulp.task('test-client', function () {
       "react"
     ]
   }));
+  cb();
 });
 
-gulp.task('test-server', function() {
-  return gulp.src(paths.servertest)
-           .pipe(mocha({reporter: 'nyan'}));
+gulp.task('test-server', function(cb) {
+  gulp.src(paths.servertest)
+    .pipe(mocha({reporter: 'nyan'}));
+  cb();
 });
 
 gulp.task('server-start', function(){
@@ -141,6 +143,8 @@ gulp.task('css-watch', ['css'], browserSync.reload);
 gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
+
+gulp.task('test', ['test-client', 'test-server']);
 
 gulp.task('dist',['browserify','html','css','img','vendor','test-client','test-server']);
 

@@ -6,6 +6,7 @@ if(process.env.DATABASE_URL){
     var sequelize = new Sequelize("postgres", "postgres", "postgres",{
   	host: 'localhost',
   	dialect: 'postgres',
+    logging: false,
 
   	pool: {
       max: 5,
@@ -63,10 +64,6 @@ sequelize.sync({force:true}).then(function () {
     {section_id: '2', sectionName: 'lesson3section2', content:'across someth', code:'qaswer', preOp:'wdfdert', postOp:'erdfdt',lesson_id:'3'},
     {section_id: '3', sectionName: 'lesson3section3', content:'a team traded a to',code:'qweewr', preOp:'awert', postOp:'ecvrt',lesson_id:'3'}
     ]);
-
-
-  // Table created
-  console.log('success');
 });
   
 }

@@ -11,7 +11,7 @@ var server = require('../server/server.js');
 
 // 'request' is a built in node module for http requests
 // if you didn't want to use supertest, you can use this
-var request = require('request');
+//var request = require('request');
 
 // 'chai' allows for the use of expect functions (not to be confused with .expect)
 var expect = require('chai').expect;
