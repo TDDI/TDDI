@@ -50,13 +50,13 @@ sequelize.sync({force:true}).then(function () {
     ]);
 
   Section.bulkCreate([
-    {section_id: '1', sectionName: 'section1', content:'ould have to be', lesson_id:'1'},
-    {section_id: '1', sectionName: 'section1', content:'u came across someth', lesson_id:'1'},
-    {section_id: '2', sectionName: 'section2', content:'e across someth', lesson_id:'2'},
-    {section_id: '2', sectionName: 'section2', content:'u came oss someth', lesson_id:'2'},
-    {section_id: '3', sectionName: 'section3', content:'came across someth', lesson_id:'3'},
-    {section_id: '3', sectionName: 'section3', content:'across someth', lesson_id:'3'},
-    {section_id: '3', sectionName: 'section3', content:'a team traded a to',lesson_id:'3'}
+    {section_id: '1', sectionName: 'lesson1section1', content:'ould have to be', lesson_id:'1'},
+    {section_id: '2', sectionName: 'lesson1section2', content:'u came across someth', lesson_id:'1'},
+    {section_id: '1', sectionName: 'lesson2section1', content:'e across someth', lesson_id:'2'},
+    {section_id: '2', sectionName: 'lesson2section2', content:'u came oss someth', lesson_id:'2'},
+    {section_id: '1', sectionName: 'lesson3section1', content:'came across someth', lesson_id:'3'},
+    {section_id: '2', sectionName: 'lesson3section2', content:'across someth', lesson_id:'3'},
+    {section_id: '3', sectionName: 'lesson3section3', content:'a team traded a to',lesson_id:'3'}
     ]);
 
  
