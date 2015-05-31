@@ -148,6 +148,6 @@ gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
 gulp.task('dist',['browserify','html','css','img','vendor']);
 
-gulp.task('build',['browserify:min','html:min','css:min','img:min','vendor:min','test-client','test-server']);
+gulp.task('build',['browserify:min','html:min','css:min','img:min','vendor:min']);
 
 gulp.task('default', ['serve']);
