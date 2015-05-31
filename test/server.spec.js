@@ -1,6 +1,6 @@
 // 'supertest' is used to simulate requests without starting a server
 var stest = require('supertest');
-
+var PORT = 5000;
 //===============================================================
 
 // require in our current server implementation to use for our tests
@@ -16,13 +16,13 @@ var server = require('../server/server.js');
 // 'chai' allows for the use of expect functions (not to be confused with .expect)
 var expect = require('chai').expect;
 
-//===============================================================
+//==============================================================
+
 
 // 'describe' is used for grouping of different tests.
 // Typical syntax is either to start a sentence - "The each function"
 // or just write a conceptual group - "Users"
 describe('The server', function() {
-
   // 'it' is where the real tests take place
   // Typical syntax is either to finish the sentence started by its describe - "should return null"
   // or to represent a specific piece of functionality - "Submit inserts into the database"
@@ -45,9 +45,9 @@ describe('The server', function() {
       });
   });
 
-  // the same thing using mocha / chai / request
+  //the same thing using mocha / chai / request
   // it('returns a 200 status code', function (done) {
-  //   request.get('http://localhost:8000', function (err, res, body){
+  //   request.get('http://localhost:5000', function (err, res, body){
   //     expect(res.statusCode).to.equal(200);
   //     done();
   //   });
