@@ -9,7 +9,7 @@
   "scripts": {
     "client-test": "./node_modules/.bin/mocha ./client/test/component --compilers js:babel/register --recursive",
     "server-test": "./node_modules/.bin/mocha",
-    "test": "npm run client-test &&  npm run server-test",
+    "test": "node server/bin/www & npm run client-test &&  npm run server-test",
     "start": "gulp serve",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
