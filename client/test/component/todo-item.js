@@ -1,6 +1,7 @@
 require('../setup');
 var React = require('react/addons'),
     assert = require('assert'),
+    expect = require('chai').expect,
     TodoItem = require('../../public/src/app/components/todo-item'),
     TestUtils = React.addons.TestUtils;
 

@@ -9,7 +9,7 @@
   "scripts": {
     "client-test": "./node_modules/.bin/mocha ./client/test/component --compilers js:babel/register --recursive",
     "server-test": "./node_modules/.bin/mocha",
-    "test": "npm run client-test &  npm run server-test",
+    "test": "npm run client-test &&  npm run server-test",
     "start": "gulp serve",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
@@ -56,6 +56,7 @@
     "gulp-concat": "~2.5.2",
     "react-tools": "~0.13.3",
     "babel": "~5.4.7",
-    "jsdom": "~3.1.2"
+    "jsdom": "~3.1.2",
+    "request": "~2.56.0"
   }
 }
