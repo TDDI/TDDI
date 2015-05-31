@@ -103,7 +103,7 @@ gulp.task('css', function() {
 
 gulp.task('css:min', function() {
   return gulp.src(paths.styles)
-    .pipe(concat('styles.css'))
+    .pipe(concat('main.css'))
     .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest(paths.buildfolder+'/assets/css'));
 });
