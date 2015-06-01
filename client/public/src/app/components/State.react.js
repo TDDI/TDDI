@@ -4,6 +4,7 @@
 * @Last Modified by:   awate
 * @Last Modified time: 2015-05-30 12:24:41
 */
+window.React = require('react');
 
 var State = React.createClass({
   getInitialState: function( ){
