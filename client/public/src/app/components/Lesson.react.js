@@ -2,7 +2,7 @@
 * @Author: John Winstead
 * @Date:   2015-05-28 16:14:16
 * @Last Modified by:   awate
-* @Last Modified time: 2015-05-28 20:07:51
+* @Last Modified time: 2015-05-30 15:14:01
 */
 
 var CodeMirror = require('./CodeMirror');
@@ -12,41 +12,8 @@ var Lesson = React.createClass({
   getInitialState: function( ){
     return {
       currentUser: "Krazy Kurt",
-      selection: "sectionDefault",
-      tableOfContents: ["section1", "section2", "section3", "section4", "section5", "section6", "section7"],
-
-      sectionData: {
-        sectionDefault: {
-          name: 'sectionDefault',
-          contents: "defaultstuff",
-          code: "default code here",
-          preopCode: "defaultpreopCode",
-          postopCode: "defaultpostopCode"
-        }, 
-        section1: {
-          name: 'section1',
-          contents: "foo bar", // TODO: Markdown Library research
-          code: "var example = 1",
-          preopCode: "var mocha = requires(mocha);",
-          postopCode: "console.log('PANIC');"
-        },
-        section2: {
-          name: 'section2',
-          contents: "bar of foo",
-          code: "console.log('YOU GET NOTHING')",
-          preopCode: "var hat = 'cat'",
-          postopCode: "console.log(hat)"
-        },
-        section3: {
-          name: 'section3',
-          contents: "no no no",
-          code: "//TODO fill this in",
-          preopCode: "var stacks = true",
-          postopCode: "var ondeck = stacks"
-        }
-      }
-
-    };
+      selection: "0"
+    }
   },
   componentWillMount: function() {
     console.log("WILLMOUNT!", this.state.sectionData[this.state.selection].code);
@@ -59,6 +26,7 @@ var Lesson = React.createClass({
     });
   },
   render: function() {
+    DEBUG&&console.log("Re-rendering lesson");
     var that = this;
 
     var editorOptions = {
@@ -66,6 +34,7 @@ var Lesson = React.createClass({
     };
 
     var handleClick = function( selection ){
+      DEBUG&&console.log("setting selection to ", selection);
       that.setState( {selection: selection} );
     };
 
@@ -79,34 +48,46 @@ var Lesson = React.createClass({
 
     var code = "";
     var contents = "";
+    DEBUG&&console.log("selection ",this.state.selection);
     
-    if(this.state.selection){
-      code = this.state.sectionData[this.state.selection].code;
-      contents = this.state.sectionData[this.state.selection].contents;
+    if(this.state.selection!==undefined){
+      DEBUG&&console.log("sectionData ",this.props.sectionData);
+      var section = this.props.sectionData[this.state.selection];
+      DEBUG&&console.log("section ",section);
+      if(section){
+        DEBUG&&console.log("success ");
+        code     = section.code     || "";
+        contents = section.contents || "";
+      }
+    }
+    var sectionList = [ ];
+    if(this.props.sectionList){
+      sectionList = this.props.sectionList.map(function(v,k,c){
+        return <li onClick={handleClick.bind(this, k)} key={k}>{v}</li>;
+      })
     }
     return (
       <div className="row AppBodyContainer">
           <div className="col-md-2 TableOfContentsContainer container-fluid">
             <ul>
-              {
-                this.state.tableOfContents.map(function(v,k,c){
-                  return <li onClick={handleClick.bind(this, v)} key={k}>{v}</li>;
-                })
-              }
+              { sectionList }
             </ul>
           </div>
 
           <div className="col-md-9 LessonContainer container-fluid">
+            <div className="ContentContainer">
               <ContentPanel contents = { contents } />
+            </div>
             
             <div className="CodeBoxContainer">
               <div className="LessonResponseContainer">
                 <p>This is a response</p>
               </div>
               <CodeMirror
+                value={ code }
                 onChange={this.updateCode}
-                options={editorOptions} 
-                value={this.state.code} />
+                options={editorOptions}
+              />
             </div>
           
           </div>

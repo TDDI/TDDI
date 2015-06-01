@@ -6,6 +6,7 @@
 */
 
 window.React = require('react');
+$ = require('jquery');
 
 var NavigationBar = require('./components/NavigationBar');
 /*  ========  Routes  =======  */
@@ -15,29 +16,107 @@ var Profile = require('./components/Profile.react');
 
 var App = React.createClass({
   getInitialState: function( ) {
-    return { currentUser: "Krazy Kurt" };
+    return {
+      route:          "#",
+      lessonData:     [ ],
+      lessonsList:    [ ],
+      sectionsList:   [ ],
+      currentLesson:  null,
+      currentSection: null,
+      currentUser:    "Krazy Kurt"
+    };
   },
-  render: function( ) {
-    var Route=Lesson;
-    switch (window.location.hash) {
-      case '#lesson': Route = Lesson; break;
-      case '#profile': Route = Profile; break;
-    }
+  /* == == == == == == == == == == == == == == == == */
+  // Fetchers
+  fetchLessonList: function(){
+    var that = this;
+    $.get( "/api/lesson/", function(data){
+      var lessonList = [ ];
+      for(var i in data){
+        lessonList.push(data[i].lessonName);
+      }
+      that.setState({lessonList:lessonList});
+    });
+  },
+  fetchSectionList: function( lesson ){
+    var that = this;
+    $.get( "/api/lesson/" +lesson+ "/section/", function(data){
+      var sectionList = [ ];
+      for(var i in data){
+        sectionList.push(data[i].sectionName);
+      }
+      that.setState({sectionList:sectionList});
+    });
+  },
 
+  fetchLesson: function( lesson ){
+
+    var that = this;
+    $.get( "/api/lesson/" +lesson, function(data){
+      that.state.lessonData[ lesson ] = data[ lesson ];
+      if(that.state.lessonData[ lesson ])
+      that.state.lessonData[ lesson ].sectionData = [ ];
+      that.setState( that.state );
+    });
+  },
+  fetchSection: function( lesson, section ){
+    var that = this;
+    $.get( "/api/lesson/" +lesson+ "/section/" +section, function(data){
+      if(that.state.lessonData[ lesson ] && that.state.lessonData[ lesson ].sectionData[ section ])
+        that.state.lessonData[ lesson ].sectionData[ section ] = data[ section ];
+      that.setState(that.state);
+    });
+  },
+  /* == == == == == == == == == == == == == == == == */
+
+  routeChanged: function() {
+    var hash     = window.location.hash.split('/');
+    var newState = {
+      route:          hash[0],
+      currentLesson:  parseInt(hash[1])||0,
+      currentSection: parseInt(hash[2])||0,
+    }
+    this.setState(newState);
+
+    this.fetchLesson( newState.currentLesson );
+    this.fetchSectionList( newState.currentLesson );
+    this.fetchSection( newState.currentLesson, newState.currentSection );
+  },
+  componentWillMount: function( ) {
+    this.fetchLessonList();
+    window.addEventListener('hashchange', this.routeChanged);
+  },
+  componentWillUnmount: function( ) {
+    window.removeEventListener('hashchange');
+  },
+
+  render: function( ) {
+
+    var Child=Main;
+    switch (this.state.route) {
+      case '#lesson': Child = Lesson; break;
+      case '#profile': Child = Profile; break;
+    }
+    
+    var that=this;
+
+    var sectionData = [ ];
+    if(that.state.lessonData[ this.state.currentLesson ])
+      sectionData=that.state.lessonData[ this.state.currentLesson ].sectionData;
     return (
-      <span>
-        <NavigationBar user = { this.state.currentUser } />
-        <Route />
-      </span>
+      <div>
+        <NavigationBar />
+        <Child
+          currentLesson  = {this.state.currentLesson}
+          currentSection = {this.state.currentSection}
+          lessonList     = {this.state.lessonList}
+          sectionList    = {this.state.sectionList}
+          lessonData     = {this.state.lessonData}
+          sectionData    = {sectionData}
+        />
+      </div>
     );
   }
 });
 
-function render() {
-  React.render(
-    <App />,
-    document.getElementById('app')
-  );
-}
-window.addEventListener('hashchange', render);
-render();
+React.render(<App />,document.getElementById('app'));
