@@ -26,7 +26,7 @@ var App = React.createClass({
 
     return (
       <span>
-        <NavigationBar />
+        <NavigationBar user = { this.state.currentUser } />
         <Route />
       </span>
     );

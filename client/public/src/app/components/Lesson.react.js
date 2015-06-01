@@ -93,9 +93,7 @@ var Lesson = React.createClass({
           </div>
 
           <div className="col-md-9 LessonContainer container-fluid">
-            <div className="ContentContainer">
               <ContentPanel contents = { contents } />
-            </div>
             
             <div className="CodeBoxContainer">
               <div className="LessonResponseContainer">
