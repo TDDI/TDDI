@@ -53,6 +53,7 @@ module.exports = {
  http://localhost:3000/login
 
 curl --data '{"user_id":"4577","username":"bobby"}' http://localhost:3000/login
+
 curl -H "Content-Type: application/json" -X POST -d '{"user_id":"4770","username":"bobby"}' http://localhost:3000/login
 curl -H "Content-Type: application/json" -X POST -d '{"user_id":"4777","username":"steve"}' http://localhost:3000/login
 */
