@@ -48,6 +48,10 @@ var Lesson = React.createClass({
 
     };
   },
+  componentWillMount: function() {
+    console.log("WILLMOUNT!", this.state.sectionData[this.state.selection].code);
+    this.setState({ code: this.state.sectionData[this.state.selection].code });
+  },
   updateCode: function(newCode) {
     console.log(newCode);
     this.setState({
@@ -100,9 +104,9 @@ var Lesson = React.createClass({
                 <p>This is a response</p>
               </div>
               <CodeMirror
-                value={this.state.sectionData[this.state.selection].code}
                 onChange={this.updateCode}
-                options={editorOptions} />
+                options={editorOptions} 
+                value={this.state.code} />
             </div>
           
           </div>
