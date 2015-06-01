@@ -30,40 +30,40 @@ var App = React.createClass({
   // Fetchers
   fetchLessonList: function(){
     var that = this;
+    console.log("fecth LessonList");
     $.get( "/api/lesson/", function(data){
-      var lessonList = [ ];
-      for(var i in data){
-        lessonList.push(data[i].lessonName);
-      }
-      that.setState({lessonList:lessonList});
+      console.log("recieve LessonList",data);
+      that.setState({lessonList:data});
     });
   },
   fetchSectionList: function( lesson ){
     var that = this;
-    $.get( "/api/lesson/" +lesson+ "/section/", function(data){
-      var sectionList = [ ];
-      for(var i in data){
-        sectionList.push(data[i].sectionName);
-      }
-      that.setState({sectionList:sectionList});
+    console.log("fecth SectionList for lesson " +lesson);
+    $.get( "/api/lesson/" +(lesson+1)+ "/section/", function(data){
+      console.log("recieve SectionList " +lesson,data);
+      that.setState({sectionList:data});
     });
   },
 
   fetchLesson: function( lesson ){
-
     var that = this;
-    $.get( "/api/lesson/" +lesson, function(data){
-      that.state.lessonData[ lesson ] = data[ lesson ];
+    console.log("fecth Lesson " +lesson);
+    $.get( "/api/lesson/" +(lesson+1), function(data){
+      console.log("recieve Lesson " +lesson,data);
+      that.state.lessonData[ lesson ] = data;
       if(that.state.lessonData[ lesson ])
-      that.state.lessonData[ lesson ].sectionData = [ ];
+        that.state.lessonData[ lesson ].sectionData = [ ];
       that.setState( that.state );
     });
   },
   fetchSection: function( lesson, section ){
     var that = this;
-    $.get( "/api/lesson/" +lesson+ "/section/" +section, function(data){
-      if(that.state.lessonData[ lesson ] && that.state.lessonData[ lesson ].sectionData[ section ])
-        that.state.lessonData[ lesson ].sectionData[ section ] = data[ section ];
+    console.log("fecth Section " +section+ " in lesson " +lesson);
+    $.get( "/api/lesson/" +(lesson+1)+ "/section/" +(section+1), function(data){
+      console.log("recieve Section " +section+ " in lesson " +lesson,data);
+      if(that.state.lessonData[ lesson ])
+        that.state.lessonData[ lesson ].sectionData[ section ] = data;
+      else console.log("FUCK", lesson, section, that.state.lessonData[ lesson ], that.state.lessonData[ lesson ].sectionData[ section ])
       that.setState(that.state);
     });
   },
@@ -101,8 +101,9 @@ var App = React.createClass({
     var that=this;
 
     var sectionData = [ ];
-    if(that.state.lessonData[ this.state.currentLesson ])
-      sectionData=that.state.lessonData[ this.state.currentLesson ].sectionData;
+    if(this.state.lessonData[ this.state.currentLesson ])
+      sectionData=this.state.lessonData[ this.state.currentLesson ].sectionData;
+    console.log("FML", this.state.currentLesson, this.state.lessonData);
     return (
       <div>
         <NavigationBar />

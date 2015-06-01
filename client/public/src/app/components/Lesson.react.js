@@ -20,13 +20,9 @@ var Lesson = React.createClass({
     this.setState({ code: this.state.sectionData[this.state.selection].code });
   },
   updateCode: function(newCode) {
-    console.log(newCode);
-    this.setState({
-      code: newCode
-    });
+    this.props.sectionData[this.state.selection].code = newCode;
   },
   render: function() {
-    DEBUG&&console.log("Re-rendering lesson");
     var that = this;
 
     var editorOptions = {
@@ -34,7 +30,6 @@ var Lesson = React.createClass({
     };
 
     var handleClick = function( selection ){
-      DEBUG&&console.log("setting selection to ", selection);
       that.setState( {selection: selection} );
     };
 
@@ -47,17 +42,14 @@ var Lesson = React.createClass({
     // }
 
     var code = "";
-    var contents = "";
-    DEBUG&&console.log("selection ",this.state.selection);
+    var content = "";
     
     if(this.state.selection!==undefined){
-      DEBUG&&console.log("sectionData ",this.props.sectionData);
       var section = this.props.sectionData[this.state.selection];
-      DEBUG&&console.log("section ",section);
+      console.log("RENDER SECTION",this.state.selection, section, this.props);
       if(section){
-        DEBUG&&console.log("success ");
         code     = section.code     || "";
-        contents = section.contents || "";
+        content = section.content || "";
       }
     }
     var sectionList = [ ];
@@ -76,7 +68,9 @@ var Lesson = React.createClass({
 
           <div className="col-md-9 LessonContainer container-fluid">
             <div className="ContentContainer">
-              <ContentPanel contents = { contents } />
+              <ContentPanel
+                contents = { content }
+              />
             </div>
             
             <div className="CodeBoxContainer">
@@ -84,9 +78,9 @@ var Lesson = React.createClass({
                 <p>This is a response</p>
               </div>
               <CodeMirror
-                value={ code }
-                onChange={this.updateCode}
-                options={editorOptions}
+                value = { code }
+                onChange = { this.updateCode }
+                options = { editorOptions }
               />
             </div>
           
