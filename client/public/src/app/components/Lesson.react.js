@@ -4,7 +4,7 @@
 * @Last Modified by:   awate
 * @Last Modified time: 2015-05-30 15:14:01
 */
-window.React = require('react');
+var React = require('react');
 
 var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
