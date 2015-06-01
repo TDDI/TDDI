@@ -8,7 +8,7 @@ module.exports = function(app){
 		req.lesson = lesson;
 		// console.log('req.lesson1:', req.lesson);
 		next();
-	})
+	});
 
 	app.param('section', function(req, res, next, section){
 		//sanity check that lesson is right?
@@ -16,15 +16,24 @@ module.exports = function(app){
 		req.section = section;
 		// console.log('req.section1:', req.section);
 		next();
-	})
+	});
 
 	app.get('/',contentController.getLessons);
+	app.post('/',contentController.createLessons);
+	app.put('/',contentController.updateLessons);
+
 	app.get('/:lesson/section',contentController.getSectionsInLesson);
+	app.post('/:lesson/section',contentController.createSectionsInLessons);
+	app.put('/:lesson/section',contentController.updateSectionsInLessons);
 
 	app.get('/:lesson', 
 		contentController.findLessonInfo);
 	app.get('/:lesson/section/:section', 
 		contentController.findSectionInfo);
+
+
+
+
 };
 
 

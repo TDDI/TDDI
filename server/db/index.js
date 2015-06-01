@@ -6,7 +6,7 @@ if(process.env.DATABASE_URL){
     var sequelize = new Sequelize("postgres", "postgres", "postgres",{
   	host: 'localhost',
   	dialect: 'postgres',
-    logging: false,
+    // logging: false,
 
   	pool: {
       max: 5,
