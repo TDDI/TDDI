@@ -138,8 +138,8 @@ module.exports = {
 				if(!data){
 					next(new Error('no available data from database'));
 				} else {
-					lessonName.push(data.lessonName);
-					res.json(lessonName);
+					// lessonName.push(data.lessonName);
+					res.json(data);
 					console.log('findLessonInfo sent baby!');
 				}
 			})
@@ -160,8 +160,8 @@ module.exports = {
 				if(!data){
 					next(new Error('no available data from database'));
 				} else {
-					sectionName.push(data.sectionName);
-					res.json(sectionName);
+					// sectionName.push(data.sectionName);
+					res.json(data);
 					console.log('findSectionInfo sent baby!');
 				}
 			})
