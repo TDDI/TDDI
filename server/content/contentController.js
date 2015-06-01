@@ -160,8 +160,8 @@ module.exports = {
 				if(!data){
 					next(new Error('no available data from database'));
 				} else {
-					sectionName.push(data.sectionName);
-					res.json(sectionName);
+					// sectionName.push(data.sectionName);
+					res.json(data);
 					console.log('findSectionInfo sent baby!');
 				}
 			})
