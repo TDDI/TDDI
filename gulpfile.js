@@ -1,4 +1,3 @@
-//require('harmonize')();
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var browserify = require('browserify');
@@ -7,10 +6,9 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var nodemon = require('gulp-nodemon');
-//var mocha = require('gulp-mocha');
-//var jest = require('gulp-jest');
 var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
+var sass = require('gulp-sass');
 
 var browserSyncOptions = {
   proxy: "localhost:8000",
@@ -19,7 +17,9 @@ var browserSyncOptions = {
 
 var paths = {
   images: 'client/public/src/assets/images/*.*',
-  styles: 'client/public/src/assets/css/*.css',
+  sassStyles: 'client/public/src/assets/css/sass',
+  stylesFolder: 'client/public/src/assets/css',
+  styles: 'client/public/src/assets/css/**/*.css',
   appScripts: 'client/public/src/app/**/*.js',
   html: 'client/public/src/index.html',
   vendor: 'client/public/src/assets/lib/**/*.*',
@@ -32,32 +32,6 @@ var paths = {
   main: 'App.js',
   servertest: 'test/server.spec.js'
 };
-
-// gulp.task('test-client', function (cb) {
-//   gulp.src('client/__tests__').pipe(jest({
-//     scriptPreprocessor: "./spec/support/preprocessor.js",
-//     unmockedModulePathPatterns: [
-//       "node_modules/react"
-//     ],
-//     testDirectoryName: "spec",
-//     testPathIgnorePatterns: [
-//       "node_modules",
-//       "spec/support"
-//     ],
-//     moduleFileExtensions: [
-//       "js",
-//       "json",
-//       "react"
-//     ]
-//   }));
-//   cb();
-// });
-
-// gulp.task('test-server', function(cb) {
-//   gulp.src(paths.servertest)
-//     .pipe(mocha());
-//   cb();
-// });
 
 gulp.task('server-start', function(){
   nodemon({
@@ -96,8 +70,16 @@ gulp.task('html:min', function() {
     .pipe(gulp.dest(paths.buildfolder));
 });
 
+gulp.task('sass', function(cb) {
+  gulp.src(paths.sassStyles+"/*.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(paths.stylesFolder));
+  cb();
+});
+
 gulp.task('css', function() {
   return gulp.src(paths.styles)
+    .pipe(concat('main.css'))
     .pipe(gulp.dest(paths.distfolder+'/assets/css'));
 });
 
@@ -128,7 +110,7 @@ gulp.task('vendor:min', function() {
     .pipe(gulp.dest(paths.buildfolder+'/assets/lib'));
 });
 
-gulp.task('serve',['browserify','html','css','img','vendor','server-start'], function(event) {
+gulp.task('serve',['browserify','sass','html','css','img','vendor','server-start'], function(event) {
   
   browserSync(browserSyncOptions);
   gulp.watch(paths.html, ['html-watch']);
@@ -136,6 +118,7 @@ gulp.task('serve',['browserify','html','css','img','vendor','server-start'], fun
   gulp.watch(paths.images, ['img-watch']);
   gulp.watch(paths.appScripts, ['jsx-watch']);
   gulp.watch(paths.vendor, ['vendor-watch']);
+  gulp.watch(paths.sassStyles+"/**/*.scss", ['sass']);
 });
 
 gulp.task('html-watch', ['html'], browserSync.reload);
@@ -144,10 +127,8 @@ gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
-//gulp.task('test', ['test-client', 'test-server']);
+gulp.task('dist',['browserify','html','sass','css','img','vendor']);
 
-gulp.task('dist',['browserify','html','css','img','vendor']);
-
-gulp.task('build',['browserify:min','html:min','css:min','img:min','vendor:min']);
+gulp.task('build',['browserify:min','html:min','sass','css:min','img:min','vendor:min']);
 
 gulp.task('default', ['serve']);
