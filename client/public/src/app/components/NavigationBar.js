@@ -1,13 +1,6 @@
-/* 
-* @Author: Brian Liu
-* @Date:   2015-05-26 16:14:16
-* @Last Modified by:   awate
-* @Last Modified time: 2015-05-28 19:31:36
-*/
+var React = require('react');
 
-var arrowStyles = {
 
-};
 
 var NavigationBar = React.createClass({
   render: function() {
@@ -21,7 +14,7 @@ var NavigationBar = React.createClass({
           <span className="AlignRight">
             <li className="col-md-2"><a href="/">Logout</a></li>
             <li className="col-md-2"><a href="/">Settings</a></li>
-            <li className="col-md-2"><a href="/">User</a></li>
+            <li className="col-md-2"><a href="/">{ this.props.user }</a></li>
           </span>
         </ul>
       </div>

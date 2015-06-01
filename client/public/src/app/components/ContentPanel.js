@@ -1,12 +1,14 @@
+var React = require('react');
+
 var ContentPanel = React.createClass({
 
   render: function() {
     return (
-      <p>{this.props.contents}</p>
+      <div className="ContentContainer">
+        <p>{this.props.contents}</p>
+      </div>
     )
   }
-
-
 
 })
 
