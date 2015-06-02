@@ -12,6 +12,7 @@ var NavigationBar = require('./components/NavigationBar');
 var Main = require('./components/Main.react');
 var Lesson = require('./components/Lesson.react');
 var Profile = require('./components/Profile.react');
+var LoginOverlay = require('./components/LoginOverlay');
 
 var App = React.createClass({
   getInitialState: function( ) {
@@ -22,7 +23,8 @@ var App = React.createClass({
       sectionsList:   [ ],
       currentLesson:  null,
       currentSection: null,
-      currentUser:    "Krazy Kurt"
+      currentUser:    "Krazy Kurt",
+      toggleLogin: "none"
     };
   },
   /* == == == == == == == == == == == == == == == == */
@@ -88,6 +90,9 @@ var App = React.createClass({
   componentWillUnmount: function( ) {
     window.removeEventListener('hashchange');
   },
+  loginToggle: function( ) {
+    toggleLogin === "none" ? this.setState({toggleLogin: "block"}) : this.setState({toggleLogin: "none"});
+  },
 
   render: function( ) {
 
@@ -106,6 +111,7 @@ var App = React.createClass({
     return (
       <div>
         <NavigationBar user = { this.state.currentUser } />
+        <LoginOverlay toggleLogin = { this.state.toggleLogin } />
         <Child
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
