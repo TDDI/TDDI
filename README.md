@@ -2,10 +2,10 @@
 
 TDDI is an educational platform for learning the foundations of test driven development
 
-* **Ease of Use:** Get useful tests set up with a single line
-* **Graphical User Interface:** TDDI includes a responsive and customizable interface to display and create tests
-* **Automated Generation:** TDDI can produce multiple types of custom tests to your parsed code
-* **Clear Structure:** TDDI's preset templates help adhere to best practices in Test Driven Development
+* **Easily Digestible TDD Basics: ** TDDI presents an easily understood outline of what it means to do TDD 
+* **Real-time In-browser Code Evaluation:** Solve testing issues in browser with dynamic feedback
+* **Lesson Creation Interface:** Authenticated users can create additional lessons focusing on framework specific testing (Angular, React, Backbone, etc...)
+* **Immersive Lesson Narrative:** Curated content that creates mneumonic devices through a unique narrative experience.
 
 ## Quick Start
 
