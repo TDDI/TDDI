@@ -1,6 +1,6 @@
-# TDDI
+# TDDI (Test Driven Development Initializer)
 
-TDDI is a module for faciliating Test Driven Development
+TDDI is an educational platform for learning the foundations of test driven development
 
 * **Ease of Use:** Get useful tests set up with a single line
 * **Graphical User Interface:** TDDI includes a responsive and customizable interface to display and create tests
@@ -9,19 +9,20 @@ TDDI is a module for faciliating Test Driven Development
 
 ## Quick Start
 
-Not Implemented Yet, TODO
-
-In your Repo type:
-
-```
-npm install --save tddi
-```
-
-Then navigate to the tddi folder generated and type:
+In your repo type:
 
 ```
 npm install
 ```
+
+This command will install all dependencies and build a production
+version of the app.
+
+```
+npm start
+```
+
+This command will start a development server and opens a browser window. All files in src folder will be watched for changes and automatically reload either the server or frontend depending on location of the file.
 
 
 ## Table of Contents
@@ -43,14 +44,24 @@ TODO: Screenshots go here
 
 * [npm](https://www.npmjs.com/package/npm)
 * [Node](https://nodejs.org/)
-* [Express](http://expressjs.com/)
+* [PostgreSQL](http://expressjs.com/)
 
 Chrome is not a requirement, but highly recomended for visual consistency
 
 ## Tech Stack
 
 We used: 
-TODO: insert a bunch of symbol/logos here
+* [npm](https://www.npmjs.com/package/npm)
+* [Node](https://nodejs.org/)
+* [Express](http://expressjs.com/)
+* [React](https://facebook.github.io/react/)
+* [Flux](https://facebook.github.io/flux/)
+* [Sequelize](docs.sequelizejs.com/)
+* [PostgreSQL](www.postgresql.org/)
+* [Mocha](mochajs.org/)
+* [Chai](chaijs.com/)
+* [Gulp](http://gulpjs.com/)
+* [Bootstrap](getbootstrap.com/)
 
 
 ## Team

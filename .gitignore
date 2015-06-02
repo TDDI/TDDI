@@ -1,5 +1,7 @@
 node_modules
 dist
+build
 .DS_Store
 **/assets/lib
 npm-debug.log
+client/public/src/assets/css/main.css
