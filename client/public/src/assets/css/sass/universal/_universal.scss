@@ -8,3 +8,13 @@ html, body {
 div {
   overflow: auto;
 }
+
+.footer {
+  position:absolute;
+  bottom:-10%;
+  left:-3%;
+  width:103%;
+  height:10%;
+  color:white;   
+  background:#000;
+}

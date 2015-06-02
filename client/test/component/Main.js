@@ -18,8 +18,20 @@ describe('Main Page component', function(){
       'div'
     );
 
+    var buttonComponent = TestUtils.findRenderedDOMComponentWithTag(
+      renderedComponent,
+      'button'
+    );
+
+    var redirectComponent = TestUtils.findRenderedDOMComponentWithTag(
+      renderedComponent,
+      'a'
+    );
+
     this.componentObject = renderedComponent;
+    this.buttonElement = buttonComponent.getDOMNode();
     this.containerElement = containerComponent.getDOMNode();
+    this.redirectElement = redirectComponent.getDOMNode();
   });
 
   it('component should not have props', function() {
@@ -29,21 +41,13 @@ describe('Main Page component', function(){
   it('component should store a state', function() {
     assert(this.componentObject.state !== null);
   });
-  
-  it('<div> should have class "NavBarContainer"', function() {
-    assert(this.containerElement.getAttribute('class').includes('MainPageContainer'));
+
+  it('<div> should have a login button that says login', function() {
+    assert(this.buttonElement.textContent === "Login");
   });
 
-
-  var mainFilter = function(component){
-    if (component.textContent.includes("TOTALY THE MAIN PAGE")) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  it('<div> should have text "TOTALY THE MAIN PAGE"', function() {
-    assert(TestUtils.findAllInRenderedTree(this.containerElement, mainFilter).length > 0);
+  it('<div> should contain a redirect to lessons without login', function() {
+    assert(this.redirectElement.getAttribute('href') === "/#lesson")
   });
 
   
