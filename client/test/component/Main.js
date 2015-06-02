@@ -38,10 +38,6 @@ describe('Main Page component', function(){
     assert(Object.keys(this.componentObject.props).length === 0);
   });
 
-  it('component should store a state', function() {
-    assert(this.componentObject.state !== null);
-  });
-
   it('<div> should have a login button that says login', function() {
     assert(this.buttonElement.textContent === "Login");
   });

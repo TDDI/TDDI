@@ -29,7 +29,7 @@ var App = React.createClass({
   // Fetchers
   fetchLessonList: function(){
     var that = this;
-    console.log("fecth LessonList");
+    console.log("fetch LessonList");
     $.get( "/api/lesson/", function(data){
       console.log("recieve LessonList",data);
       that.setState({lessonList:data});
@@ -105,7 +105,7 @@ var App = React.createClass({
     console.log("FML", this.state.currentLesson, this.state.lessonData);
     return (
       <div>
-        <NavigationBar />
+        <NavigationBar user = { this.state.currentUser } />
         <Child
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
