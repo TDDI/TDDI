@@ -4,7 +4,7 @@
 * @Last Modified by:   awate
 * @Last Modified time: 2015-05-28 19:56:44
 */
-var React = require('react');
+window.React = require('react');
 $ = require('jquery');
 
 var NavigationBar = require('./components/NavigationBar');

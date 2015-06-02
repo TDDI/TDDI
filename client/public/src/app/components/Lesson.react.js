@@ -16,10 +16,6 @@ var Lesson = React.createClass({
       selection: "0"
     }
   },
-  componentWillMount: function() {
-    console.log("WILLMOUNT!", this.state.sectionData[this.state.selection].code);
-    this.setState({ code: this.state.sectionData[this.state.selection].code });
-  },
   updateCode: function(newCode) {
     this.props.sectionData[this.state.selection].code = newCode;
   },

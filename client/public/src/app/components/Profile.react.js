@@ -4,6 +4,7 @@
 * @Last Modified by:   awate
 * @Last Modified time: 2015-05-28 19:59:21
 */
+var React = require('react');
 
 var Profile = React.createClass({
   getInitialState: function( ){

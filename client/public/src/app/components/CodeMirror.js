@@ -1,5 +1,7 @@
 'use strict';
 
+var React = require('react');
+
 var CM = require('codemirror');
 
 var CodeMirror = React.createClass({
