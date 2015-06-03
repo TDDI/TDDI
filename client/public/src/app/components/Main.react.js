@@ -12,10 +12,12 @@ var Main = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <button>Login</button><br />
-        To proceed without logging in click <a href="/#lesson">here</a>
+    <span>
+    <div>
+      <button>Login</button><br />
+      <span>To proceed without <br />logging in click <a href="/#lesson">here</a></span>
       </div>
+    </span>
     )
   }
 })
