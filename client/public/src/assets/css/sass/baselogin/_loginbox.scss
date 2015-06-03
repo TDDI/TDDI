@@ -1,0 +1,36 @@
+.loginoverlay {
+  height:380px; 
+  width:550px; 
+  margin:20px
+  auto; position:relative; 
+  z-index:10; 
+  display:none;
+  /*background: url(login.png) no-repeat; */
+  border:5px solid #654321; 
+  border-radius:10px;
+  background-color: #000000;
+  background-image: url("http://i.imgur.com/qJIaV5f.jpg");
+  background-size: 105% 105%;
+  background-position: center;
+  overflow: auto;
+}
+
+.overlaycover {
+  position:fixed;
+  top:0; 
+  left:0; 
+  background:rgba(0,0,0,0.6); 
+  z-index:5; 
+  width:100%; 
+  height:100%; 
+}
+
+.loginform {
+  float:right;
+  display: inline-block;
+  padding:5%;
+}
+
+.githubauth {
+  display: inline-block;
+}

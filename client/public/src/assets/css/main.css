@@ -2,14 +2,12 @@ html, body {
   height: 100%;
   background-color: #000000;
   background-image: url("http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg");
-  background-size: 100% 100%; }
-
-div {
+  background-size: 100% 100%;
   overflow: auto; }
 
 .footer {
   position: absolute;
-  bottom: -10%;
+  bottom: -5%;
   left: -3%;
   width: 103%;
   height: 10%;
@@ -25,7 +23,8 @@ div {
   font-family: 'Fredericka the Great', sans-serif;
   line-height: 1.5;
   background: #f7f7f7;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35); }
+  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  overflow: auto; }
   .NavBarContainer li {
     list-style: none; }
     .NavBarContainer li a {
@@ -46,7 +45,8 @@ div {
   height: 90%;
   /*width: 100%;*/
   margin: 2%;
-  margin-left: 2%; }
+  margin-left: 2%;
+  overflow: auto; }
 
 .TableOfContentsContainer {
   border: 3px solid #fd8a17;
@@ -59,7 +59,8 @@ div {
   background-color: white;
   opacity: 0.9;
   height: 90%;
-  width: 20%; }
+  width: 20%;
+  overflow: auto; }
   .TableOfContentsContainer li {
     list-style: none;
     color: black;
@@ -76,7 +77,8 @@ div {
     margin: 1%;
     min-height: 150px;
     border: 3px solid #000000;
-    box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35); }
+    box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+    overflow: auto; }
 
 .CodeboxContainer {
   background-color: white;
@@ -109,3 +111,36 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
+
+.loginoverlay {
+  height: 380px;
+  width: 550px;
+  margin: 20px   auto;
+  position: relative;
+  z-index: 10;
+  display: none;
+  /*background: url(login.png) no-repeat; */
+  border: 5px solid #654321;
+  border-radius: 10px;
+  background-color: #000000;
+  background-image: url("http://i.imgur.com/qJIaV5f.jpg");
+  background-size: 105% 105%;
+  background-position: center;
+  overflow: auto; }
+
+.overlaycover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  width: 100%;
+  height: 100%; }
+
+.loginform {
+  float: right;
+  display: inline-block;
+  padding: 5%; }
+
+.githubauth {
+  display: inline-block; }

@@ -5,6 +5,7 @@
   /*width: 100%;*/
   margin: 2%;
   margin-left: 2%;
+  overflow: auto;
 }
 
 .TableOfContentsContainer {
@@ -19,6 +20,7 @@
   opacity: 0.9;
   height: 90%;
   width: 20%;
+  overflow: auto;
 
   li {
     list-style:none;
@@ -40,6 +42,7 @@
       min-height: 150px;
       border: 3px solid #000000;
       box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+      overflow: auto;
     }
   }
 
