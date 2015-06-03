@@ -1,10 +1,12 @@
 .loginoverlay {
   height:380px; 
   width:550px; 
-  margin:20px
-  auto; position:relative; 
+  margin:20px auto; 
+  position:absolute;
+  left: 28%;
+  top: 10%; 
   z-index:10; 
-  display:none;
+  display:block;
   /*background: url(login.png) no-repeat; */
   border:5px solid #654321; 
   border-radius:10px;

@@ -3,9 +3,11 @@ var React = require('react');
 var Main = React.createClass({
 
   render: function() {
+    var self = this;
     return (
-    <span style = {{ display: this.props.toggleLogin }}>
+    <span className="loginContainer" style = {{ display: self.props.overlayState }}>
       <div className="loginoverlay">
+      <button className="closeOverlay" onClick={ self.props.closeLogin }>Close</button>
       <button className="githubauth">Login with Github</button>
         <div className="loginform">
         <form>
@@ -19,8 +21,7 @@ var Main = React.createClass({
         </div>
       </div>
         
-    <div className="overlaycover">
-    </div>
+    <div className="overlaycover" onClick={ self.props.closeLogin } />
     </span>
     )
   }

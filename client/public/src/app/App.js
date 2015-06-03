@@ -24,7 +24,7 @@ var App = React.createClass({
       currentLesson:  null,
       currentSection: null,
       currentUser:    "Krazy Kurt",
-      toggleLogin: "none"
+      overlayState: "none"
     };
   },
   /* == == == == == == == == == == == == == == == == */
@@ -90,13 +90,18 @@ var App = React.createClass({
   componentWillUnmount: function( ) {
     window.removeEventListener('hashchange');
   },
-  loginToggle: function( ) {
-    toggleLogin === "none" ? this.setState({toggleLogin: "block"}) : this.setState({toggleLogin: "none"});
+  openLogin: function( ) {
+    var overlayState = this.state.overlayState;
+    this.setState({ overlayState: "block" });
+    console.log("tried to open login");
   },
-
+  closeLogin: function( ) {
+    var overlayState = this.state.overlayState;
+    this.setState({ overlayState: "none" });
+  },
   render: function( ) {
 
-    var Child=Main;
+    var Child=Main; 
     switch (this.state.route) {
       case '#lesson': Child = Lesson; break;
       case '#profile': Child = Profile; break;
@@ -110,8 +115,16 @@ var App = React.createClass({
     console.log("FML", this.state.currentLesson, this.state.lessonData);
     return (
       <div>
-        <NavigationBar user = { this.state.currentUser } />
-        <LoginOverlay toggleLogin = { this.state.toggleLogin } />
+        <NavigationBar 
+          user = { this.state.currentUser } 
+          showLogin = { this.openLogin } 
+        />
+
+        <LoginOverlay 
+          overlayState = { this.state.overlayState } 
+          closeLogin = { this.closeLogin }
+        />
+        
         <Child
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
