@@ -37,11 +37,11 @@ var Lesson = React.createClass({
     console.log(this.props.sectionData[this.props.currentSection].code);
     codeEval(this.props.sectionData[this.props.currentSection].code,function(response){
       if(response.error){
-        that.setState({codeResponse:"!!!Error"});
-        console.log("Error!");
+        that.setState({codeResponse:"!!!Error: "+response.error});
+        console.log("Error!", response.error);
       } else {
         that.setState({codeResponse:"It worked!"});
-        console.log("It worked!");
+        console.log("It worked!", response.result);
       }
     });
   },
