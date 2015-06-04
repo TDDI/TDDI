@@ -7,24 +7,31 @@
 window.React = require('react');
 $ = require('jquery');
 
+/*  ========  Routes  =======  */
 var NavigationBar = require('./components/NavigationBar');
+var LoginOverlay = require('./components/LoginOverlay');
+
 /*  ========  Routes  =======  */
 var Main = require('./components/Main.react');
 var Lesson = require('./components/Lesson.react');
 var Profile = require('./components/Profile.react');
-var LoginOverlay = require('./components/LoginOverlay');
 
 var App = React.createClass({
   getInitialState: function( ) {
     return {
       route:          "#",
-      lessonData:     [ ],
+
+      currentUser:    "Krazy Kurt",
+
       lessonsList:    [ ],
       sectionsList:   [ ],
+
       currentLesson:  null,
       currentSection: null,
-      currentUser:    "Krazy Kurt",
-      overlayState: "none"
+
+      lessonData:     [ ],
+
+      toggleLogin: "none"
     };
   },
   /* == == == == == == == == == == == == == == == == */
@@ -71,12 +78,14 @@ var App = React.createClass({
   /* == == == == == == == == == == == == == == == == */
 
   routeChanged: function() {
+    console.log("HASH", window.location.hash);
     var hash     = window.location.hash.split('/');
     var newState = {
       route:          hash[0],
-      currentLesson:  parseInt(hash[1])||0,
-      currentSection: parseInt(hash[2])||0,
+      currentLesson:  parseInt(hash[1]) || 0,
+      currentSection: parseInt(hash[2]) || 0,
     }
+
     this.setState(newState);
 
     this.fetchLesson( newState.currentLesson );
@@ -84,47 +93,40 @@ var App = React.createClass({
     this.fetchSection( newState.currentLesson, newState.currentSection );
   },
   componentWillMount: function( ) {
-    this.fetchLessonList();
     window.addEventListener('hashchange', this.routeChanged);
+
+    this.fetchLessonList();
+
+    this.routeChanged();
   },
   componentWillUnmount: function( ) {
     window.removeEventListener('hashchange');
   },
-  openLogin: function( ) {
-    var overlayState = this.state.overlayState;
-    this.setState({ overlayState: "block" });
-    console.log("tried to open login");
-  },
-  closeLogin: function( ) {
-    var overlayState = this.state.overlayState;
-    this.setState({ overlayState: "none" });
-  },
-  render: function( ) {
 
-    var Child=Main; 
+  /*  ========  Events  =======  */
+  loginToggle: function( ) {
+    toggleLogin === "none" ? this.setState({toggleLogin: "block"}) : this.setState({toggleLogin: "none"});
+  },
+
+  render: function( ) {
+    var Child;
     switch (this.state.route) {
       case '#lesson': Child = Lesson; break;
       case '#profile': Child = Profile; break;
+      default: Child=Main;
     }
     
-    var that=this;
+    var that = this;
 
     var sectionData = [ ];
+
     if(this.state.lessonData[ this.state.currentLesson ])
       sectionData=this.state.lessonData[ this.state.currentLesson ].sectionData;
-    console.log("FML", this.state.currentLesson, this.state.lessonData);
+
     return (
       <div>
-        <NavigationBar 
-          user = { this.state.currentUser } 
-          showLogin = { this.openLogin } 
-        />
-
-        <LoginOverlay 
-          overlayState = { this.state.overlayState } 
-          closeLogin = { this.closeLogin }
-        />
-        
+        <NavigationBar user = { this.state.currentUser } />
+        <LoginOverlay toggleLogin = { this.state.toggleLogin } />
         <Child
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
