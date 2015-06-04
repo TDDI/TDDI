@@ -50,6 +50,8 @@ li {
       -ms-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
       transition: all 0.2s ease; }
+    .NavBarContainer li a:hover {
+      color: black; }
 
 .cleanLogo {
   height: 1.75em;
@@ -57,7 +59,7 @@ li {
 
 .AppBodyContainer {
   background-color: transparent;
-  height: 100%;
+  height: 120%;
   width: 100%;
   overflow: auto; }
 
