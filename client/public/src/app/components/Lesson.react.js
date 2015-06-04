@@ -59,7 +59,7 @@ var Lesson = React.createClass({
     if(this.props.currentSection!==undefined){
       var section = this.props.sectionData[this.props.currentSection];
       if(section){
-        code     = section.code     || "";
+        code    = section.code    || "";
         content = section.content || "";
       }
     }
@@ -72,7 +72,7 @@ var Lesson = React.createClass({
       }).bind(this))
     }
     return (
-      <div className="AppBodyContainer">
+      <div className="AppBodyContainer" height='100%'>
           <div className="TableOfContentsContainer">
             <ul>
               { sectionList }

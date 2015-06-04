@@ -8,12 +8,6 @@ html, body {
 
 
 .footer {
-  /*position:absolute;
-  bottom:-5%;
-  left:-3%;
-  width:103%;
-  padding-left: 3%;
-  height:15%;*/
   background:#D3D3D3;
   color:white;   
 
@@ -24,4 +18,20 @@ html, body {
 
 li {
   cursor: pointer;
+}
+
+#lessonList {
+  width: 100%;
+  height: 100%;
+
+}
+#lessonList td {
+  text-align: center; 
+  vertical-align: middle;
+  padding: 24px
+}
+
+.lessonListItemBG {
+  border-style: solid;
+  border-width: 4px;
 }
