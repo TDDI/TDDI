@@ -1,18 +1,21 @@
 html, body {
   height: 100%;
-  background-color: #000000;
-  background-image: url("http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg");
-  background-size: 100% 100%;
+  background-color: #8B8989;
+  /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
+  background-size: 100% 100%;*/
   overflow: auto; }
 
 .footer {
-  position: absolute;
-  bottom: -5%;
-  left: -3%;
-  width: 103%;
-  height: 10%;
-  color: white;
-  background: #000; }
+  /*position:absolute;
+  bottom:-5%;
+  left:-3%;
+  width:103%;
+  padding-left: 3%;
+  height:15%;*/
+  background: #D3D3D3;
+  color: white; }
+  .footer ul {
+    list-style: none; }
 
 li {
   cursor: pointer; }
@@ -20,82 +23,90 @@ li {
 .AlignRight li {
   float: right; }
 
+.AlignLeft li {
+  float: left; }
+
 .NavBarContainer {
-  border: 3px solid #fd8a17;
+  border: 3px solid #000;
   border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
   line-height: 1.5;
-  background: #f7f7f7;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
-  overflow: auto; }
+  background: #CC9900;
+  opacity: 0.8;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  overflow: auto;
+  min-width: 62em;
+  width: 101%; }
   .NavBarContainer li {
     list-style: none; }
     .NavBarContainer li a {
       padding: 10px 25px;
-      font-size: 15px;
+      font-size: 20px;
       text-transform: uppercase;
       text-decoration: none;
-      color: #000000;
+      color: #5F3817;
       -webkit-transition: all 0.2s ease;
       -moz-transition: all 0.2s ease;
       -ms-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
       transition: all 0.2s ease; }
 
+.cleanLogo {
+  height: 1.75em;
+  width: 5em; }
+
 .AppBodyContainer {
-  background-color: gray;
-  opacity: 0.6;
-  height: 90%;
-  /*width: 100%;*/
-  margin: 2%;
-  margin-left: 2%;
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
   overflow: auto; }
 
 .TableOfContentsContainer {
-  border: 3px solid #fd8a17;
-  padding-left: 2%;
-  margin-right: 2%;
+  border: 3px solid #000;
   border-radius: 3px;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background-color: #000000;
+  opacity: 1;
   font-family: 'Fredericka the Great', sans-serif;
   line-height: 2;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
-  background-color: white;
-  opacity: 0.9;
-  height: 90%;
+  height: 38em;
   width: 20%;
-  overflow: auto; }
+  overflow: auto;
+  display: inline-block; }
   .TableOfContentsContainer li {
     list-style: none;
-    color: black;
+    color: white;
     font-size: 20px;
     margin: 10px; }
 
 .LessonContainer {
-  height: 90%;
-  border: 3px solid #fd8a17;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35); }
+  border: 3px solid #000;
+  border-radius: 3px;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  height: 38em;
+  width: 78%;
+  min-width: 10em;
+  display: inline-block;
+  float: right; }
   .LessonContainer .ContentContainer {
-    background-color: white;
-    opacity: 0.9;
-    margin: 1%;
-    min-height: 150px;
-    border: 3px solid #000000;
-    box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
-    overflow: auto; }
+    border: 3px solid #000;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35);
+    background-color: #000000;
+    opacity: 1;
+    display: inline-block;
+    min-height: 15em;
+    overflow: auto;
+    width: 100%;
+    color: white; }
 
 .CodeboxContainer {
-  background-color: white;
+  background-color: #000000;
   opacity: 0.9;
   position: absolute;
   width: 95%;
   bottom: 0;
   border: 3px solid #000000; }
-  .CodeboxContainer .LessonResponseContainer {
-    border: 3px solid #000000;
-    background-color: white;
-    opacity: 0.9;
-    position: relative;
-    top: -50px; }
   .CodeboxContainer .codearea {
     width: 80%;
     line-height: 1;
@@ -115,6 +126,22 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+.LessonResponseContainer {
+  border: 3px solid #000000;
+  opacity: 0.9;
+  position: absolute;
+  z-index: 5;
+  top: 40%;
+  left: 50%; }
+
+.ErrorBox {
+  background-color: red;
+  color: white; }
+
+.SuccessBox {
+  background-color: green;
+  color: white; }
+
 .loginoverlay {
   height: 380px;
   width: 550px;
@@ -129,7 +156,7 @@ textarea {
   border-radius: 10px;
   background-color: #000000;
   background-image: url("http://i.imgur.com/qJIaV5f.jpg");
-  background-size: 105% 105%;
+  background-size: 115% 105%;
   background-position: center;
   overflow: auto; }
 

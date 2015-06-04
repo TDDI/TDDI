@@ -4,25 +4,33 @@
     }
   }
 
+  .AlignLeft {
+    li {
+    float: left;
+    }
+  }
+
 .NavBarContainer {
-  border: 3px solid #fd8a17;
-  border-radius: 3px;
+  border: $custom-border-setting;
+  border-radius: $custom-border-radius;
   font-family: 'Fredericka the Great', sans-serif;
   line-height: 1.5;
-  background: #f7f7f7;
-  box-shadow: 1px 1px 0 #df7002, 2px 2px 0 #df7002, 3px 3px 3px rgba(0, 0, 0, 0.35);
+  background: #CC9900;
+  opacity: 0.8;
+  box-shadow: $custom-border-shadow;
   overflow: auto;
-
+  min-width: 62em;
+  width: 101%;
 
   li {
   list-style: none;
 
     a {
       padding: 10px 25px;
-      font-size: 15px;
+      font-size: 20px;
       text-transform: uppercase;
       text-decoration: none;
-      color: #000000;
+      color: #5F3817;
       -webkit-transition: all .2s ease;
       -moz-transition: all .2s ease;
       -ms-transition: all .2s ease;
@@ -34,3 +42,7 @@
 
 }
 
+.cleanLogo {
+  height: 1.75em;
+  width: 5em;
+}
