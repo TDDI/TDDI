@@ -121,7 +121,7 @@ var App = React.createClass({
     }
 
     var sectionData = [ ];
-
+    
     if(this.state.lessonData[ this.state.currentLesson ])
       sectionData=this.state.lessonData[ this.state.currentLesson ].sectionData;
 
