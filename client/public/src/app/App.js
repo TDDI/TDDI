@@ -26,8 +26,8 @@ var App = React.createClass({
       currentUser:    "Krazy Kurt",
 
       //Array of strings containing the list of lessons and the list of lessons in current section
-      lessonsList:    [ ],
-      sectionsList:   [ ],
+      lessonList:    [ ],
+      sectionList:   [ ],
 
       //the current lesson and section
       currentLesson:  null,
@@ -81,10 +81,11 @@ var App = React.createClass({
 
   routeChanged: function() {
     var hash     = window.location.hash.split('/');
+    console.log("routeChanges", hash);
     var newState = {
       route:          hash[0],
       currentLesson:  parseInt(hash[1]) || 0,
-      currentSection: parseInt(hash[2]) || 0,
+      currentSection: parseInt(hash[3]) || 0,
     };
     this.setState(newState);
 
@@ -124,7 +125,6 @@ var App = React.createClass({
     
     if(this.state.lessonData[ this.state.currentLesson ])
       sectionData=this.state.lessonData[ this.state.currentLesson ].sectionData;
-
     return (
       <div>
         <NavigationBar 
@@ -145,6 +145,7 @@ var App = React.createClass({
           lessonData     = {this.state.lessonData}
           sectionData    = {sectionData}
         />
+        <button onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
       </div>
     );
   }
