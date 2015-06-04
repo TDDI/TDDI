@@ -26,23 +26,33 @@ var browserSyncOptions = {
   notify: false
 };
 
+var mainPaths = {
+  src: 'client/public/src',
+  dist: 'client/public/dist',
+  build: 'client/public/build',
+  server: 'server',
+  clientTest: 'client/test',
+  serverTest: 'test'
+};
+
 // maintain a common set of paths between tasks
 var paths = {
-  images: 'client/public/src/assets/images/*.*',
-  sassStyles: 'client/public/src/assets/css/sass',
-  stylesFolder: 'client/public/src/assets/css',
-  styles: 'client/public/src/assets/css/**/*.css',
-  appScripts: 'client/public/src/app/**/*.js',
-  html: 'client/public/src/index.html',
-  vendor: 'client/public/src/assets/lib/**/*.*',
-  server: 'server/**/*.js',
-  overall: 'client/public/src/**/*.{html,js,css}',
-  appsource: 'client/public/src/app/App.js',
-  appdist: 'client/public/dist/app/App.js',
-  distfolder: 'client/public/dist',
-  buildfolder: 'client/public/build',
+  images: mainPaths.src+'/assets/images/*.*',
+  sassStyles: mainPaths.src+'/assets/css/sass',
+  stylesFolder: mainPaths.src+'/assets/css',
+  styles: mainPaths.src+'/assets/css/**/*.css',
+  appScripts: mainPaths.src+'/app/**/*.js',
+  html: mainPaths.src+'/index.html',
+  vendor: mainPaths.src+'/assets/lib/**/*.*',
+  server: mainPaths.server + '/**/*.js',
+  overall: mainPaths.src+'/**/*.{html,js,css}',
+  appsource: mainPaths.src+'/app/App.js',
+  appdist: mainPaths.dist + '/app/App.js',
   main: 'App.js',
-  servertest: 'test/server.spec.js'
+  servertest: mainPaths.serverTest + '/server.spec.js',
+  workers: mainPaths.src+'/assets/workers/*.js',
+  distworkers: mainPaths.dist + '/assets/workers',
+  buildworkers: mainPaths.build + '/assets/workers'
 };
 
 // starts up nodemon with the included options
@@ -81,13 +91,13 @@ gulp.task('browserify:min', function(){
 // copies html to distribution folder
 gulp.task('html', function() {
   return gulp.src(paths.html)
-    .pipe(gulp.dest(paths.distfolder));
+    .pipe(gulp.dest(mainPaths.dist));
 });
 
 // copies html to build folder
 gulp.task('html:min', function() {
   return gulp.src(paths.html)
-    .pipe(gulp.dest(paths.buildfolder));
+    .pipe(gulp.dest(mainPaths.build));
 });
 
 // transpiles .scss files to .css files
@@ -102,7 +112,7 @@ gulp.task('sass', function(cb) {
 gulp.task('css', function() {
   return gulp.src(paths.styles)
     .pipe(concat('main.css'))
-    .pipe(gulp.dest(paths.distfolder+'/assets/css'));
+    .pipe(gulp.dest(mainPaths.dist+'/assets/css'));
 });
 
 // same as css task, but also minifies css and puts it in the build folder
@@ -110,37 +120,48 @@ gulp.task('css:min', function() {
   return gulp.src(paths.styles)
     .pipe(concat('main.css'))
     .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest(paths.buildfolder+'/assets/css'));
+    .pipe(gulp.dest(mainPaths.build+'/assets/css'));
 });
 
 // currently img and img:min just move images to their respective folders
 gulp.task('img', function() {
   return gulp.src(paths.images)
-    .pipe(gulp.dest(paths.distfolder+'/assets/images'));
+    .pipe(gulp.dest(mainPaths.dist+'/assets/images'));
 });
 
 // tentatively planning to add the gulp imagemin plugin
 gulp.task('img:min', function() {
   return gulp.src(paths.images)
-    .pipe(gulp.dest(paths.buildfolder+'/assets/images'));
+    .pipe(gulp.dest(mainPaths.build+'/assets/images'));
 });
 
 // moves vendor library to distribution folder
 gulp.task('vendor', function() {
   return gulp.src(paths.vendor)
-    .pipe(gulp.dest(paths.distfolder+'/assets/lib'));
+    .pipe(gulp.dest(mainPaths.dist+'/assets/lib'));
 });
 
 // moves vendor library to build folder
 gulp.task('vendor:min', function() {
   return gulp.src(paths.vendor)
-    .pipe(gulp.dest(paths.buildfolder+'/assets/lib'));
+    .pipe(gulp.dest(mainPaths.build+'/assets/lib'));
+});
+
+gulp.task('workers', function() {
+  return gulp.src(paths.workers)
+    .pipe(gulp.dest(paths.distworkers));
+});
+
+gulp.task('workers:min', function() {
+  return gulp.src(paths.workers)
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.buildworkers));
 });
 
 // prepares js, css, html, and images through their seperate build tasks,
 // starts a backend server, connects browserSync server to our existing backend
 // server, and watches all files to be dynamically reloaded on change
-gulp.task('serve',['browserify','sass','html','css','img','vendor','server-start'], function(event) {
+gulp.task('serve',['browserify','workers','sass','html','css','img','vendor','server-start'], function(event) {
   
   // starts up browsersync server
   // this is a server that serves our front end assets
@@ -154,6 +175,7 @@ gulp.task('serve',['browserify','sass','html','css','img','vendor','server-start
   gulp.watch(paths.appScripts, ['jsx-watch']);
   gulp.watch(paths.vendor, ['vendor-watch']);
   gulp.watch(paths.sassStyles+"/**/*.scss", ['sass']);
+  gulp.watch(paths.workers,['workers']);
 });
 
 // watch tasks that handle assets and then reload the browsersync server
@@ -163,11 +185,12 @@ gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 
+
 // builds out assets in the dist folder for the dev environment
-gulp.task('dist',['browserify','html','sass','css','img','vendor']);
+gulp.task('dist',['browserify','html','sass','css','img','vendor','workers']);
 
 // builds out assets for production implementation of application
-gulp.task('build',['browserify:min','html:min','sass','css:min','img:min','vendor:min']);
+gulp.task('build',['browserify:min','html:min','sass','css:min','img:min','workers:min','vendor:min']);
 
 // sets the default task (the one call by just calling gulp on command line)
 gulp.task('default', ['serve']);

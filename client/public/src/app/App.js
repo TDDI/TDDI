@@ -25,7 +25,6 @@ var App = React.createClass({
 
       lessonsList:    [ ],
       sectionsList:   [ ],
-
       currentLesson:  null,
       currentSection: null,
 
@@ -59,8 +58,9 @@ var App = React.createClass({
     $.get( "/api/lesson/" +(lesson+1), function(data){
       console.log("recieve Lesson " +lesson,data);
       that.state.lessonData[ lesson ] = data;
-      if(that.state.lessonData[ lesson ])
+      if(that.state.lessonData[ lesson ]){
         that.state.lessonData[ lesson ].sectionData = [ ];
+      }
       that.setState( that.state );
     });
   },
@@ -69,9 +69,9 @@ var App = React.createClass({
     console.log("fecth Section " +section+ " in lesson " +lesson);
     $.get( "/api/lesson/" +(lesson+1)+ "/section/" +(section+1), function(data){
       console.log("recieve Section " +section+ " in lesson " +lesson,data);
-      if(that.state.lessonData[ lesson ])
+      if(that.state.lessonData[ lesson ]){
         that.state.lessonData[ lesson ].sectionData[ section ] = data;
-      else console.log("FUCK", lesson, section, that.state.lessonData[ lesson ], that.state.lessonData[ lesson ].sectionData[ section ])
+      }
       that.setState(that.state);
     });
   },
@@ -84,8 +84,7 @@ var App = React.createClass({
       route:          hash[0],
       currentLesson:  parseInt(hash[1]) || 0,
       currentSection: parseInt(hash[2]) || 0,
-    }
-
+    };
     this.setState(newState);
 
     this.fetchLesson( newState.currentLesson );
@@ -104,10 +103,18 @@ var App = React.createClass({
   },
 
   /*  ========  Events  =======  */
-  loginToggle: function( ) {
-    toggleLogin === "none" ? this.setState({toggleLogin: "block"}) : this.setState({toggleLogin: "none"});
+  // loginToggle: function( ) {
+  //   toggleLogin === "none" ? this.setState({toggleLogin: "block"}) : this.setState({toggleLogin: "none"});
+  // },
+  openLogin: function( ) {
+    var overlayState = this.state.overlayState;
+    this.setState({ overlayState: "block" });
+    console.log("tried to open login");
+  },   
+  closeLogin: function( ) {    
+    var overlayState = this.state.overlayState;    
+    this.setState({ overlayState: "none" });
   },
-
   render: function( ) {
     var Child;
     switch (this.state.route) {
@@ -125,8 +132,14 @@ var App = React.createClass({
 
     return (
       <div>
-        <NavigationBar user = { this.state.currentUser } />
-        <LoginOverlay toggleLogin = { this.state.toggleLogin } />
+        <NavigationBar 
+          user = { this.state.currentUser }
+          showLogin = { this.openLogin }
+        />
+        <LoginOverlay 
+         overlayState = { this.state.overlayState }
+         closeLogin = { this.closeLogin } 
+        />
         <Child
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
