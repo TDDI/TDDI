@@ -9,41 +9,50 @@ var React = require('react');
 var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 
+var codeEval = require('../codeEval');
+
+
 var Lesson = React.createClass({
   getInitialState: function( ){
     return {
-      currentUser: "Krazy Kurt",
-      selection: "0"
+      currentUser: "Krazy Kurt"
     }
   },
   updateCode: function(newCode) {
-    this.props.sectionData[this.state.selection].code = newCode;
+    this.props.sectionData[this.props.currentSection].code = newCode;
+  },
+  codeEvaluation: function() {
+    var that = this;
+
+    // var codeOptions = {
+    //   scripts: ['../assets/lib/mocha/mocha.js','../assets/lib/chai/chai.js']
+    // };
+
+    console.log(this.props.sectionData[this.props.currentSection].code);
+    codeEval(this.props.sectionData[this.props.currentSection].code,function(response){
+      if(response.error){
+        that.setState({codeResponse:"!!!Error"});
+        console.log("Error!");
+      } else {
+        that.setState({codeResponse:"It worked!"});
+        console.log("It worked!");
+      }
+    });
   },
   render: function() {
     var that = this;
 
     var editorOptions = {
-      lineNumbers: true
+      lineNumbers: true,
+      mode: "javascript"
     };
-
-    var handleClick = function( selection ){
-      that.setState( {selection: selection} );
-    };
-
-    // var loadSectionData = function(sectionName){
-    //   if(//not loaded then reload it
-    //     ){
-    //     var serverstuff = get(serverstuff)//get stuff from server and set equal in sectionData
-    //     that.sectionData[sectionName] = serverstuff;
-    //   }
-    // }
 
     var code = "";
     var content = "";
     
-    if(this.state.selection!==undefined){
-      var section = this.props.sectionData[this.state.selection];
-      console.log("RENDER SECTION",this.state.selection, section, this.props);
+    if(this.props.currentSection!==undefined){
+      var section = this.props.sectionData[this.props.currentSection];
+      console.log("RENDER SECTION",this.props.currentSection, section, this.props);
       if(section){
         code     = section.code     || "";
         content = section.content || "";
@@ -52,7 +61,7 @@ var Lesson = React.createClass({
     var sectionList = [ ];
     if(this.props.sectionList){
       sectionList = this.props.sectionList.map(function(v,k,c){
-        return <li onClick={handleClick.bind(this, k)} key={k}>{v}</li>;
+        return <a href={ window.location.pathname + "#lesson/" + that.props.currentlesson + "/section/" + k } ><li key={k}>{v}</li></a>;
       })
     }
     return (
@@ -72,13 +81,14 @@ var Lesson = React.createClass({
             
             <div className="CodeBoxContainer">
               <div className="LessonResponseContainer">
-                <p>This is a response</p>
+                <p>{ this.state.codeResponse }</p>
               </div>
               <CodeMirror
                 value = { code }
                 onChange = { this.updateCode }
                 options = { editorOptions }
               />
+              <button onClick= { this.codeEvaluation } className="btn btn-default submit-code">Submit</button>
             </div>
           
           </div>
