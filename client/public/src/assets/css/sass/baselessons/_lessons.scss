@@ -1,5 +1,6 @@
 .AppBodyContainer {
   background-color: transparent;
+  height: 120%;
   width: 100%;
   overflow: auto;
 }
@@ -117,3 +118,11 @@ textarea {
   background-color: green;
   color: white;
 }
+
+// ANIMATIONS
+
+.TableOfContentsContainer {
+  animation-duration: 2s;
+  animation-name: slidein;
+}
+

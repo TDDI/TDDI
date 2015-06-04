@@ -13,6 +13,7 @@ var NavigationBar = require('./components/NavigationBar');
 var LoginOverlay = require('./components/LoginOverlay');
 
 /*  ========  Routes  =======  */
+var FrontPage = require('./components/FrontPage.react');
 var Main = require('./components/Main.react');
 var Lesson = require('./components/Lesson.react');
 var Profile = require('./components/Profile.react');
@@ -175,7 +176,8 @@ var App = React.createClass({
     switch (this.state.route) {
       case '#lesson': CurrentRoute  = Lesson;  break;
       case '#profile': CurrentRoute = Profile; break;
-      default: CurrentRoute         = Main;
+      case '#selector': CurrentRoute = Main; break;
+      default: CurrentRoute = FrontPage;
     }
 
     var sectionData = [ ];
@@ -205,7 +207,7 @@ var App = React.createClass({
           lessonData     = {this.state.lessonData}
           sectionData    = {sectionData}
         />
-        <button onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
+        <button className="Debugger" onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
         <div className="footer">
           <ul>
             <li>Gimme Monies</li>

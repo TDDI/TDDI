@@ -45,6 +45,15 @@ describe('The server', function() {
       });
   });
 
+
+  it('returns a 200 status code', function(done){
+    stest(server).get('/api/lesson')
+      .expect(200)
+        .end(function(error){
+          if(error){throw error;}
+          done();
+        });
+  });
   //the same thing using mocha / chai / request
   // it('returns a 200 status code', function (done) {
   //   request.get('http://localhost:5000', function (err, res, body){

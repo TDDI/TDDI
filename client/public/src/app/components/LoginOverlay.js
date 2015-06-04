@@ -28,3 +28,5 @@ var Main = React.createClass({
 })
 
 module.exports = Main;
+
+//app idea deep thoughts by brian
