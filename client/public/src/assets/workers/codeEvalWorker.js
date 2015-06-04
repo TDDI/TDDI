@@ -11,7 +11,10 @@ onmessage = function(e) {
   var result;
   var error = false;
 
-  //importScripts('../assets/lib/mocha/mocha.js');
+  importScripts('../lib/mocha/mocha.js');
+  importScripts('../lib/chai/chai.js');
+
+  var expect = chai.expect;
 
   try { 
     eval(code);
