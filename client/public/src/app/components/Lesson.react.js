@@ -18,7 +18,13 @@ var Lesson = React.createClass({
       currentUser: "Krazy Kurt"
     }
   },
+
+  componentWillMount: function( ) {
+    console.log("CURLES", this.props.currentLesson);
+  },
+  
   updateCode: function(newCode) {
+    console.log("UPDATE CODE", this.props, this.props.currentSection)
     this.props.sectionData[this.props.currentSection].code = newCode;
   },
   codeEvaluation: function() {
@@ -52,7 +58,6 @@ var Lesson = React.createClass({
     
     if(this.props.currentSection!==undefined){
       var section = this.props.sectionData[this.props.currentSection];
-      console.log("RENDER SECTION",this.props.currentSection, section, this.props);
       if(section){
         code     = section.code     || "";
         content = section.content || "";
@@ -60,9 +65,11 @@ var Lesson = React.createClass({
     }
     var sectionList = [ ];
     if(this.props.sectionList){
-      sectionList = this.props.sectionList.map(function(v,k,c){
-        return <a href={ window.location.pathname + "#lesson/" + that.props.currentlesson + "/section/" + k } ><li key={k}>{v}</li></a>;
-      })
+      console.log("this",this.props);
+      sectionList = this.props.sectionList.map( (function(v,k,c){
+        console.log("that",this.props.currentLesson);
+        return <a href={ window.location.pathname + "#lesson/" + this.props.currentLesson + "/section/" + k } ><li key={k}>{v}</li></a>;
+      }).bind(this))
     }
     return (
       <div className="AppBodyContainer">
