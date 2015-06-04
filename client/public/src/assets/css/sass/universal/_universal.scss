@@ -1,19 +1,25 @@
 html, body {
   height: 100%;
-  background-color: #000000;
-  background-image: url('http://www.hdwallpapersinn.com/wp-content/uploads/2014/11/1773565.jpg');
-  background-size: 100% 100%;
+  background-color: #8B8989;
+  /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
+  background-size: 100% 100%;*/
   overflow: auto;
 }
 
+
 .footer {
-  position:absolute;
+  /*position:absolute;
   bottom:-5%;
   left:-3%;
   width:103%;
-  height:10%;
+  padding-left: 3%;
+  height:15%;*/
+  background:#D3D3D3;
   color:white;   
-  background:#000;
+
+  ul {
+    list-style: none;
+  }
 }
 
 li {

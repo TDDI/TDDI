@@ -65,14 +65,14 @@ var Lesson = React.createClass({
       })
     }
     return (
-      <div className="row AppBodyContainer">
-          <div className="col-md-2 TableOfContentsContainer container-fluid">
+      <div className="AppBodyContainer">
+          <div className="TableOfContentsContainer">
             <ul>
               { sectionList }
             </ul>
           </div>
 
-          <div className="col-md-9 LessonContainer container-fluid">
+          <div className="LessonContainer">
             <div className="ContentContainer">
               <ContentPanel
                 contents = { content }
@@ -80,7 +80,7 @@ var Lesson = React.createClass({
             </div>
             
             <div className="CodeBoxContainer">
-              <div className="LessonResponseContainer">
+              <div className="LessonResponseContainer ErrorBox">
                 <p>{ this.state.codeResponse }</p>
               </div>
               <CodeMirror
