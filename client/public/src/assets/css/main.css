@@ -5,11 +5,21 @@ html, body {
   background-size: 100% 100%;*/
   overflow: auto; }
 
+ul {
+  padding: 0px; }
+
+#app {
+  height: 100%; }
+
+.page-wrapper {
+  height: 100%; }
+
 .footer {
   background: #D3D3D3;
   color: white; }
   .footer ul {
-    list-style: none; }
+    list-style: none;
+    margin-bottom: 0; }
 
 li {
   cursor: pointer; }
@@ -37,17 +47,22 @@ li {
   border: 3px solid #000;
   border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
-  line-height: 1.5;
   background: #CC9900;
-  opacity: 0.8;
-  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35);
-  overflow: auto;
-  min-width: 62em;
-  width: 101%; }
+  opacity: 0.8; }
+  .NavBarContainer .navbar-brand {
+    padding-top: 0.5em; }
+  .NavBarContainer .navbar-toggle {
+    border-color: #000000;
+    border-width: 2px; }
+    .NavBarContainer .navbar-toggle .icon-bar {
+      background-color: #000000; }
+  .NavBarContainer .navbar-toggle:hover {
+    background-color: #8B4513; }
+  .NavBarContainer .navbar-collapse {
+    border-color: #CC9900; }
   .NavBarContainer li {
     list-style: none; }
     .NavBarContainer li a {
-      padding: 10px 25px;
       font-size: 20px;
       text-transform: uppercase;
       text-decoration: none;
@@ -64,7 +79,6 @@ li {
 
 .AppBodyContainer {
   background-color: transparent;
-  height: 100%;
   width: 100%;
   overflow: auto; }
 
@@ -78,10 +92,12 @@ li {
   line-height: 2;
   height: 38em;
   width: 20%;
+  min-width: 13em;
   overflow: auto;
   display: inline-block; }
   .TableOfContentsContainer li {
     list-style: none;
+    text-align: center;
     color: white;
     font-size: 20px;
     margin: 10px; }
@@ -126,6 +142,11 @@ li {
     .CodeboxContainer .codearea textarea {
       width: 100%;
       height: 100%; }
+
+.submit-code {
+  float: right;
+  position: relative;
+  top: -2.5em; }
 
 textarea {
   width: 100%;

@@ -6,13 +6,24 @@ html, body {
   overflow: auto;
 }
 
+ul {
+  padding: 0px;
+}
+
+#app {
+  height:100%
+}
+
+.page-wrapper {
+  height: 100%
+}
 
 .footer {
   background:#D3D3D3;
   color:white;   
-
   ul {
     list-style: none;
+    margin-bottom: 0;
   }
 }
 

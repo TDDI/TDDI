@@ -18,33 +18,33 @@ describe('Main Page component', function(){
       'div'
     );
 
-    var buttonComponent = TestUtils.findRenderedDOMComponentWithTag(
-      renderedComponent,
-      'button'
-    );
+    // var buttonComponent = TestUtils.findRenderedDOMComponentWithTag(
+    //   renderedComponent,
+    //   'button'
+    // );
 
-    var redirectComponent = TestUtils.findRenderedDOMComponentWithTag(
-      renderedComponent,
-      'a'
-    );
+    // var redirectComponent = TestUtils.findRenderedDOMComponentWithTag(
+    //   renderedComponent,
+    //   'a'
+    // );
 
     this.componentObject = renderedComponent;
-    this.buttonElement = buttonComponent.getDOMNode();
+    // this.buttonElement = buttonComponent.getDOMNode();
     this.containerElement = containerComponent.getDOMNode();
-    this.redirectElement = redirectComponent.getDOMNode();
+    // this.redirectElement = redirectComponent.getDOMNode();
   });
 
   it('component should not have props', function() {
     assert(Object.keys(this.componentObject.props).length === 0);
   });
 
-  it('<div> should have a login button that says login', function() {
-    assert(this.buttonElement.textContent === "Login");
-  });
+  // it('<div> should have a login button that says login', function() {
+  //   assert(this.buttonElement.textContent === "Login");
+  // });
 
-  it('<div> should contain a redirect to lessons without login', function() {
-    assert(this.redirectElement.getAttribute('href') === "/#lesson")
-  });
+  // it('<div> should contain a redirect to lessons without login', function() {
+  //   assert(this.redirectElement.getAttribute('href') === "/#lesson");
+  // });
 
   
-})
+});

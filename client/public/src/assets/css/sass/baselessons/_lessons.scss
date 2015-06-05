@@ -1,6 +1,5 @@
 .AppBodyContainer {
   background-color: transparent;
-  height: 100%;
   width: 100%;
   overflow: auto;
 }
@@ -17,11 +16,13 @@
   line-height: 2;
   height: 38em;
   width: 20%;
+  min-width: 13em;
   overflow: auto;
   display: inline-block;
 
   li {
     list-style:none;
+    text-align: center;
     color: white;
     font-size: 20px;
     margin: 10px;
@@ -83,6 +84,12 @@
       height: 100%
     }
   }
+}
+
+.submit-code {
+  float:right;
+  position: relative;
+  top: -2.5em
 }
 
 textarea {

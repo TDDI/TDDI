@@ -5,7 +5,8 @@
 * @Last Modified time: 2015-05-28 19:56:44
 */
 window.React = require('react');
-$ = require('jquery');
+$ = jQuery = require('jquery');
+require('../assets/lib/bootstrap/dist/js/bootstrap.min.js');
 
 /*  ========  Components  =======  */
 var NavigationBar = require('./components/NavigationBar');
@@ -185,7 +186,7 @@ var App = React.createClass({
       sectionData=this.state.lessonData[ this.state.currentLesson ].sectionData;
 
     return (
-      <div>
+      <div className="page-wrapper">
         <NavigationBar 
           user = { this.state.currentUser }
           showLogin = { this.openLogin }
@@ -205,9 +206,16 @@ var App = React.createClass({
           sectionData    = {sectionData}
         />
         <button onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
+        <div className="footer">
+          <ul>
+            <li>Gimme Monies</li>
+            <li>Plz Gib Monies</li>
+            <li>©TDDI is a gib monies llc</li>
+          </ul>
+        </div>
       </div>
     );
   }
 });
 
-React.render(<App />,document.getElementById('app'));
+React.render(<App />, document.getElementById('app'));
