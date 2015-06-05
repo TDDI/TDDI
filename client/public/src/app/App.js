@@ -7,7 +7,7 @@
 window.React = require('react');
 $ = require('jquery');
 
-/*  ========  Routes  =======  */
+/*  ========  Components  =======  */
 var NavigationBar = require('./components/NavigationBar');
 var LoginOverlay = require('./components/LoginOverlay');
 
@@ -169,12 +169,12 @@ var App = React.createClass({
     this.setState({ overlayState: "none" });
   },
   render: function( ) {
-    var Child;
+    var CurrentRoute;// our... Bearing... if you will...
     //pick a component to create based on the current route
     switch (this.state.route) {
-      case '#lesson': Child = Lesson; break;
-      case '#profile': Child = Profile; break;
-      default: Child=Main;
+      case '#lesson': CurrentRoute  = Lesson;  break;
+      case '#profile': CurrentRoute = Profile; break;
+      default: CurrentRoute         = Main;
     }
 
     var sectionData = [ ];
@@ -196,7 +196,7 @@ var App = React.createClass({
          closeLogin = { this.closeLogin } 
         />
 
-        <Child
+        <CurrentRoute
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
           lessonList     = {this.state.lessonList}
