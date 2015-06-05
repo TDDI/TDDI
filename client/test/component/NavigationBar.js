@@ -18,14 +18,14 @@ describe('NavigationBar component', function(){
       'NavBarContainer'
     );
 
-    var listComponent = TestUtils.findRenderedDOMComponentWithTag(
+    var settingsNavComponent = TestUtils.findRenderedDOMComponentWithClass(
       renderedComponent,
-      'ul'
+      'settings-nav'
     );
 
     this.componentObject = renderedComponent;
     this.containerElement = containerComponent.getDOMNode();
-    this.listElement = listComponent.getDOMNode();
+    this.settingsNav = settingsNavComponent.getDOMNode();
   });
 
   it('component should store username in props', function() {
@@ -47,9 +47,10 @@ describe('NavigationBar component', function(){
     } else {
       return false;
     }
-  }
+  };
+
   it('<ul> should have username displayed in an <li> once', function() {
-    assert(TestUtils.findAllInRenderedTree(this.listElement, usernameFilter).length === 1);
+    assert(TestUtils.findAllInRenderedTree(this.settingsNav, usernameFilter).length === 1);
   });
 
   
