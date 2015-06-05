@@ -6,15 +6,20 @@
 */
 
 onmessage = function(e) {
-  var code=e.data[0];
-  var options=e.data[1];
-  var result;
-  var error = false;
+  var code    = e.data[0];
+  var options = e.data[1];
+  var scripts = options.scripts;
 
-  importScripts('../lib/mocha/mocha.js');
-  importScripts('../lib/chai/chai.js');
+  var result  = undefined;
+  var error   = false;
 
-  var expect = chai.expect;
+  //import all of the scripts in options
+  console.log(scripts);
+  for(var i in scripts){
+    var script = scripts[i];
+    console.log(script);
+    importScripts(script);
+  }
 
   try { 
     eval(code);
