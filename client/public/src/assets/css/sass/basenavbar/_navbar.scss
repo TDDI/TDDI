@@ -14,19 +14,39 @@
   border: $custom-border-setting;
   border-radius: $custom-border-radius;
   font-family: 'Fredericka the Great', sans-serif;
-  line-height: 1.5;
+  // line-height: 1.5;
   background: #CC9900;
   opacity: 0.8;
-  box-shadow: $custom-border-shadow;
-  overflow: auto;
-  min-width: 62em;
-  width: 101%;
+  // box-shadow: $custom-border-shadow;
+  // overflow: auto;
+  // min-width: 62em;
+  // width: 101%;
+  
+  .navbar-brand {
+    padding-top: 0.5em;
+  }
+  
+  .navbar-toggle {
+    border-color: #000000;
+    border-width:2px;
+    .icon-bar {
+      background-color: #000000;
+    }
+  }
+
+  .navbar-toggle:hover {
+    background-color: #8B4513;
+  }
+
+  .navbar-collapse {
+    border-color: #CC9900;
+  }
 
   li {
   list-style: none;
 
     a {
-      padding: 10px 25px;
+      // padding: 10px 25px;
       font-size: 20px;
       text-transform: uppercase;
       text-decoration: none;
