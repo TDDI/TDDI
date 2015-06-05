@@ -26,9 +26,9 @@ var Lesson = React.createClass({
 
   codeEvaluation: function() {
     var sectionData = this.props.sectionData[this.props.currentSection];
-    // var codeOptions = {
-    //   scripts: ['../assets/lib/mocha/mocha.js','../assets/lib/chai/chai.js']
-    // };
+    var codeOptions = {
+       scripts: ['../lib/mocha/mocha.js','../lib/chai/chai.js']
+    };
     var fullCode = sectionData.preOp +"\n"+ sectionData.code +"\n"+ sectionData.postOp;
 
     codeEval(this.props.sectionData[this.props.currentSection].code,(function(response){
@@ -39,7 +39,7 @@ var Lesson = React.createClass({
         this.setState({codeResponse:"It worked!"});
         console.log("It worked!", response.result);
       }
-    }).bind(this));
+    }).bind(this), codeOptions);
   },
   render: function() {
     var editorOptions = {
