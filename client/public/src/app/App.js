@@ -70,28 +70,29 @@ var App = React.createClass({
     $.get( "/api/lesson/" +(lesson+1),
       //pass a bound function as the callback so >this< is preserved.
       (function( response ){
-        //Store the response in the state
-        this.state.lessonData[ lesson ] = response;
-        //Initialize section data if necessary
-        if(this.state.lessonData[ lesson ])
+        //Store the response in the state if empty
+        if(!this.state.lessonData[ lesson ]){
+          this.state.lessonData[ lesson ] = response;
           this.state.lessonData[ lesson ].sectionData = [ ];
-        //save the state
-        this.setState( this.state );
+          //save the state
+          this.setState( this.state );
+        }
       }).bind(this)
     );
   },
 
   //called whenever the route changes to update sectionData with the current section
   fetchSection: function( lesson, section ){
-    console.log('fetchSection', lesson, section);
     $.get( "/api/lesson/" +(lesson+1)+ "/section/" +(section+1),
       //pass a bound function as the callback so >this< is preserved.
       (function( response ){
         //if the lesson has not been fetched/recieved yet
         if(this.state.lessonData[ lesson ]){
-          //store the response in the state
-          this.state.lessonData[ lesson ].sectionData[ section ] = response;
-          this.setState(this.state);
+          //store the response in the state if empty
+          if(!this.state.lessonData[ lesson ].sectionData[ section ]){
+            this.state.lessonData[ lesson ].sectionData[ section ] = response;
+            this.setState(this.state);
+          }
         } else {
           //fetch the lesson and the section over again.
           this.fetchLesson( lesson );
@@ -115,7 +116,6 @@ var App = React.createClass({
     }
     //if hash[2] is anything other than "section" then redirect to main page (todo: 404 page)
     if(hash[2]!==undefined && hash[2]!=='section' && hash[2]!==""){
-      console.log("arg", hash);
       window.location.hash = "";
       return;
     }
@@ -133,7 +133,6 @@ var App = React.createClass({
     };
 
     //store the state
-    this.setState(newState);
 
     //fetch the selected lesson...
     this.fetchLesson( newState.currentLesson );
@@ -141,6 +140,8 @@ var App = React.createClass({
     this.fetchSectionList( newState.currentLesson );
     //... and the selected section in that lesson.
     this.fetchSection( newState.currentLesson, newState.currentSection );
+
+    this.setState(newState);
   },
   componentWillMount: function( ) {
     //whenever the hash changes, call routeChanged
@@ -161,7 +162,6 @@ var App = React.createClass({
   openLogin: function( ) {
     var overlayState = this.state.overlayState;
     this.setState({ overlayState: "block" });
-    console.log("tried to open login");
   },
   //used to close the login overlay. Called from LoginOverlay
   closeLogin: function( ) {
