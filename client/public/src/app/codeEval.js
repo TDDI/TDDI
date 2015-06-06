@@ -5,7 +5,7 @@
 * @Last Modified time: 2015-05-28 16:22:58
 */
 
-var CodeEval=function( code, callback, options){
+var CodeEval=function( code, preOp, callback, options){
   if (!!window.Worker) {
     // set options for code evaluation
     options = options || {};
@@ -32,7 +32,7 @@ var CodeEval=function( code, callback, options){
 
     // start the worker with the code to be evaluated
     // and specific options for this section
-    worker.postMessage([code,options]);
+    worker.postMessage([ code, preOp, options ]);
   }
 };
 

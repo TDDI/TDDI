@@ -32,9 +32,6 @@ var Lesson = React.createClass({
   codeEvaluation: function() {
     var sectionData = this.props.sectionData[this.props.currentSection];
 
-    //This variable is a concatination of the preop code, the users provided code, and the postop code.
-    var code = sectionData.preOp +"\n"+ sectionData.code +"\n"+ sectionData.postOp;
-
     //Create callback function for passing into codeEval
     var callBack = (function( response ){
       if( response.error ){
@@ -46,13 +43,8 @@ var Lesson = React.createClass({
       }
     }).bind( this );
 
-    //add options to instruct codeEval to load these scripts before evaluating
-    var codeOptions = {
-       scripts: ['../lib/mocha/mocha.js','../lib/chai/chai.js']
-    };
-
     //Call codeEval which will create a webworker and run the code.
-    codeEval( code, callBack, codeOptions );
+    codeEval( sectionData.code, sectionData.preOp, callBack, { } );
   },
   render: function() {
     var editorOptions = {

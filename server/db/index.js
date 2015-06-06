@@ -56,7 +56,15 @@ sequelize.sync({force:true}).then(function () {
     ]);
 
   Section.bulkCreate([
-    {section_id: '1', sectionName: 'lesson1section1', content:'ould have to be', code:'qasdwer', preOp:'wert', postOp:'edfart', lesson_id:'1'},
+    {section_id: '1', lesson_id:'1', sectionName: 'Bear with me',
+      content:"You suck at coding because you don't test. You will now test and be good at coding.\n\
+      You have a variable named \"honey\" and you need to write a test to see if it is equal to 5.",
+      preOp:'\
+        failureCases=[{ failMessage:"You suck", scope:{honey:0} }];\
+        successCases=[{ failMessage:"...its 5", scope:{honey:5} }];\
+      ',
+      code:'expect(honey).to.equal(/*put 5 here*/);',
+    },
     {section_id: '2', sectionName: 'lesson1section2', content:'u came across someth', code:'qwdfder', preOp:'wert', postOp:'erdfdt',lesson_id:'1'},
     {section_id: '1', sectionName: 'lesson2section1', content:'e across someth', code:'qdfdwer', preOp:'dfdfd', postOp:'sdfert', lesson_id:'2'},
     {section_id: '2', sectionName: 'lesson2section2', content:'u came oss someth', code:'qw43er', preOp:'weerrt', postOp:'ersdt',lesson_id:'2'},
