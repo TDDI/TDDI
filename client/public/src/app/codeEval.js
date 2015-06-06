@@ -12,8 +12,14 @@ var CodeEval=function( code, preOp, callback, options){
     // set timeout to prevent infinite loops from staying in memory
     options.timeout = options.timeout || 4000;
 
-    // create a new HTML5 webworker
-    var worker = new Worker("assets/workers/codeEvalWorker.js");
+    // gives location of worker based on the task passed in options
+    var workerLocationByTask = {
+      'lint' : 'assets/workers/syntaxWorker.js',
+      'code-eval' : 'assets/workers/codeEvalWorker.js'
+    };
+
+    // create a new HTML5 webworker based on task that was designated
+    var worker = new Worker(workerLocationByTask[options.task]);
 
     // set the worker to terminate after a designated
     // period and report it as an error
