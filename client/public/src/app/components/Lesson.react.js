@@ -11,12 +11,15 @@ var codeEval = require('../codeEval');
 /*  ========  Components  =======  */
 var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
+var CodeResponseBox = require('./CodeResponseBox.react');
 
 
 var Lesson = React.createClass({
   getInitialState: function( ){
     return {
-      currentUser: "Krazy Kurt"
+      currentUser: "Krazy Kurt",
+      codeResponse: [],
+      codeResponseStatusClass: 'success'
     }
   },
   
@@ -32,19 +35,68 @@ var Lesson = React.createClass({
   codeEvaluation: function() {
     var sectionData = this.props.sectionData[this.props.currentSection];
 
+    var workerOptions = {
+       task: '',
+       scripts: []
+    };
+
+    var codeResponse = [];
+
     //Create callback function for passing into codeEval
-    var callBack = (function( response ){
-      if( response.error ){
-        this.setState({ codeResponse: "!!!Error: "+ response.error });
-        console.log( "Error!", response.error );
+    var evalCallback = (function( response ){
+      if( response.error ) {
+        codeResponse.push(response.error);
+        console.log("ERROR! ", response.error);
+
+        this.setState({ 
+          codeResponse: codeResponse,
+          codeResponseStatusClass: 'error'
+        });
       } else {
-        this.setState({ codeResponse: "It worked!" });
+        this.setState({ 
+          codeResponse: ["Success!"], 
+          codeResponseStatusClass: 'success'
+        });          
         console.log( "It worked!", response.result );
       }
     }).bind( this );
 
-    //Call codeEval which will create a webworker and run the code.
-    codeEval( sectionData.code, sectionData.preOp, callBack, { } );
+    var lintingCallback = (function( response ) {
+      if( response.error ){
+        response.error.forEach(function(error){
+          if(error && error.code !== "E041"){
+            codeResponse.push("Line " + error.line + ": " + error.reason);
+            console.log("Line " + error.line + ": " + error.reason);
+          }
+        });
+
+        this.setState({ 
+          codeResponse: codeResponse,
+          codeResponseStatusClass: 'error'
+        });
+      } else {
+
+        codeResponse = [];
+
+        this.setState({ 
+          codeResponse: codeResponse
+        });
+
+        // set worker options for evaluate the user's code
+        workerOptions.task = 'code-eval';
+        workerOptions.scripts = ['../lib/mocha/mocha.js','../lib/chai/chai.js'];
+
+        // //Call codeEval, which will create a webworker and run the code.
+        codeEval( sectionData.code, sectionData.preOp, evalCallback, workerOptions );
+      }
+    }).bind(this);
+
+    // set worker options for linting the user's code
+    workerOptions.task = 'lint';
+    workerOptions.scripts = ['../lib/jshint/jshint.js'];
+
+    //Call codeEval, which will create a webworker and lint the user's code
+    codeEval( sectionData.code, sectionData.preOp, lintingCallback, workerOptions );
   },
   render: function() {
     var editorOptions = {
@@ -90,7 +142,10 @@ var Lesson = React.createClass({
           
           <div className = "CodeBoxContainer">
             <div className = "LessonResponseContainer ErrorBox">
-              <p> { this.state.codeResponse } </p>
+              <CodeResponseBox
+                className = { this.state.codeResponseStatusClass }
+                responses = { this.state.codeResponse } 
+                />
             </div>
 
             <CodeMirror

@@ -5,18 +5,20 @@
 * @Last Modified time: 2015-05-28 16:22:57
 */
 
-importScripts('../lib/mocha/mocha.js');
-importScripts('../lib/chai/chai.js');
-
-var expect=chai.expect;
 
 onmessage = function(e) {
   var code    = e.data[0];
   var preOp   = e.data[1];
   var options = e.data[2];
+  var scripts = options.scripts;
 
   var result  = undefined;
   var error   = false;
+
+  for(var i in scripts){
+      importScripts(scripts[i]);
+  }
+  var expect = chai.expect;
 
   //set failureCases and successCases
   eval( preOp );
@@ -45,7 +47,7 @@ onmessage = function(e) {
       }
       return;
     })( );
-  }
+  };
 
   //test success cases
   for(var i in successCases){
@@ -78,4 +80,4 @@ onmessage = function(e) {
   }
 
   postMessage({result:result, error:error});
-}
+};
