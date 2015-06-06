@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  background-color: #8B8989;
+  background-color: transparent;
   /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
   background-size: 100% 100%;*/
   overflow: auto;
@@ -21,6 +21,7 @@ ul {
 .footer {
   background:#D3D3D3;
   color:white;   
+
   ul {
     list-style: none;
     margin-bottom: 0;
@@ -45,4 +46,25 @@ li {
 .lessonListItemBG {
   border-style: solid;
   border-width: 4px;
+}
+
+.bgvid {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(http://i.imgur.com/hOWgXVj.png) no-repeat;
+  background-size: cover;
+}
+
+.Debugger {
+  position: absolute;
+  top:10px;
+  left: 10px;
 }

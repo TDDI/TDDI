@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  background-color: #8B8989;
+  background-color: transparent;
   /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
   background-size: 100% 100%;*/
   overflow: auto; }
@@ -37,6 +37,25 @@ li {
   border-style: solid;
   border-width: 4px; }
 
+.bgvid {
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(http://i.imgur.com/hOWgXVj.png) no-repeat;
+  background-size: cover; }
+
+.Debugger {
+  position: absolute;
+  top: 10px;
+  left: 10px; }
+
 .AlignRight li {
   float: right; }
 
@@ -44,11 +63,15 @@ li {
   float: left; }
 
 .NavBarContainer {
-  border: 3px solid #000;
-  border-radius: 3px;
   font-family: 'Fredericka the Great', sans-serif;
-  background: #CC9900;
-  opacity: 0.8; }
+  background: #FFEFDB;
+  opacity: 0.9;
+  height: 4em;
+  border-bottom: 3px solid #000;
+  border-radius: 3px;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 3px rgba(0, 0, 0, 0.35)-2;
+  z-index: 5;
+  margin: 0; }
   .NavBarContainer .navbar-brand {
     padding-top: 0.5em; }
   .NavBarContainer .navbar-toggle {
@@ -72,13 +95,107 @@ li {
       -ms-transition: all 0.2s ease;
       -o-transition: all 0.2s ease;
       transition: all 0.2s ease; }
+    .NavBarContainer li a:hover {
+      color: black; }
 
 .cleanLogo {
   height: 1.75em;
   width: 5em; }
 
+.splashbox {
+  height: 100%;
+  width: 101%;
+  min-height: 55em;
+  min-width: 30em;
+  background-color: #FFEFDB;
+  background: radial-gradient(#FFEFDB, #EFDD6F);
+  text-align: center;
+  padding: 10em;
+  padding-left: 20%; }
+  .splashbox .splashwords {
+    display: inline-block;
+    width: 30em;
+    height: 20em;
+    border-radius: 15em;
+    background: #3F250B;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    .splashbox .splashwords h1 {
+      top: 20%;
+      position: relative;
+      display: inline-block; }
+    .splashbox .splashwords p {
+      top: 20%;
+      position: relative;
+      display: inline-block; }
+  .splashbox .splashquickstart {
+    display: inline-block;
+    height: 25em;
+    width: 30em;
+    border-radius: .5em;
+    color: gray;
+    transition: background 2s;
+    -webkit-transition: background 2s; }
+    .splashbox .splashquickstart img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 3em;
+      opacity: 0.5;
+      transition: opacity 0.5s; }
+    .splashbox .splashquickstart img:hover {
+      opacity: 1.0; }
+    .splashbox .splashquickstart .LessonTextLink {
+      display: block;
+      text-align: center; }
+
+.aboutus {
+  height: 100%;
+  width: 100%;
+  min-height: 40em;
+  min-width: 30em;
+  z-index: -2;
+  background-color: purple;
+  opacity: 0.8;
+  text-align: center;
+  padding: 8em;
+  color: white; }
+  .aboutus .Person {
+    top: 10%; }
+  .aboutus .Portrait {
+    height: 15em;
+    width: 14em;
+    position: relative;
+    top: 50%;
+    background-color: white;
+    border-color: #3F250B;
+    border-radius: 7.5em;
+    color: yellow;
+    margin: 0 auto;
+    margin-bottom: 2em; }
+
+.description {
+  min-width: 90%;
+  min-height: 100%;
+  background-color: #C48E48;
+  display: block; }
+
+.lessonSelectRedirect {
+  position: relative;
+  float: bottom; }
+
+.color1 {
+  height: 100%;
+  width: 100%;
+  background-color: black; }
+
+.color2 {
+  height: 100%;
+  width: 100%;
+  background-color: yellow; }
+
 .AppBodyContainer {
   background-color: transparent;
+  height: 120%;
   width: 100%;
   overflow: auto; }
 
@@ -169,6 +286,10 @@ textarea {
 .SuccessBox {
   background-color: green;
   color: white; }
+
+.TableOfContentsContainer {
+  animation-duration: 2s;
+  animation-name: slidein; }
 
 .loginoverlay {
   height: 380px;

@@ -44,7 +44,6 @@ describe('The server', function() {
         done();
       });
   });
-
   //the same thing using mocha / chai / request
   // it('returns a 200 status code', function (done) {
   //   request.get('http://localhost:5000', function (err, res, body){

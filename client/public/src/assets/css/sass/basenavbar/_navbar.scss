@@ -11,17 +11,16 @@
   }
 
 .NavBarContainer {
-  border: $custom-border-setting;
-  border-radius: $custom-border-radius;
   font-family: 'Fredericka the Great', sans-serif;
-  // line-height: 1.5;
-  background: #CC9900;
-  opacity: 0.8;
-  // box-shadow: $custom-border-shadow;
-  // overflow: auto;
-  // min-width: 62em;
-  // width: 101%;
-  
+  // background: #CC9900;
+  background: #FFEFDB;
+  opacity: 0.9;
+  height: 4em;
+  border-bottom: $custom-border-setting;
+  border-radius: $custom-border-radius;
+  box-shadow: ($custom-border-shadow - 2);
+  z-index: 5;
+  margin:0;
   .navbar-brand {
     padding-top: 0.5em;
   }
@@ -29,7 +28,7 @@
   .navbar-toggle {
     border-color: #000000;
     border-width:2px;
-    .icon-bar {
+    .icon-bar { 
       background-color: #000000;
     }
   }
@@ -57,8 +56,11 @@
       -o-transition: all .2s ease;
       transition: all .2s ease;
     }
-  }
 
+    a:hover {
+      color: black;
+    }
+  }
 
 }
 

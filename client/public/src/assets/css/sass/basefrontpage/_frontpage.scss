@@ -1,8 +1,116 @@
-//frontpage css here
-.loginoverlay {
-  height: 250px;
-  width: 250px;
-  background-image: url("http://i.imgur.com/qJIaV5f.jpg");
-  background-size: 100px 100px;
-  overflow: auto;
+.splashbox {
+  height: 100%;
+  width: 101%;
+  min-height: 55em;
+  min-width: 30em;
+  background-color: #FFEFDB;
+  background: radial-gradient(#FFEFDB, #EFDD6F);
+  text-align: center;
+  padding: 10em;
+  padding-left: 20%;
+
+  .splashwords {
+    display: inline-block;
+    width: 30em;
+    height: 20em;
+    border-radius: 15em;
+    background: #3F250B;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    h1 {
+      top: 20%;
+      position:relative;
+      display: inline-block;
+    }
+
+    p {
+      top: 20%;
+      position: relative;
+      display: inline-block;
+    }
+  }
+
+  .splashquickstart {
+    display: inline-block;
+    height: 25em;
+    width: 30em;
+    border-radius: .5em;
+    color: gray;
+    transition: background 2s;
+    -webkit-transition: background 2s;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 3em;
+      opacity: 0.5;
+      transition: opacity 0.5s;
+    }
+
+    img:hover {
+      opacity: 1.0;
+    }
+
+    .LessonTextLink {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.aboutus {
+  height: 100%;
+  width: 100%;
+  min-height: 40em;
+  min-width: 30em;
+
+  z-index:-2;
+  background-color: purple;
+  opacity: 0.8;
+  text-align:center;
+  padding: 8em;
+  color:white;
+
+  .Person {
+    top:10%;
+  }
+
+  .Portrait {
+    height: 15em;
+    width:14em;
+    position:relative;
+    top:50%;
+    background-color: white;
+    border-color: #3F250B;
+    border-radius: 7.5em;
+    color: yellow;
+    margin: 0 auto;
+    margin-bottom: 2em;
+  }
+}
+
+
+.description {
+  min-width: 90%;
+  min-height: 100%;
+  background-color: #C48E48;
+  display: block;
+}
+
+.lessonSelectRedirect {
+  position: relative;
+  float: bottom;
+}
+
+.color1 {
+  height:100%;
+  width: 100%;
+  background-color: black;
+}
+
+.color2 {
+  height: 100%;
+  width: 100%;
+  background-color: yellow;
 }
