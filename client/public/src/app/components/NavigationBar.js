@@ -25,11 +25,11 @@ var NavigationBar = React.createClass({
           <div className="collapse navbar-collapse" id="navbar-collapse-1">
             <ul className="nav navbar-nav login-nav">
               <li><a href="/"></a></li>
-              <li><a onClick={ self.props.showLogin }>Toggle</a></li>
+              <li><a className="navBarItem" onClick={ self.props.showLogin }>Toggle</a></li>
             </ul>
             <ul className="nav navbar-nav navbar-right settings-nav">
-              <li><a href="/">Settings</a></li>
-              <li><a href="/">{ this.props.user }</a></li>
+              <li><a className="navBarItem" href="/">Settings</a></li>
+              <li><a className="navBarItem" href="/">{ this.props.user }</a></li>
             </ul>
           </div>
         </div>

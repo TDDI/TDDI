@@ -11,16 +11,20 @@
   }
 
 .NavBarContainer {
-  font-family: 'Fredericka the Great', sans-serif;
+  // font-family: 'Anton', sans-serif;
+  font-family: 'Righteous', sans-serif;
   // background: #CC9900;
-  background: #FFEFDB;
-  opacity: 0.9;
+  // background: #FFEFDB;
+  // background: #252525;
+  background: #3F250B;
+  // background: transparent;
   height: 4em;
   border-bottom: $custom-border-setting;
   border-radius: $custom-border-radius;
   box-shadow: ($custom-border-shadow - 2);
   z-index: 5;
   margin:0;
+
   .navbar-brand {
     padding-top: 0.5em;
   }
@@ -44,12 +48,13 @@
   li {
   list-style: none;
 
-    a {
+    .navBarItem {
+      color: white;
       // padding: 10px 25px;
       font-size: 20px;
       text-transform: uppercase;
       text-decoration: none;
-      color: #5F3817;
+      // color: #5F3817;
       -webkit-transition: all .2s ease;
       -moz-transition: all .2s ease;
       -ms-transition: all .2s ease;
@@ -57,8 +62,8 @@
       transition: all .2s ease;
     }
 
-    a:hover {
-      color: black;
+    .navBarItem:hover {
+      color: white;
     }
   }
 

@@ -10,13 +10,13 @@ var FrontPage = React.createClass({
     
       <section className="row splashbox">
           <div className="col-md-5 splashwords">
-          <h1>Learn to test so you don't end the world</h1>
+          <h1>Learn to test before it's too late</h1>
           <p>TDDI is here to help you get started</p>
           </div>
 
           <div className="col-md-3 splashquickstart">
-          <a className="" href="/#lesson"><img src="http://i.imgur.com/NPluqP5.png?1"></img></a>
-          <a className="btn btn-info lessonSelectRedirect" href="/#selector">Check Out <br />Our Lessons</a>
+          <a href="/#lesson"><img src="http://i.imgur.com/NPluqP5.png?1"></img></a>
+          <a className="btn btn-info lessonSelectRedirect" href="/#selector">Or Check Out <br />Our Lessons</a>
           </div>
       </section>
 
@@ -26,27 +26,41 @@ var FrontPage = React.createClass({
         </div>
 
           <div className="Person col-md-3">
-            <div className="Portrait">
+            <div className="Portrait Lu">
             </div>
-            Legendary Lu is Ludicrous
+            <p>
+              Legendary Lu is Ludicrous
+            </p>
+            <a href="https://github.com/lugyin"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
+
           </div>
 
           <div className="Person col-md-3">
-            <div className="Portrait">
+            <div className="Portrait Kurt">
             </div>
-            Kingly Kurt is Krazy
+            <p>
+              Kingly Kurt is Krazy
+            </p>
+            <a href="https://github.com/kurtbartholomew"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
+
           </div>
 
           <div className="Person col-md-3">
-            <div className="Portrait">
+            <div className="Portrait John">
             </div>
-            Judicious John is Jesting
+            <p>
+              Judicious John is Jesting.
+            </p>
+            <a href="https://github.com/awatemonosan"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
           </div>
 
           <div className="Person col-md-3">
-            <div className="Portrait">
+            <div className="Portrait Brian">
             </div>
-            Bearish Brian is Belligerent
+            <p>
+              Bearish Brian is Belligerent
+            </p>
+            <a href="https://github.com/bcjl"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
           </div>
       </section>
 
