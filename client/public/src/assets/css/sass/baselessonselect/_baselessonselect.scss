@@ -1,11 +1,55 @@
-.LessonButtonContainer {
-  width: 30%;
-  min-width: 10em;
-  min-height: 15em;
-  border: $custom-border-setting;
-  border-radius: $custom-border-radius;
-  box-shadow: $custom-border-shadow;
+.innerLessonsContainer {
+  min-height: 100%;
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  padding: 5%;
+  background-color: #738F9B;
 
-  background-color: $custom-background-color;
-  opacity: $custom-background-opacity;
+
+  .LessonArticle {
+    align-items: center;
+    background-color: white;
+    margin: 3em;
+    width: 25em;
+    height:50em;
+    border-radius: 3em;
+    border-width: 3em;
+    // border-color: black;
+
+    -webkit-box-shadow:0 0 30px blue; 
+    -moz-box-shadow: 0 0 30px blue; 
+    box-shadow:0 0 30px blue;
+    transition: box-shadow 0.25s;
+    overflow: hidden;
+  }
+
+  .LessonArticle:hover {
+    box-shadow: 0 0 30px white;
+  }
+
+  img {
+    width: 25em;
+  }
+}
+
+.flex-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: baseline;
+}
+
+.LessonSelectHeader {
+  text-align: center;
+  background-color: gray;
+  font-family: 'Righteous';
+  margin: 0 auto;
+  color: white;
+}
+
+.LessonTextDescription {
+  margin: 2em;
 }

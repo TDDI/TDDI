@@ -4,7 +4,8 @@
   min-height: 55em;
   min-width: 30em;
   background-color: #FFEFDB;
-  background: radial-gradient(#FFEFDB, #EFDD6F);
+  background: radial-gradient(ellipse, #FFEFDB, #f4bf11);
+  // background: radial-gradient(#FFEFDB, #EFDD6F);
   text-align: center;
   padding: 10em;
   padding-left: 20%;
@@ -16,7 +17,8 @@
     border-radius: 15em;
     background: #3F250B;
     color: white;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Righteous';
+    // font-family: 'Dancing Script','Pacifico','Lobster', 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
     h1 {
       top: 20%;
@@ -44,14 +46,12 @@
       display: block;
       margin: 0 auto;
       margin-bottom: 3em;
-      opacity: 0.5;
-      transition: opacity 0.5s;
+      transition: transform 0.75s;
     }
 
     img:hover {
-      opacity: 1.0;
+      transform: translateY(-8%);
     }
-
     .LessonTextLink {
       display: block;
       text-align: center;
@@ -66,7 +66,8 @@
   min-width: 30em;
 
   z-index:-2;
-  background-color: purple;
+  // background-color: #9fd5d0 ;
+  background-color: #3F250B;
   opacity: 0.8;
   text-align:center;
   padding: 8em;
@@ -78,15 +79,35 @@
 
   .Portrait {
     height: 15em;
-    width:14em;
+    width:15em;
     position:relative;
     top:50%;
     background-color: white;
     border-color: #3F250B;
-    border-radius: 7.5em;
+    border-radius: 5.5em;
     color: yellow;
     margin: 0 auto;
     margin-bottom: 2em;
+    overflow: hidden;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 0 20px black;
+
+  }
+
+  .Kurt {
+    background-image: url('https://avatars3.githubusercontent.com/u/8601772?v=3&s=460');
+  }
+  .Brian {
+    background-image: url('https://avatars1.githubusercontent.com/u/8295920?v=3&s=460');
+  }
+
+  .John {
+    background-image: url('https://avatars2.githubusercontent.com/u/10604446?v=3&s=460');
+  }
+  .Lu {
+    background-image: url('https://avatars1.githubusercontent.com/u/8801819?v=3&s=460');
   }
 }
 
@@ -101,6 +122,8 @@
 .lessonSelectRedirect {
   position: relative;
   float: bottom;
+  // background-color: #212121;
+  background-color: #3F250B;
 }
 
 .color1 {
@@ -113,4 +136,9 @@
   height: 100%;
   width: 100%;
   background-color: yellow;
+}
+
+.GithubIcon {
+  height: 5em;
+  width: 5em;
 }

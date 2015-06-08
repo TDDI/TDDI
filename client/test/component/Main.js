@@ -13,9 +13,9 @@ describe('Main Page component', function(){
 
     //Search for <div> tag within rendered React component
     //Throws an exception if not found
-    var containerComponent = TestUtils.findRenderedDOMComponentWithTag(
+    var containerComponent = TestUtils.findRenderedDOMComponentWithClass(
       renderedComponent,
-      'div'
+      'innerLessonsContainer'
     );
 
     // var buttonComponent = TestUtils.findRenderedDOMComponentWithTag(
