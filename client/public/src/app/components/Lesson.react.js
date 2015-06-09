@@ -118,7 +118,8 @@ var Lesson = React.createClass({
   render: function() {
     var editorOptions = {
       lineNumbers: true,
-      mode:        "javascript"
+      mode:        "javascript",
+      theme:       "mbo"
     };
     
     var section = this.props.sectionData[this.props.currentSection];

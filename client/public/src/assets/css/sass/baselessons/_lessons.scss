@@ -9,7 +9,6 @@
 .TableOfContentsContainer {
   border: $custom-border-setting;
   border-radius: $custom-border-radius;
-  box-shadow: $custom-border-shadow;
 
   background-color: $custom-background-color;
   opacity: $custom-background-opacity;
@@ -29,9 +28,6 @@
 }
 
 .LessonContainer {
-    border: $custom-border-setting;
-    border-radius: $custom-border-radius;
-    box-shadow: $custom-border-shadow;
 
     height: 100%;
     min-width: 30em;
@@ -40,7 +36,6 @@
     .ContentContainer {
       border: $custom-border-setting;
       border-radius: $custom-border-radius;
-      box-shadow: $custom-border-shadow;
 
       background-color: $custom-background-color;
       opacity: $custom-background-opacity;
@@ -48,6 +43,9 @@
       min-height: 45%;
       width: 100%;
       color: white;
+      padding: 1em;
+      font-size: 1.25em;
+      margin-bottom: 1em;
     }
 }
 
@@ -61,17 +59,18 @@
 }
 
 .response-container {
-  border: 2px solid black;
-  background-color: blue;
+  background-color: transparent;
   overflow: auto;
   position: relative;
   height: 15%;
   min-height: 3.7em;
+  border-radius: 0;
+  border-width: 0;
 
   ul {
-    border-radius: 2px;
-    border-right: 3px solid black;
-    border-top: 3px solid black;
+    // border-radius: 2px;
+    // border-right: 3px solid black;
+    // border-top: 3px solid black;
     width: 60%;
     z-index: 5;
     position: absolute;
