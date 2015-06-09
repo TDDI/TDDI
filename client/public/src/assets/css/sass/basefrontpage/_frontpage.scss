@@ -39,8 +39,6 @@
     width: 30em;
     border-radius: .5em;
     color: gray;
-    transition: background 2s;
-    -webkit-transition: background 2s;
 
     img {
       display: block;
@@ -64,7 +62,6 @@
   width: 100%;
   min-height: 40em;
   min-width: 30em;
-
   z-index:-2;
   // background-color: #9fd5d0 ;
   background-color: #3F250B;
@@ -72,6 +69,7 @@
   text-align:center;
   padding: 8em;
   color:white;
+  // color: #FFEFDB;
 
   .Person {
     top:10%;
@@ -89,6 +87,7 @@
     margin: 0 auto;
     margin-bottom: 2em;
     overflow: hidden;
+    z-index:4;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -123,7 +122,8 @@
   position: relative;
   float: bottom;
   // background-color: #212121;
-  background-color: #3F250B;
+  // background-color: #3F250B;
+  font-family: 'Righteous';
 }
 
 .color1 {
@@ -139,6 +139,23 @@
 }
 
 .GithubIcon {
-  height: 5em;
-  width: 5em;
+  height: 3.5em;
+  width: 3.5em;
 }
+
+.GithubIconDiv {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 3.5em;
+  width: 3.5em;
+  background-image: url('/assets/images/GitHub-Mark-Light-gray.png');
+  background-size: contain;
+  transition: background-image 0.2s;
+}
+
+.GithubIconDiv:hover {
+  background-image: url('/assets/images/GitHub-Mark-Light-white.png');
+}
+
+

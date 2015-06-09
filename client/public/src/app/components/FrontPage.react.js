@@ -29,20 +29,18 @@ var FrontPage = React.createClass({
             <div className="Portrait Lu">
             </div>
             <p>
-              Legendary Lu is Ludicrous
+              Legendary Lu is Ludicrous.
             </p>
-            <a href="https://github.com/lugyin"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
-
+            <a href="https://github.com/lugyin" className="GithubIconDiv"></a>
           </div>
 
           <div className="Person col-md-3">
             <div className="Portrait Kurt">
             </div>
             <p>
-              Kingly Kurt is Krazy
+              Kingly Kurt is Krazy.
             </p>
-            <a href="https://github.com/kurtbartholomew"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
-
+            <a href="https://github.com/kurtbartholomew" className="GithubIconDiv"></a>
           </div>
 
           <div className="Person col-md-3">
@@ -51,16 +49,16 @@ var FrontPage = React.createClass({
             <p>
               Judicious John is Jesting.
             </p>
-            <a href="https://github.com/awatemonosan"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
+            <a href="https://github.com/awatemonosan" className="GithubIconDiv"></a>
           </div>
 
           <div className="Person col-md-3">
             <div className="Portrait Brian">
             </div>
             <p>
-              Bearish Brian is Belligerent
+              Bearish Brian is Belligerent.
             </p>
-            <a href="https://github.com/bcjl"><img className="GithubIcon" src="http://uxrepo.com/static/icon-sets/zocial/svg/github-circled.svg"></img></a>
+            <a href="https://github.com/bcjl" className="GithubIconDiv"></a>
           </div>
       </section>
 
