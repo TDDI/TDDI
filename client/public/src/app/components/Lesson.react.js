@@ -26,9 +26,10 @@ var Lesson = React.createClass({
   updateCode: function(newCode) {
     var sectionData = this.props.sectionData[this.props.currentSection];
     //if the section data exists
-    if(sectionData)
+    if(sectionData){
       //update its code variable
       sectionData.code = newCode;
+    }
   },
 
   changeSection: function( val ) {
@@ -39,10 +40,12 @@ var Lesson = React.createClass({
   },
 
   nextSection: function( ) {
-    if(this.props.currentSection === this.props.sectionList.length-1)
+    if(this.props.currentSection === this.props.sectionList.length-1){
       this.location.hash = "";
-    else
+    }
+    else {
       this.changeSection(1);
+    }
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
@@ -142,35 +145,32 @@ var Lesson = React.createClass({
     }
 
     return (
-      <div className = "AppBodyContainer" height='100%'>
-        <div className = "TableOfContentsContainer">
-          <ul>
-            { sectionList }
-          </ul>
-        </div>
-
-        <div className = "LessonContainer">
-          <div className = "ContentContainer">
-            <ContentPanel contents = { content } />
+      <div className = "AppBodyContainer container">
+          <div className = "TableOfContentsContainer">
+            <ul>
+              { sectionList }
+            </ul>
           </div>
-          
-          <div className = "CodeBoxContainer">
-            <div className = "LessonResponseContainer ErrorBox">
+          <div className = "LessonContainer">
+            <ContentPanel contents = { content } />
+            <div className = "CodeBoxContainer">
+              <CodeMirror
+                value    = { code }
+                onChange = { this.updateCode }
+                options  = { editorOptions }
+              />
+            </div>
+            <div className = "response-container">
+              <div className="submit-container">
+                <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
+                <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
+              </div>
               <CodeResponseBox
-                className = { this.state.codeResponseStatusClass }
+                codeResponseStatusClass = { this.state.codeResponseStatusClass }
                 responses = { this.state.codeResponse } 
                 />
             </div>
-
-            <CodeMirror
-              value    = { code }
-              onChange = { this.updateCode }
-              options  = { editorOptions }
-            />
-            <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
           </div>
-        </div>
-
       </div>
     );
   }

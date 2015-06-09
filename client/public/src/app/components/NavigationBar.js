@@ -21,15 +21,10 @@ var NavigationBar = React.createClass({
               <img className="cleanLogo" src="http://i.imgur.com/0idVjLu.png?1"/>
             </a>
           </div>
-
           <div className="collapse navbar-collapse" id="navbar-collapse-1">
-            <ul className="nav navbar-nav login-nav">
-              <li><a href="/"></a></li>
-              <li><a className="navBarItem" onClick={ self.props.showLogin }>Toggle</a></li>
-            </ul>
             <ul className="nav navbar-nav navbar-right settings-nav">
-              <li><a className="navBarItem" href="/">Settings</a></li>
-              <li><a className="navBarItem" href="/">{ this.props.user }</a></li>
+              <li><a className="navBarItem" href="/#selector">All Lessons</a></li>
+              <li><a className="navBarItem" onClick={ self.props.showLogin }>Login</a></li>
             </ul>
           </div>
         </div>
