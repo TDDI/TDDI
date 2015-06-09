@@ -42,7 +42,7 @@ describe('NavigationBar component', function(){
 
 
   var usernameFilter = function(component){
-    if (component.textContent.includes("Krazy Kurt")) {
+    if (component.textContent.includes("Login")) {
       return true;
     } else {
       return false;
