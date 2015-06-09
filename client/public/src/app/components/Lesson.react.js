@@ -41,7 +41,7 @@ var Lesson = React.createClass({
 
   nextSection: function( ) {
     if(this.props.currentSection === this.props.sectionList.length-1){
-      this.location.hash = "";
+      window.location.hash = "#selector";
     }
     else {
       this.changeSection(1);
