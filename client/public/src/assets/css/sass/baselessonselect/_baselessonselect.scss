@@ -17,20 +17,38 @@
     border-width: 3em;
     // border-color: black;
 
-    -webkit-box-shadow:0 0 30px blue; 
-    -moz-box-shadow: 0 0 30px blue; 
-    box-shadow:0 0 30px blue;
+    -webkit-box-shadow:0 0 30px black; 
+    -moz-box-shadow: 0 0 30px black; 
+    box-shadow:0 0 30px black;
     transition: box-shadow 0.25s;
     overflow: hidden;
   }
 
-  .LessonArticle:hover {
+  .backglow:hover {
     box-shadow: 0 0 30px white;
   }
 
-  img {
+  .LessonPicture {
+    display: block;
+    background-position: center;
+    background-size: 25em 16em;
     width: 25em;
+    height: 16em; 
   }
+
+  .Lesson1img {
+    background-image: url("/assets/images/lesson1Button.png");
+  }
+  .Lesson2img {
+    background-image: url("/assets/images/lesson2Button.png");
+  }
+  .Lesson3img {
+    background-image: url("/assets/images/lesson3Button.png");
+  }
+  .Lesson4img {
+    background-image: url("/assets/images/lesson4Button.png");
+  }
+  
 }
 
 .flex-container {
@@ -44,7 +62,7 @@
 
 .LessonSelectHeader {
   text-align: center;
-  background-color: gray;
+  background-color: #3F250B;
   font-family: 'Righteous';
   margin: 0 auto;
   color: white;
@@ -52,4 +70,13 @@
 
 .LessonTextDescription {
   margin: 2em;
+}
+
+.UnderConstruction {
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(0) brightness(1.0);
+}
+.UnderConstruction:hover{
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(0.8) brightness(0.5);
 }

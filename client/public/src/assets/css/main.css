@@ -4,7 +4,7 @@ html, body {
   /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
   background-size: 100% 100%;*/
   overflow: auto;
-  background-color: gray; }
+  background-color: #3F250B; }
 
 ul {
   padding: 0px; }
@@ -65,7 +65,7 @@ li {
 
 .NavBarContainer {
   font-family: 'Righteous', sans-serif;
-  background: #3F250B;
+  background: #FFEFDB;
   height: 4em;
   border-bottom: 3px solid #000;
   border-radius: 3px;
@@ -133,9 +133,7 @@ li {
     height: 25em;
     width: 30em;
     border-radius: .5em;
-    color: gray;
-    transition: background 2s;
-    -webkit-transition: background 2s; }
+    color: gray; }
     .splashbox .splashquickstart img {
       display: block;
       margin: 0 auto;
@@ -172,6 +170,7 @@ li {
     margin: 0 auto;
     margin-bottom: 2em;
     overflow: hidden;
+    z-index: 4;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -194,7 +193,7 @@ li {
 .lessonSelectRedirect {
   position: relative;
   float: bottom;
-  background-color: #3F250B; }
+  font-family: 'Righteous'; }
 
 .color1 {
   height: 100%;
@@ -207,8 +206,21 @@ li {
   background-color: yellow; }
 
 .GithubIcon {
-  height: 5em;
-  width: 5em; }
+  height: 3.5em;
+  width: 3.5em; }
+
+.GithubIconDiv {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 3.5em;
+  width: 3.5em;
+  background-image: url("/assets/images/GitHub-Mark-Light-gray.png");
+  background-size: contain;
+  transition: background-image 0.2s; }
+
+.GithubIconDiv:hover {
+  background-image: url("/assets/images/GitHub-Mark-Light-white.png"); }
 
 .innerLessonsContainer {
   min-height: 100%;
@@ -225,15 +237,27 @@ li {
     height: 50em;
     border-radius: 3em;
     border-width: 3em;
-    -webkit-box-shadow: 0 0 30px blue;
-    -moz-box-shadow: 0 0 30px blue;
-    box-shadow: 0 0 30px blue;
+    -webkit-box-shadow: 0 0 30px black;
+    -moz-box-shadow: 0 0 30px black;
+    box-shadow: 0 0 30px black;
     transition: box-shadow 0.25s;
     overflow: hidden; }
-  .innerLessonsContainer .LessonArticle:hover {
+  .innerLessonsContainer .backglow:hover {
     box-shadow: 0 0 30px white; }
-  .innerLessonsContainer img {
-    width: 25em; }
+  .innerLessonsContainer .LessonPicture {
+    display: block;
+    background-position: center;
+    background-size: 25em 16em;
+    width: 25em;
+    height: 16em; }
+  .innerLessonsContainer .Lesson1img {
+    background-image: url("/assets/images/lesson1Button.png"); }
+  .innerLessonsContainer .Lesson2img {
+    background-image: url("/assets/images/lesson2Button.png"); }
+  .innerLessonsContainer .Lesson3img {
+    background-image: url("/assets/images/lesson3Button.png"); }
+  .innerLessonsContainer .Lesson4img {
+    background-image: url("/assets/images/lesson4Button.png"); }
 
 .flex-container {
   display: flex;
@@ -245,13 +269,21 @@ li {
 
 .LessonSelectHeader {
   text-align: center;
-  background-color: gray;
+  background-color: #3F250B;
   font-family: 'Righteous';
   margin: 0 auto;
   color: white; }
 
 .LessonTextDescription {
   margin: 2em; }
+
+.UnderConstruction {
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(0) brightness(1); }
+
+.UnderConstruction:hover {
+  transition: all 0.2s ease;
+  -webkit-filter: grayscale(0.8) brightness(0.5); }
 
 .AppBodyContainer {
   background-color: transparent;
@@ -299,26 +331,6 @@ li {
     overflow: auto;
     width: 100%;
     color: white; }
-
-.CodeboxContainer {
-  background-color: #000000;
-  opacity: 0.9;
-  position: absolute;
-  width: 95%;
-  bottom: 0;
-  border: 3px solid #000000; }
-  .CodeboxContainer .codearea {
-    width: 80%;
-    line-height: 1;
-    border-radius: 3px;
-    border: 2px solid #8AC007;
-    padding: 2px;
-    /*width: 200px;*/
-    height: 60px;
-    float: left; }
-    .CodeboxContainer .codearea textarea {
-      width: 100%;
-      height: 100%; }
 
 .submit-code {
   float: right;
