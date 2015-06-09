@@ -1,0 +1,90 @@
+About 7-11 sections
+
+An Embearassing Situation
+    Invoke a function that is untested, causing bad stuff.
+
+The 5 Tenets of Unit Testing
+  Test only one thing
+  Fast and simple
+  Repeatable with no side effects
+  Nothing hardcoded for the environment
+  Provide verbose / concise feedback. //diagnostic data
+  //No unecessary output
+ 
+
+6 Categories of Tests
+  2 sections each
+    1 section of correcting an incorrect test violating a Tenet of Unit Testing
+    1 section writing a test from scratch
+
+What is it?
+  (shit goes down)
+  Part 1 
+    aString
+      expect(aString).to.be.a('string');
+    aFunction
+    aNumber
+    anObject // USE STEVE
+    anArray
+  Part 2
+    headline
+      expect(aString).to.be.a('string');
+    temperature
+    isRadioactive // USE STEVE
+    isotopes
+    employees
+
+What does it return?
+  (building a survival camp)
+  You need to make sure that each of these functions return what they are supposed to return
+  Part 1
+    getName
+      expect( getName() ).to.equal('steve');
+    getDouble
+      expect( getDouble(2)).to.equal(4);
+        expect( getDouble(2)).to.equal(3);
+    isFoodSafeToEat
+      expect( isFoodSafeToEat('atomic beef') ).to.be.false;
+      expect( isFoodSafeToEat('salmon') ).to.be.true;
+    gnawLegOffToSurvive
+      expect( gnawLegOffToSurvive() ).to.be('leg');
+  Part 2
+    isElectricFenceActive
+      expect( isElectricFenceActive() ).to.be.true;
+      //isFoodEnough(bears, food, days)
+      expect( isFoodEnough(1,10,2) ).to.be.true;
+      expect( isFoodEnough(2,8,5) ).to.be.false;
+      expect( numberOfBearsOnPatrol() ).to.be.at.least(5); 
+      //number
+      //string
+      //string
+      //object
+      expect( getCutestBear ).to.be( steve );
+
+What it has?
+  (creating a band of survivors with the skills you need)
+  Part 1
+    expect( zombifyBear(steve) ).to.have.property(isZombified)
+  
+What does it do?
+  ( you forgot to test for human sickness :] big battle etc)
+  Part 1
+    survivors = [ steve, eric, daniel, ]
+
+    team = [ ];
+
+    findTeammate() // will push a random bear to the team;
+    () // if no argument is passed, zombify a random bear, otherwise zombify the sepcific bear
+
+    expect( zombifyBear(steve) )
+    number of survivors check
+
+When does it error?
+  (Robot bear, tests traps for you. avoiding traps, sneaking past/through a human encampment)
+
+How does it handle edge cases?
+  (rebuilding... again...)
+Huh?
+
+What?
+
