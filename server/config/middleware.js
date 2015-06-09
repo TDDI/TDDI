@@ -1,9 +1,9 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var passport = require('passport');
-var GITHUB_INFO = require('../oauth.js');
-var GitHubStrategy = require('passport-github2').Strategy;
-var session = require('express-session');
+// var passport = require('passport');
+// var GITHUB_INFO = require('../oauth.js');
+// var GitHubStrategy = require('passport-github2').Strategy;
+// var session = require('express-session');
 
 
 module.exports = function(app, express){
