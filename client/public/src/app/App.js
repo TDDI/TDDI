@@ -38,7 +38,8 @@ var App = React.createClass({
       //This is a tree holding all of the downloaded lesson AND section data
       lessonData:     [ ],
 
-      toggleLogin: "none"
+      //This variable tracks the current state of the login overlay
+      overlayState: "none"
     };
   },
   /* == == == == == == == == == == == == == == == == */
@@ -208,13 +209,6 @@ var App = React.createClass({
           sectionData    = {sectionData}
         />
         <button className="Debugger" onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
-        <div className="footer">
-          <ul>
-            <li>Gimme Monies</li>
-            <li>Plz Gib Monies</li>
-            <li>©TDDI is a gib monies llc</li>
-          </ul>
-        </div>
       </div>
     );
   }

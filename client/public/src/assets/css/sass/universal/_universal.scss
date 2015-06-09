@@ -4,7 +4,7 @@ html, body {
   /*background-image: url('https://jasonahurley.files.wordpress.com/2012/11/theroadlandscape.png');
   background-size: 100% 100%;*/
   overflow: auto;
-  background-color: gray;
+  background-color: #3F250B;
 }
 
 ul {
@@ -69,3 +69,16 @@ li {
   top:10px;
   left: 10px;
 }
+
+.AlignRight {
+  li {
+    float: right;
+  }
+}
+
+.AlignLeft {
+  li {
+  float: left;
+  }
+}
+
