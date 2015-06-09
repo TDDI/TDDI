@@ -4,6 +4,7 @@
 * @Last Modified by:   awate
 * @Last Modified time: 2015-05-30 15:14:01
 */
+
 var React = require('react');
 
 var codeEval = require('../codeEval');
@@ -22,13 +23,22 @@ var Lesson = React.createClass({
       codeResponseStatusClass: 'success'
     }
   },
-  
+  componentWillMount: function( ) {
+    SECTIONCHANGE = this.sectionChange.bind(this);
+  },
   updateCode: function(newCode) {
     var sectionData = this.props.sectionData[this.props.currentSection];
     //if the section data exists
     if(sectionData)
       //update its code variable
       sectionData.code = newCode;
+  },
+
+  changeSection: function( val ){
+    var min = 0, max = this.props.sectionList.length-1;
+    var newSection = this.props.currentSection+val;
+    newSection = Math.max( min, Math.min(max, newSection) );
+    window.location.hash = "#lesson/" +this.props.currentLesson+ "/section/" +newSection;
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
