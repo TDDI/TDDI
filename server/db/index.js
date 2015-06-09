@@ -43,7 +43,7 @@ var Section = sequelize.define('Section', {
 });
 
 
-initializing databases and bulkCreates dummy data
+// initializing databases and bulkCreates dummy data
 if(process.env.DATABASE_URL){
   sequelize.sync();
 } else {
