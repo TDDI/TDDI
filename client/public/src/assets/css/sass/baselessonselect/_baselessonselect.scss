@@ -12,7 +12,7 @@
     background-color: white;
     margin: 3em;
     width: 25em;
-    height:50em;
+    height: 35em;
     border-radius: 3em;
     border-width: 3em;
     // border-color: black;
@@ -71,6 +71,10 @@
 
 .LessonTextDescription {
   margin: 2em;
+
+  h3 {
+    text-align: center;
+  }
 }
 
 .UnderConstruction {
