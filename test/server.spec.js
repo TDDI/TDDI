@@ -46,82 +46,70 @@ describe('The server', function() {
   });
 
 
-  it('returns a 200 status code on get request to lesson', function(done){
-    stest(server)
-      .get('/api/lesson/')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  // it('returns a 200 status code on get request to lesson', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
-  it('returns a 200 status code on get request to lesson 1', function(done){
-    stest(server)
-      .get('/api/lesson/1')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  // it('returns a 200 status code on get request to lesson 1', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/1')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
-  it('returns a 200 status code on get request to lesson 2', function(done){
-    stest(server)
-      .get('/api/lesson/2')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  // it('returns a 200 status code on get request to lesson 2', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/2')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
-  it('returns a 200 status code on get request to section', function(done){
-    stest(server)
-      .get('/api/lesson/1/section')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  // it('returns a 200 status code on get request to section', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/1/section')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
-   it('returns a 200 status code on get request to lesson 1 section 1', function(done){
-    stest(server)
-      .get('/api/lesson/1/section/1')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  //  it('returns a 200 status code on get request to lesson 1 section 1', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/1/section/1')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
-    it('returns a 200 status code on get request to lesson 1 section 1', function(done){
-    stest(server)
-      .get('/api/lesson/1/section/2')
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  //   it('returns a 200 status code on get request to lesson 1 section 1', function(done){
+  //   stest(server)
+  //     .get('/api/lesson/1/section/2')
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
     
-  it('returns a 200 status code on post request to lesson', function(done){
-    var testPackage = '{"lesson":"12","lessonName":"lesson12"}';
-    stest(server)
-      .post('/api/lesson')
-      .send(testPackage)
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
-
-  // it('returns a 200 status code on put request to section', function(done){
+  // it('returns a 200 status code on post request to lesson', function(done){
   //   var testPackage = '{"lesson":"12","lessonName":"lesson12"}';
   //   stest(server)
-  //     .put('/api/lesson/1')
+  //     .post('/api/lesson')
   //     .send(testPackage)
   //     .expect(200)
   //     .end(function(error){
@@ -130,17 +118,29 @@ describe('The server', function() {
   //     });
   // });
 
-  it('returns a 200 status code on post request to section', function(done){
-    var testPackage = '{"section_id": "1", "sectionName": "lesson20section1", "content":"ouldbe", "code":"erefd", "preOp":"sdf", "postOp":"adf", "lesson_id":"20"}';
-      stest(server)
-      .post('/api/lesson/1/section')
-      .send(testPackage)
-      .expect(200)
-      .end(function(error){
-        if(error) { throw error; }
-        done();
-      });
-  });
+  // // it('returns a 200 status code on put request to section', function(done){
+  // //   var testPackage = '{"lesson":"12","lessonName":"lesson12"}';
+  // //   stest(server)
+  // //     .put('/api/lesson/1')
+  // //     .send(testPackage)
+  // //     .expect(200)
+  // //     .end(function(error){
+  // //       if(error) { throw error; }
+  // //       done();
+  // //     });
+  // // });
+
+  // it('returns a 200 status code on post request to section', function(done){
+  //   var testPackage = '{"section_id": "1", "sectionName": "lesson20section1", "content":"ouldbe", "code":"erefd", "preOp":"sdf", "postOp":"adf", "lesson_id":"20"}';
+  //     stest(server)
+  //     .post('/api/lesson/1/section')
+  //     .send(testPackage)
+  //     .expect(200)
+  //     .end(function(error){
+  //       if(error) { throw error; }
+  //       done();
+  //     });
+  // });
 
 
 
