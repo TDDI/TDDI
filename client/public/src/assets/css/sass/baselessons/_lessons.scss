@@ -54,46 +54,70 @@
   opacity: 0.9;
   height: 40%;
   width: 100%;
-  border: 3px solid #000000;
+  border: 1px solid #000000;
   position: relative;
 }
 
 .response-container {
   background-color: transparent;
-  overflow: auto;
   position: relative;
   height: 15%;
   min-height: 3.7em;
   border-radius: 0;
   border-width: 0;
 
-  ul {
-    // border-radius: 2px;
-    // border-right: 3px solid black;
-    // border-top: 3px solid black;
-    width: 60%;
-    z-index: 5;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+}
 
-    padding-left: 1em;
+
+.showActualResponseBox  {
+background-color: #c44117;
+width: 60%;
+opacity: 0.8;
+margin-left: 80px;
+margin-top: 5px;
+z-index: 1;
+height: 15%;
+min-height: 4em;
+overflow: auto;
+padding: 5px;
+font-style: italic;
+ border: 3px solid;
+ border-color: red;
+
+
+  ul {
+      // border-radius: 2px;
+      // border-right: 3px solid black;
+      // border-top: 3px solid black;
+      width: 60%;
+      z-index: 5;
+      // position: absolute;
+      // bottom: 0;
+      left: 0;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      padding-left: 1em;
   }
-  .error {
+
+
+
+.error {
+    overflow: auto;
     opacity: 0.8;
-    background-color: #ffb732;
-    color: red;
+    // background-color: #ffb732;
+    color: white;
     border-radius: 5px;
     border-color: red;
     border-width: 5px;
+    margin-left: 20%;
+
   }
-  .success {
+.success {
     background-color: green;
     color: white;
   }
+
 }
 
 .codearea {
@@ -102,10 +126,13 @@
 
 .submit-container {
   float: right;
+  width: 17%;
+
 }
 
 .submit-code {
   margin: 0.5em;
+ 
 }
 
 .submit-next {
