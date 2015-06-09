@@ -6,3 +6,4 @@ build
 **/assets/lib/jquery
 npm-debug.log
 client/public/src/assets/css/main.css
+server/oauth.js
