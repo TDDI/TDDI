@@ -40,7 +40,6 @@ var Lesson = React.createClass({
   },
 
   nextSection: function( ) {
-    console.log(this.props.currentSection, this.props.sectionList.length-1);
     if(this.props.currentSection === this.props.sectionList.length-1){
       window.location.hash = "#selector";
     }
