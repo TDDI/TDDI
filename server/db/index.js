@@ -68,8 +68,8 @@ sequelize.sync({force:true}).then(function () {
       })
     },
     {lesson_id:'1', section_id: '2', sectionName: "Don't paws",
-      content:"You got spunk, kid. Alright. Heres a harder test.\n\
-      You have a variable in your scope called \"Tree\". It is a pseudo-clasical Tree object with an addChild method and you need to make sure it doesn't suck",
+      content:"You got spunk, kid. Alright. Here's a harder test.\n\
+      You have a variable in your scope called \"Tree\". It is a pseudo-classical Tree object with an addChild method and you need to make sure it isn't terrible.",
       code:defunc(function(){
 var tree = new Tree();
 expect(tree).to.have.property('addChild');
