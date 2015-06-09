@@ -15,11 +15,15 @@ var ContentPanel = require('./ContentPanel');
 var CodeResponseBox = require('./CodeResponseBox.react');
 
 
+var codeEval = require('../codeEval');
+
 var Lesson = React.createClass({
   getInitialState: function( ){
+    
     return {
       currentUser: "Krazy Kurt",
       codeResponse: [],
+      codeboxResponseClass: '',
       codeResponseStatusClass: 'success'
     }
   },
@@ -37,6 +41,13 @@ var Lesson = React.createClass({
     var newSection = this.props.currentSection+val;
     newSection = Math.max( min, Math.min(max, newSection) );
     window.location.hash = "#lesson/" +this.props.currentLesson+ "/section/" +newSection;
+    
+    this.setState({
+      codeResponse: [],
+      codeboxResponseClass: '',
+      codeResponseStatusClass: 'success'
+    });
+
   },
 
   nextSection: function( ) {
@@ -67,11 +78,13 @@ var Lesson = React.createClass({
 
         this.setState({ 
           codeResponse: codeResponse,
+            codeboxResponseClass: 'showActualResponseBox',
           codeResponseStatusClass: 'error'
         });
       } else {
         this.setState({ 
           codeResponse: ["Success!"], 
+            codeboxResponseClass: 'showActualResponseBox',
           codeResponseStatusClass: 'success'
         });          
         console.log( "It worked!", response.result );
@@ -89,6 +102,7 @@ var Lesson = React.createClass({
 
         this.setState({ 
           codeResponse: codeResponse,
+           codeboxResponseClass: 'showActualResponseBox',
           codeResponseStatusClass: 'error'
         });
       } else {
@@ -167,7 +181,9 @@ var Lesson = React.createClass({
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
               </div>
               <CodeResponseBox
+
                 codeResponseStatusClass = { this.state.codeResponseStatusClass }
+                  codeboxResponseClass = {this.state.codeboxResponseClass}
                 responses = { this.state.codeResponse } 
                 />
             </div>

@@ -19,6 +19,7 @@ if(process.env.DATABASE_URL){
   });
 }
 
+//database schema
 var User = sequelize.define('User', {
   user_id: Sequelize.INTEGER,
   username: Sequelize.STRING
@@ -26,7 +27,8 @@ var User = sequelize.define('User', {
 
 var Lesson = sequelize.define('Lesson', {
   lesson_id: Sequelize.INTEGER,
-  lessonName: Sequelize.STRING
+  lessonName: Sequelize.STRING,
+  active: Sequelize.INTEGER
 });
 
 var Section = sequelize.define('Section', {
@@ -37,19 +39,20 @@ var Section = sequelize.define('Section', {
   preOp: Sequelize.TEXT,
   postOp: Sequelize.TEXT,
   lesson_id: Sequelize.INTEGER,
+  active: Sequelize.INTEGER
 });
 
 
-
+initializing databases and bulkCreates dummy data
 if(process.env.DATABASE_URL){
   sequelize.sync();
 } else {
-sequelize.sync({force:true}).then(function () {
-  User.bulkCreate([
-    {user_id:'1234',username:'stephen'},
-    {user_id:'3654',username:'klay'},
-    {user_id:'5436',username:'bogut'}
-    ]);
+  sequelize.sync({force:true}).then(function () {
+    User.bulkCreate([
+      {user_id:'1234',username:'stephen'},
+      {user_id:'3654',username:'klay'},
+      {user_id:'5436',username:'bogut'}
+      ]);
 
   Lesson.bulkCreate([
     {lesson_id: '1', lessonName:'Bear Testables'},
