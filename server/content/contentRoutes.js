@@ -2,41 +2,29 @@ var contentController = require('./contentController.js');
 
 module.exports = function(app){
 
+	//middleware catching lesson pages and setting it as a prop on req
 	app.param('lesson', function(req, res, next, lesson){
-		//sanity check that lesson is right?
-		// console.log('lesson1:',lesson);
 		req.lesson = lesson;
-		// console.log('req.lesson1:', req.lesson);
 		next();
 	});
-
+	//middleware catching section pages and setting it as a prop on req
 	app.param('section', function(req, res, next, section){
-		//sanity check that lesson is right?
-		// console.log('section1:',section);
 		req.section = section;
-		// console.log('req.section1:', req.section);
 		next();
 	});
 
+	//routes for lessons request
 	app.get('/',contentController.getLessons);
 	app.post('/',contentController.createLessons);
 	app.put('/',contentController.updateLessons);
+	app.get('/:lesson', contentController.findLessonInfo);
 
+	//routes for sections requests
 	app.get('/:lesson/section',contentController.getSectionsInLesson);
 	app.post('/:lesson/section',contentController.createSectionsInLessons);
 	app.put('/:lesson/section',contentController.updateSectionsInLessons);
-
-	app.get('/:lesson', 
-		contentController.findLessonInfo);
-	app.get('/:lesson/section/:section', 
-		contentController.findSectionInfo);
-
-
-
-
+	app.get('/:lesson/section/:section', contentController.findSectionInfo);
 };
-
-
 
 
 // app.param('user_id', function(req, res, next, user_id) {
