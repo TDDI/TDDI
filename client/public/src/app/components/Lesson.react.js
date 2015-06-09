@@ -23,9 +23,6 @@ var Lesson = React.createClass({
       codeResponseStatusClass: 'success'
     }
   },
-  componentWillMount: function( ) {
-    SECTIONCHANGE = this.sectionChange.bind(this);
-  },
   updateCode: function(newCode) {
     var sectionData = this.props.sectionData[this.props.currentSection];
     //if the section data exists
@@ -34,11 +31,18 @@ var Lesson = React.createClass({
       sectionData.code = newCode;
   },
 
-  changeSection: function( val ){
+  changeSection: function( val ) {
     var min = 0, max = this.props.sectionList.length-1;
     var newSection = this.props.currentSection+val;
     newSection = Math.max( min, Math.min(max, newSection) );
     window.location.hash = "#lesson/" +this.props.currentLesson+ "/section/" +newSection;
+  },
+
+  nextSection: function( ) {
+    if(this.props.currentSection === this.props.sectionList.length-1)
+      this.location.hash = "";
+    else
+      this.changeSection(1);
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
