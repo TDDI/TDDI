@@ -45,7 +45,6 @@ describe('The server', function() {
       });
   });
 
-
   // it('returns a 200 status code on get request to lesson', function(done){
   //   stest(server)
   //     .get('/api/lesson/')
@@ -96,7 +95,7 @@ describe('The server', function() {
   //     });
   // });
 
-  //   it('returns a 200 status code on get request to lesson 1 section 1', function(done){
+  //   it('returns a 200 status code on get request to lesson 1 section 2', function(done){
   //   stest(server)
   //     .get('/api/lesson/1/section/2')
   //     .expect(200)
@@ -105,11 +104,12 @@ describe('The server', function() {
   //       done();
   //     });
   // });
-    
-  // it('returns a 200 status code on post request to lesson', function(done){
+  
+
+  // it('returns a 200 status code on put request to section', function(done){
   //   var testPackage = '{"lesson":"12","lessonName":"lesson12"}';
   //   stest(server)
-  //     .post('/api/lesson')
+  //     .put('/api/lesson/1')
   //     .send(testPackage)
   //     .expect(200)
   //     .end(function(error){
@@ -175,10 +175,6 @@ describe('The server', function() {
   // });
   
   
- 
-
-
-
 });
 
 
