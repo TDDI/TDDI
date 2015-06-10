@@ -28,7 +28,9 @@ onmessage = function(e) {
   //setup test function
   var test = function( scope ){
     //inject the args into the scope.
-    for(var key in scope){ eval( key+'='+scope[key]+';' ); }
+    for(var key in scope){
+      eval( key+'=scope[key];' );
+    }
     return (function( ){
       //mask some variables
       var failureCases =undefined;
@@ -72,7 +74,7 @@ onmessage = function(e) {
       if(!response){
         error  = failureCase.failMessage;
         for(var key in failureCase.scope){
-          error += "\n  '" + key + "':" + failureCase.scope[key].toString();
+          error += "\n  '" + key + "':" + failureCase.scope[key];
         }
         break;
       }
