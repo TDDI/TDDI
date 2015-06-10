@@ -4,6 +4,7 @@ var Main = React.createClass({
 
   render: function() {
     var self = this;
+
     return (
     <span className="loginContainer" style = {{ display: self.props.overlayState }}>
       <div className="loginoverlay">

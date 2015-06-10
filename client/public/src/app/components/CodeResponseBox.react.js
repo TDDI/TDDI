@@ -10,7 +10,7 @@ var CodeResponseBox = React.createClass({
     var rows = this.props.responses.map(function(response, i){
       return <CodeResponse data={response} key={i} />
     });
-    return <div className={this.props.codeboxResponseClass}><ul className={this.props.codeResponseStatusClass}>{rows}</ul></div>
+    return <div className={this.props.codeboxResponseClass + " resizable"}><ul className={this.props.codeResponseStatusClass}>{rows}</ul></div>
   }
 });
 

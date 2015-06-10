@@ -13,7 +13,7 @@ var codeEval = require('../codeEval');
 var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 var CodeResponseBox = require('./CodeResponseBox.react');
-
+var LessonOverlay = require('./LessonOverlay');
 
 var codeEval = require('../codeEval');
 
@@ -28,8 +28,13 @@ var Lesson = React.createClass({
         status: "on",
         width: "13em",
         liDisplay: "block",
-        lessonMargin: "14em"
+        lessonMargin: "14em",
+        buttonIcon: "«"
       },
+      successOverlay: {
+        animation: "LessonAnimate",
+        // visibility: "off"        
+      }
     }
   },
   updateCode: function(newCode) {
@@ -71,7 +76,8 @@ var Lesson = React.createClass({
         status: "off",
         width: "2em",
         liDisplay: "none",
-        lessonMargin: "3em"
+        lessonMargin: "3em",
+        buttonIcon: "»"
       }})
     } else if (toC.status === "off") {
       this.setState({tableOfContentsState: {
@@ -79,9 +85,26 @@ var Lesson = React.createClass({
         width: "13em",
         liDisplay: "block",
         lessonMargin: "14em",
-        buttonIcon: "&#187"
+        buttonIcon: "«"
       }})
     } 
+  },
+
+  triggerSuccess: function() {
+    that = this;
+    that.setState({
+      successOverlay: {
+        // visiblity: " ",
+        animation: " "
+      }
+    })
+  },
+  closeSuccess: function() {
+    this.setState({
+      successOverlay: {
+        animation: "off"
+      }
+    })
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
@@ -186,8 +209,9 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
+      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } />
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
-          <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>»</button>
+          <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
             <ul>
               { sectionList }
             </ul>
@@ -205,6 +229,8 @@ var Lesson = React.createClass({
               <div className="submit-container">
                 <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
+                <button onClick = { this.triggerSuccess } className = "btn btn-default winbutton"> YOU ARE WINNER </button>
+
               </div>
               <CodeResponseBox
 
