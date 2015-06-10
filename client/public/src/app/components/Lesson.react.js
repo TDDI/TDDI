@@ -23,8 +23,13 @@ var Lesson = React.createClass({
     return {
       currentUser: "Krazy Kurt",
       codeResponse: [],
-      codeboxResponseClass: '',
-      codeResponseStatusClass: 'success'
+      codeResponseStatusClass: 'success',
+      tableOfContentsState: {
+        status: "on",
+        width: "13em",
+        liDisplay: "block",
+        lessonMargin: "14em"
+      },
     }
   },
   updateCode: function(newCode) {
@@ -57,6 +62,26 @@ var Lesson = React.createClass({
     else {
       this.changeSection(1);
     }
+  },
+
+  toggleTableOfContents: function() {
+    var toC = this.state.tableOfContentsState;
+    if(toC.status === "on"){
+      this.setState({tableOfContentsState: {
+        status: "off",
+        width: "2em",
+        liDisplay: "none",
+        lessonMargin: "3em"
+      }})
+    } else if (toC.status === "off") {
+      this.setState({tableOfContentsState: {
+        status: "on",
+        width: "13em",
+        liDisplay: "block",
+        lessonMargin: "14em",
+        buttonIcon: "&#187"
+      }})
+    } 
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
@@ -149,7 +174,7 @@ var Lesson = React.createClass({
       var callback = (function( sectionName, sectionIndex ){
         return (
           <a href={ path + sectionIndex } >
-            <li key={ sectionIndex }>
+            <li key={ sectionIndex } style= { { display: this.state.tableOfContentsState.liDisplay } }>
               {sectionName}
             </li>
           </a>
@@ -161,12 +186,13 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
-          <div className = "TableOfContentsContainer">
+          <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
+          <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>»</button>
             <ul>
               { sectionList }
             </ul>
           </div>
-          <div className = "LessonContainer">
+          <div className = "LessonContainer" style= { { marginLeft: this.state.tableOfContentsState.lessonMargin } }>
             <ContentPanel contents = { content } />
             <div className = "CodeBoxContainer">
               <CodeMirror
