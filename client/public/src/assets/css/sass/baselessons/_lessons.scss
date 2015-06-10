@@ -9,17 +9,30 @@
 .TableOfContentsContainer {
   border: $custom-border-setting;
   border-radius: $custom-border-radius;
-
+  // font-size: 0.5em;
   background-color: $custom-background-color;
   opacity: $custom-background-opacity;
 
-  font-family: 'Fredericka the Great', sans-serif;
   height: 100%;
   width: 13em;
   float:left;
+  // width: 2em;
+
+  .closePanel {
+    float: right;
+    position: relative;
+    background-color: gray;
+    z-index: 100;
+    color: white;
+    font-size: 2em;
+    margin: 0;
+    padding: 3px;
+  }
 
   li {
     list-style:none;
+    // display: none;
+    // display: block;
     text-align: center;
     color: white;
     font-size: 20px;
@@ -31,7 +44,8 @@
 
     height: 100%;
     min-width: 30em;
-    margin-left: 14em;
+    // margin-left: 14em;
+    // margin-left: 3em;
 
     .ContentContainer {
       border: $custom-border-setting;
