@@ -3,6 +3,7 @@ About 7-11 sections
 An Embearassing Situation
     Invoke a function that is untested, causing bad stuff.
 
+Pawing through the Rubble
 The 5 Tenets of Unit Testing
   Test only one thing
   Fast and simple
@@ -18,15 +19,15 @@ The 5 Tenets of Unit Testing
     1 section writing a test from scratch
 
 What is it?
-  (shit goes down)
-  Part 1 
+  (identifying your surroundings in a dangerous environment)
+  Part 1 - Identifying Your Surroundings
     aString
       expect(aString).to.be.a('string');
     aFunction
     aNumber
     anObject // USE STEVE
     anArray
-  Part 2
+  Part 2 - Identify Basics on Your Own
     headline
       expect(aString).to.be.a('string');
     temperature
@@ -37,7 +38,7 @@ What is it?
 What does it return?
   (building a survival camp)
   You need to make sure that each of these functions return what they are supposed to return
-  Part 1
+  Part 1 - What Are You Getting Out of This?
     getName
       expect( getName() ).to.equal('steve');
     getDouble
@@ -48,7 +49,7 @@ What does it return?
       expect( isFoodSafeToEat('salmon') ).to.be.true;
     gnawLegOffToSurvive
       expect( gnawLegOffToSurvive() ).to.be('leg');
-  Part 2
+  Part 2 - What We Get in Return
     isElectricFenceActive
       expect( isElectricFenceActive() ).to.be.true;
       //isFoodEnough(bears, food, days)
