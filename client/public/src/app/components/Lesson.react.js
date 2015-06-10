@@ -31,6 +31,10 @@ var Lesson = React.createClass({
         lessonMargin: "14em",
         buttonIcon: "«"
       },
+      successOverlay: {
+        animation: "LessonAnimate",
+        // visibility: "off"        
+      }
     }
   },
   updateCode: function(newCode) {
@@ -84,6 +88,23 @@ var Lesson = React.createClass({
         buttonIcon: "«"
       }})
     } 
+  },
+
+  triggerSuccess: function() {
+    that = this;
+    that.setState({
+      successOverlay: {
+        // visiblity: " ",
+        animation: " "
+      }
+    })
+  },
+  closeSuccess: function() {
+    this.setState({
+      successOverlay: {
+        animation: "off"
+      }
+    })
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
@@ -188,7 +209,7 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
-      <LessonOverlay />
+      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } />
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
           <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
             <ul>
@@ -208,6 +229,8 @@ var Lesson = React.createClass({
               <div className="submit-container">
                 <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
+                <button onClick = { this.triggerSuccess } className = "btn btn-default winbutton"> YOU ARE WINNER </button>
+
               </div>
               <CodeResponseBox
 

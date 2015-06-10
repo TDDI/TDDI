@@ -24,4 +24,21 @@
   // -webkit-box-shadow:0 0 20px green; 
   // -moz-box-shadow: 0 0 20px green; 
   // box-shadow:0 0 20px green;
+
+  // transition: width 1s;
+  // transition: height 1s;
+  // transition: opacity 1s;
+   transition: all 1s;
+
+}
+
+.LessonAnimate {
+  opacity: 0.1;
+  width: 95%;
+  height: 25%;
+  left: 0%;
+}
+
+.off {
+  display: none;
 }
