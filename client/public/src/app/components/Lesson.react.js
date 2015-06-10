@@ -13,7 +13,7 @@ var codeEval = require('../codeEval');
 var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 var CodeResponseBox = require('./CodeResponseBox.react');
-
+var LessonOverlay = require('./LessonOverlay');
 
 var codeEval = require('../codeEval');
 
@@ -28,7 +28,8 @@ var Lesson = React.createClass({
         status: "on",
         width: "13em",
         liDisplay: "block",
-        lessonMargin: "14em"
+        lessonMargin: "14em",
+        buttonIcon: "«"
       },
     }
   },
@@ -71,7 +72,8 @@ var Lesson = React.createClass({
         status: "off",
         width: "2em",
         liDisplay: "none",
-        lessonMargin: "3em"
+        lessonMargin: "3em",
+        buttonIcon: "»"
       }})
     } else if (toC.status === "off") {
       this.setState({tableOfContentsState: {
@@ -79,7 +81,7 @@ var Lesson = React.createClass({
         width: "13em",
         liDisplay: "block",
         lessonMargin: "14em",
-        buttonIcon: "&#187"
+        buttonIcon: "«"
       }})
     } 
   },
@@ -186,8 +188,9 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
+      <LessonOverlay />
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
-          <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>»</button>
+          <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
             <ul>
               { sectionList }
             </ul>

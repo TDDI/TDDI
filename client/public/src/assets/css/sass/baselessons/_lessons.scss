@@ -44,8 +44,6 @@
 
     height: 100%;
     min-width: 30em;
-    // margin-left: 14em;
-    // margin-left: 3em;
 
     .ContentContainer {
       border: $custom-border-setting;
@@ -54,7 +52,8 @@
       background-color: $custom-background-color;
       opacity: $custom-background-opacity;
 
-      min-height: 45%;
+      // min-height: 25%;
+      height: 45%;
       width: 100%;
       color: white;
       padding: 1em;
@@ -91,22 +90,15 @@ margin-left: 80px;
 margin-top: 5px;
 z-index: 1;
 height: 15%;
-min-height: 4em;
+min-height: 4.25em;
 overflow: auto;
 padding: 5px;
-font-style: italic;
  border: 3px solid;
  border-color: red;
 
 
   ul {
-      // border-radius: 2px;
-      // border-right: 3px solid black;
-      // border-top: 3px solid black;
-      width: 60%;
       z-index: 5;
-      // position: absolute;
-      // bottom: 0;
       left: 0;
       list-style-type: none;
       padding: 0;
@@ -124,7 +116,7 @@ font-style: italic;
     border-radius: 5px;
     border-color: red;
     border-width: 5px;
-    margin-left: 20%;
+    // margin-left: 20%;
 
   }
 .success {
