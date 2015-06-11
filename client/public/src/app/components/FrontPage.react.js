@@ -15,7 +15,7 @@ var FrontPage = React.createClass({
           </div>
 
           <div className="col-md-3 splashquickstart">
-          <a href="/#lesson"><img src="http://i.imgur.com/NPluqP5.png?1"></img></a>
+          <a href="/#lesson"><img src="https://i.imgur.com/NPluqP5.png?1"></img></a>
           <a className="btn btn-info lessonSelectRedirect" href="/#selector">Or Check Out <br />Our Lessons</a>
           </div>
       </section>

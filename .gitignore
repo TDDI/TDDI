@@ -1,9 +1,8 @@
 node_modules
-dist
-build
+client/public/dist
 .DS_Store
-**/assets/lib/bootstrap
-**/assets/lib/jquery
+client/public/src/assets/lib/jquery
+client/public/src/assets/lib/bootstrap
 npm-debug.log
 client/public/src/assets/css/main.css
 server/oauth.js
