@@ -22,7 +22,7 @@ module.exports = [
   {
     lesson_id: '1',
     section_id: '2',
-    sectionName: 'Section 2 Part 1',
+    sectionName: 'Pawing Through The Rubble',
     content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
     code: defunc(function() {
       expect(aString).to.be.a( /*type of*/ );
@@ -81,11 +81,72 @@ module.exports = [
       }];
     })
   },
-
   {
     lesson_id: '1',
     section_id: '3',
-    sectionName: 'Section 2 Part 2',
+    sectionName: 'Get Your Bearings',
+    content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
+    code: defunc(function() {
+      expect(aString).to.be.a( /*type of*/ );
+      expect(aFunction).to.be.a( /*type of*/ );
+      expect(aNumber).to.be.a( /*type of*/ );
+      expect(aBoolean).to.be.a( /*type of*/ );
+      expect(anObject).to.be.a( /*type of*/ );
+      expect(anArray).to.be.a( /*type of*/ );
+    }),
+    preOp: defunc(function() {
+      successCases = [{
+        failMessage: "",
+        scope: {
+          aString: "dangerous levels of radioactivity detected",
+          aFunction: function() {
+              undefined();
+          },
+          aNumber: Infinity,
+          aBoolean: false,
+            anObject: {
+                name: 'steve'
+            },
+            anArray: [0, 1, 2, 3, 4, 5]
+          }
+      }];
+      failureCases = [{
+        failMessage: "Must check to see if aString is actually a string",
+        scope: {
+          aString: undefined
+        }
+      }, {
+        failMessage: "Must check to see if aFunction is actually a function",
+        scope: {
+          aFunction: undefined
+        }
+      }, {
+        failMessage: "Must check to see if aNumber is actually a number",
+        scope: {
+          aNumber: undefined
+        }
+      }, {
+        failMessage: "Must check to see if aBoolean is actually a boolean",
+        scope: {
+          aBoolean: undefined
+        }
+      }, {
+        failMessage: "Must check to see if anObject is actually an object",
+        scope: {
+          anObject: undefined
+        }
+      }, {
+        failMessage: "Must check to see if anArray is actually an array",
+        scope: {
+          anArray: undefined
+        }
+      }];
+    })
+  },
+  {
+    lesson_id: '1',
+    section_id: '4',
+    sectionName: 'Identify the Bare Necessities',
     content: "You have more things to test. Don't be afraid to submit your incomplete tests. You will be given awesome feedback to help guide you.",
     code: defunc(function() { /* no code for you */ }),
     preOp: defunc(function() {
@@ -138,9 +199,9 @@ module.exports = [
     })
   },
   {
-    lesson_id: '2',
-    section_id: '1',
-    sectionName: 'Bear with me',
+    lesson_id: '1',
+    section_id: '5',
+    sectionName: 'Testing Grizzly Outcomes',
     content: "You suck at coding because you don't test. You will now test and be good at coding.\n\
   You have a variable named \"honey\" and you need to write a test to see if it is equal to 5.",
     code: 'expect(honey).to.equal(/*put 5 here*/);',
@@ -160,9 +221,9 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '2',
-    section_id: '2',
-    sectionName: "Don't paws",
+    lesson_id: '1',
+    section_id: '6',
+    sectionName: "Finding Pawsible Returns",
     content: "You got spunk, kid. Alright. Here's a harder test.\n\
   You have a variable in your scope called \"Tree\". It is a pseudo-classical Tree object with an addChild method and you need to make sure it isn't terrible.",
     code: defunc(function() {
@@ -254,9 +315,9 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '2',
-    section_id: '3',
-    sectionName: "Making testing bearable",
+    lesson_id: '1',
+    section_id: '7',
+    sectionName: "They Come Bearing Gifts",
     content: "Try not to break this code. please.<br>\
   You have a variable in your scope called \"Stack\". It is a pseudo-clasical Stack object. You know whats up. Get to it.",
     code: defunc(function() { //TODO: write tests for Stack
@@ -342,9 +403,9 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '2',
-    section_id: '4',
-    sectionName: "Bear your soul to testing",
+    lesson_id: '1',
+    section_id: '8',
+    sectionName: "Checking Koalafications",
     content: "You have a variable in your scope called \"MakeLinkedList\". It is something, idk. You figure it out. Stop making me do your job.",
     code: defunc(function() { //TODO: write tests for MakeLinkedList
 
@@ -421,9 +482,9 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '2',
-    section_id: '5',
-    sectionName: "(Insert bear pun)",
+    lesson_id: '1',
+    section_id: '9',
+    sectionName: "Controlling the Pandamonium",
     content: "blah blah blah blah MakeQueue Blah blah",
     code: defunc(function() { //TODO: write tests for MakeQueue
 
@@ -479,9 +540,9 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '2',
-    section_id: '6',
-    sectionName: "I'm hungry. I skipped lunch.",
+    lesson_id: '1',
+    section_id: '10',
+    sectionName: "Berry Dangerous Side Effects",
     content: "Given an array of numbers, the sumArray function will calculate the greatest contiguous sum of numbers in it. A single array item will count as a contiguous sum. Test it, brah.",
     code: defunc(function() { //TODO: write tests for sumArray
 

@@ -16,6 +16,7 @@
   height: 100%;
   width: 13em;
   float:left;
+  overflow: auto;
   // width: 2em;
 
   .closePanel {
@@ -35,7 +36,7 @@
     // display: block;
     text-align: center;
     color: white;
-    font-size: 20px;
+    font-size: 1em;
     margin: 10px;
   }
 }
@@ -86,7 +87,7 @@
 background-color: #c44117;
 width: 60%;
 opacity: 0.8;
-margin-left: 80px;
+margin-left: 1em;
 margin-top: 5px;
 z-index: 1;
 height: 15%;
@@ -132,7 +133,6 @@ padding: 5px;
 
 .submit-container {
   float: right;
-  width: 17%;
 
 }
 
