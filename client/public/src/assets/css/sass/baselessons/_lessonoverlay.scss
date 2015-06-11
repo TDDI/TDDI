@@ -1,44 +1,53 @@
 .LessonOverlay {
   background-color: #007f00;
-  color: white;
   position: absolute;
-
+  color: white;
 
   top: 35%;
-  left: 25%;
+  // left: 25%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 
   width: 50%;
-  height: 20%;
+  height: 30%;
   z-index: 11;
   text-align: center;
-  padding-top: 0.5em;
+  // padding-top: 0.5em;
   font-size: 2em;
 
   border-width: 1em;
   border-radius: 0.25em;
   border-color: white;
-
+  z-index: 5;
   opacity: 0.9;
-
   // -webkit-box-shadow:0 0 20px green; 
   // -moz-box-shadow: 0 0 20px green; 
   // box-shadow:0 0 20px green;
 
-  // transition: width 1s;
-  // transition: height 1s;
-  // transition: opacity 1s;
-   transition: all 1s;
+  transition: width 0.5s, height 0.5s, opacity 1.5s, color 2s, top 0.5s;
 
 }
 
 .LessonAnimate {
   opacity: 0.0;
-  margin-left: 10%;
   width: 80%;
-  height: 25%;
-  left: 0%;
+  height: 80%;
+  top:10%;
+  color: green;
 }
 
 .off {
-  display: none;
+  z-index: -100;
+}
+
+.Notification {
+  margin: 0.5em;
+}
+.closeWindow {
+  float: right;
+  font-size: 0.75em;
+  background-color: transparent;
+  border-width: 0;
 }

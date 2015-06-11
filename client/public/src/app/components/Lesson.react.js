@@ -19,7 +19,7 @@ var codeEval = require('../codeEval');
 
 var Lesson = React.createClass({
   getInitialState: function( ){
-    console.log('gotinitialsate',this.props.successDatabaseResponse);
+    console.log('gotinitialstate',this.props.successDatabaseResponse);
     return {
       currentUser: "Krazy Kurt",
       codeResponse: [],
@@ -32,11 +32,11 @@ var Lesson = React.createClass({
         buttonIcon: "«"
       },
       successOverlay: {
-        animation: "LessonAnimate",
-        // visibility: "off"        
-      },
 
-    };
+        animation: "LessonAnimate",
+        visibility: "off"        
+      }
+    }
   },
 
   updateCode: function(newCode) {
@@ -92,20 +92,19 @@ var Lesson = React.createClass({
       }})
     } 
   },
-
-  triggerSuccess: function() {
-    that = this;
-    that.setState({
-      successOverlay: {
-        // visiblity: " ",
-        animation: " "
-      }
-    })
-  },
-  closeSuccess: function() {
+  fadeIn: function(){
     this.setState({
       successOverlay: {
-        animation: "off"
+        visibility: " ",
+        animation: " "
+      }
+    });
+  },
+  closeSuccess: function(){
+    this.setState({
+      successOverlay: {
+        animation: "LessonAnimate",
+        visibility: "off"
       }
     })
   },
@@ -232,7 +231,7 @@ var Lesson = React.createClass({
               <div className="submit-container">
                 <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
-                <button onClick = { this.triggerSuccess } className = "btn btn-default winbutton"> YOU ARE WINNER </button>
+                <button onClick = { this.fadeIn } className = "btn btn-default winbutton"> YOU ARE WINNER </button>
 
               </div>
               <CodeResponseBox

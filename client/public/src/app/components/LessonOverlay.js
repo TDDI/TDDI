@@ -7,7 +7,7 @@ var LessonOverlay = React.createClass({
 
     return (
       <div className= { "LessonOverlay " + this.props.successOverlay.animation + " " + this.props.successOverlay.visibility }>
-      <button onClick={ this.props.closeSuccess } >Close dis sheet</button>
+      <button className = "closeWindow" onClick={ this.props.closeSuccess } >X</button>
       <div className="Notification">
         {this.props.successDatabaseResponse}
       </div>
