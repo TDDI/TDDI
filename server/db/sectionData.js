@@ -5,14 +5,20 @@ module.exports = [
     lesson_id: '1',
     section_id: '1',
     sectionName: 'An Embearassing Situation',
-    content: "You are a bear and you got a job as a software enginar at a power plant. Call this function. Its safe. I promise.",
-    code: 'fn();',
+    content: "Congratulations Teddi McMahon, you are the newest employee at "+
+             "BLASTCO, the largest thermonuclear plant in Urzastan. It's your " +
+             "first day on the job. Your supervisor is out getting coffee and " +
+             "some chocolate bear claws, so it's time to impress him! According " +
+             "to the manual you found, it looks like the start function needs " +
+             "to be called. Hand-scribbled notes say to put a 500 into the start " + 
+             "function. You should hurry before your boss comes back.",
+    code: 'start();',
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
         scope: {
-          fn: function() {
-            console.log("nuclear launch detected");
+          start: function(tonsOfUranium) {
+            console.log("Nuclear meltdown imminent!");
           }
         }
       }];
@@ -23,7 +29,69 @@ module.exports = [
     lesson_id: '1',
     section_id: '2',
     sectionName: 'Pawing Through The Rubble',
-    content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
+    content: "Managing to survive the explosion, you sit in the rubble of your " +
+             "ruined facility. Sifting through the rubble, you find a manuscript " +
+             "about unit testing. According to this book, not testing your code leads to " +
+             "unexpected side effects...\n Having lived through the most major of " +
+             "side effects, it is your responsibility to make sure it doesn't happen" +
+             "again. You have to rebuild the world... with TDD. First, it would be " +
+             "good to familiarize yourself with the tenets of unit testing" +
+             "1. Test only one thing\n" +
+             "2. Make tests fast and simple\n" +
+             "3. Tests should be repeatable with no side effects\n" +
+             "4. Nothing should be hardcoded\n" +
+             "5. Provide verbose and concise feedback \n",
+    code: defunc(function() {
+// expect(rule1).to.be.equal( /*First Rule*/ );
+// expect(rule2).to.be.equal( /*Second Rule*/ );
+// expect(rule3).to.be.equal( /*Third Rule*/ );
+// expect(rule4).to.be.equal( /*Fourth Rule*/ );
+// expect(rule5).to.be.equal( /*Fifth Rule*/ );
+}),
+    preOp: defunc(function() {
+      successCases = [{
+        failMessage: "",
+        scope: {
+          rule1: "Test one thing",
+          rule2: "Fast and simple",
+          rule3: "Repeatable",
+          rule4: "No hardcoding",
+          rule5: "Provide concise feedback"
+        }
+      }];
+      failureCases = [{
+        failMessage: "must test to see if rule1 is set correctly",
+        scope: {
+          rule1: undefined
+        }
+      }, {
+        failMessage: "must test to see if rule2 is set correctly",
+        scope: {
+          rule2: undefined
+        }
+      }, {
+        failMessage: "must test to see if rule3 is set correctly",
+        scope: {
+          rule3: undefined
+        }
+      }, {
+        failMessage: "must test to see if rule4 is set correctly",
+        scope: {
+          rule4: undefined
+        }
+      }, {
+        failMessage: "must test to see if rule5 is set correctly",
+        scope: {
+          rule5: undefined
+        }
+      }];
+    })
+  },
+  {
+    lesson_id: '1',
+    section_id: '3',
+    sectionName: 'Get Your Bearings',
+    content: "Get a bearing on what your surroundings actually are.",
     code: defunc(function() {
 // expect(aString).to.be.a( /*type of*/ );
 // expect(aFunction).to.be.a( /*type of*/ );
@@ -83,9 +151,9 @@ module.exports = [
   },
   {
     lesson_id: '1',
-    section_id: '3',
-    sectionName: 'Get Your Bearings',
-    content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
+    section_id: '4',
+    sectionName: 'Identify the Bare Necessities',
+    content: "Teddi needs to find ",
     code: defunc(function() {
 /* no code for you */
 }),
@@ -140,8 +208,8 @@ module.exports = [
   },
   {
     lesson_id: '1',
-    section_id: '4',
-    sectionName: 'Identify the Bare Necessities',
+    section_id: '5',
+    sectionName: 'Testing Grizzly Outcomes',
     content: "You have more things to test. Don't be afraid to submit your incomplete tests. You will be given awesome feedback to help guide you.",
     code: defunc(function() { /* no code for you */ }),
     preOp: defunc(function() {
@@ -195,8 +263,8 @@ module.exports = [
   },
   {
     lesson_id: '1',
-    section_id: '5',
-    sectionName: 'Testing Grizzly Outcomes',
+    section_id: '6',
+    sectionName: 'Finding Pawsible Returns',
     content: "You suck at coding because you don't test. You will now test and be good at coding.\n\
   You have a variable named \"honey\" and you need to write a test to see if it is equal to 5.",
     code: 'expect(honey).to.equal(/*put 5 here*/);',
@@ -217,8 +285,8 @@ module.exports = [
   }, 
   {
     lesson_id: '1',
-    section_id: '6',
-    sectionName: "Finding Pawsible Returns",
+    section_id: '7',
+    sectionName: "They Come Bearing Gifts",
     content: "You got spunk, kid. Alright. Here's a harder test.\n\
   You have a variable in your scope called \"Tree\". It is a pseudo-classical Tree object with an addChild method and you need to make sure it isn't terrible.",
     code: defunc(function() {
@@ -311,8 +379,8 @@ module.exports = [
   }, 
   {
     lesson_id: '1',
-    section_id: '7',
-    sectionName: "They Come Bearing Gifts",
+    section_id: '8',
+    sectionName: "Checking Koalafications",
     content: "Try not to break this code. please.<br>\
   You have a variable in your scope called \"Stack\". It is a pseudo-clasical Stack object. You know whats up. Get to it.",
     code: defunc(function() { //TODO: write tests for Stack
@@ -399,8 +467,8 @@ module.exports = [
   }, 
   {
     lesson_id: '1',
-    section_id: '8',
-    sectionName: "Checking Koalafications",
+    section_id: '9',
+    sectionName: "Controlling the Pandamonium",
     content: "You have a variable in your scope called \"MakeLinkedList\". It is something, idk. You figure it out. Stop making me do your job.",
     code: defunc(function() { //TODO: write tests for MakeLinkedList
 
@@ -478,8 +546,8 @@ module.exports = [
   }, 
   {
     lesson_id: '1',
-    section_id: '9',
-    sectionName: "Controlling the Pandamonium",
+    section_id: '10',
+    sectionName: "Berry Dangerous Side Effects",
     content: "blah blah blah blah MakeQueue Blah blah",
     code: defunc(function() { //TODO: write tests for MakeQueue
 
@@ -535,8 +603,8 @@ module.exports = [
     })
   }, 
   {
-    lesson_id: '1',
-    section_id: '10',
+    lesson_id: '2',
+    section_id: '11',
     sectionName: "Berry Dangerous Side Effects",
     content: "Given an array of numbers, the sumArray function will calculate the greatest contiguous sum of numbers in it. A single array item will count as a contiguous sum. Test it, brah.",
     code: defunc(function() { //TODO: write tests for sumArray
