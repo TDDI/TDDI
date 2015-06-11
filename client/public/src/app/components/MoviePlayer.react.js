@@ -8,7 +8,7 @@ var MoviePlayer = React.createClass({
       <span>
       <div className={ "movieContainer " + this.props.movieState.toggle }>
         <video className="TsarBomba" muted controls>
-          <source src="https://www.googledrive.com/host/0B_8_iqiUbfc6Z3pWN3FtdnNNZTA" type="video/mp4" /> 
+          <source src="https://www.googledrive.com/host/0B_8_iqiUbfc6cjUzTnBtNmFEXzQ" type="video/mp4" /> 
           Your browser does not support HTML5 Video
         </video>
       </div>
