@@ -19,7 +19,7 @@ var codeEval = require('../codeEval');
 
 var Lesson = React.createClass({
   getInitialState: function( ){
-    
+    console.log('gotinitialsate',this.props.successDatabaseResponse);
     return {
       currentUser: "Krazy Kurt",
       codeResponse: [],
@@ -34,9 +34,11 @@ var Lesson = React.createClass({
       successOverlay: {
         animation: "LessonAnimate",
         // visibility: "off"        
-      }
-    }
+      },
+
+    };
   },
+
   updateCode: function(newCode) {
     var sectionData = this.props.sectionData[this.props.currentSection];
     //if the section data exists
@@ -52,6 +54,7 @@ var Lesson = React.createClass({
     newSection = Math.max( min, Math.min(max, newSection) );
     window.location.hash = "#lesson/" +this.props.currentLesson+ "/section/" +newSection;
     
+
     this.setState({
       codeResponse: [],
       codeboxResponseClass: '',
@@ -209,7 +212,7 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
-      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } />
+      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } successDatabaseResponse = {this.props.successDatabaseResponse}/>
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
           <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
             <ul>

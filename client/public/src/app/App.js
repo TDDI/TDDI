@@ -39,8 +39,11 @@ var App = React.createClass({
       lessonData:     [ ],
 
       //This variable tracks the current state of the login overlay
-      overlayState: "none"
-    };
+      overlayState: "none",
+
+      //fake database success response
+      successDatabaseResponse: 'GRAPE SUCCESSFUL FAKE DATABASE'
+    }
   },
   /* == == == == == == == == == == == == == == == == */
   // Fetchers
@@ -200,6 +203,9 @@ var App = React.createClass({
          closeLogin = { this.closeLogin } 
         />
 
+       
+
+
         <CurrentRoute
           currentLesson  = {this.state.currentLesson}
           currentSection = {this.state.currentSection}
@@ -207,11 +213,14 @@ var App = React.createClass({
           sectionList    = {this.state.sectionList}
           lessonData     = {this.state.lessonData}
           sectionData    = {sectionData}
+          successDatabaseResponse = {this.state.successDatabaseResponse}
         />
         <button className="Debugger" onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
       </div>
     );
   }
 });
+
+
 
 React.render(<App />, document.getElementById('app'));
