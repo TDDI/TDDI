@@ -215,7 +215,6 @@ var App = React.createClass({
           sectionData    = {sectionData}
           successDatabaseResponse = {this.state.successDatabaseResponse}
         />
-        <button className="Debugger" onClick={(function(){console.log(this.state)}).bind(this)}> DEBUG </button>
       </div>
     );
   }
