@@ -19,6 +19,8 @@ var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 // compile .scss -> .css compilation
 var sass = require('gulp-sass');
+// allow for use of shell commands
+var shell = require('gulp-shell');
 
 // sets options for the browsersync server
 var browserSyncOptions = {
@@ -158,6 +160,10 @@ gulp.task('workers:min', function() {
     .pipe(gulp.dest(paths.buildworkers));
 });
 
+gulp.task('populate-db', shell.task([
+  'node populateDB.js'
+]));
+
 // prepares js, css, html, and images through their seperate build tasks,
 // starts a backend server, connects browserSync server to our existing backend
 // server, and watches all files to be dynamically reloaded on change
@@ -190,7 +196,7 @@ gulp.task('vendor-watch', ['vendor'], browserSync.reload);
 gulp.task('dist',['browserify','html','sass','css','img','vendor','workers']);
 
 // builds out assets for production implementation of application
-gulp.task('build',['browserify:min','html:min','sass','css:min','img:min','workers:min','vendor:min']);
+gulp.task('build',['browserify:min','html:min','sass','css:min','img:min','workers:min','vendor:min','populate-db']);
 
 // sets the default task (the one call by just calling gulp on command line)
 gulp.task('default', ['serve']);
