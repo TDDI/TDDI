@@ -1,13 +1,19 @@
 .movieContainer {
   position: relative;
   z-index: 20;
+  margin:0 auto;
+
   // display: block;
 }
 
 .TsarBomba {
   position: absolute;
-  top: 30%;
-  left: 30%;
+  // top: 30%;
+  // margin:0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  left:0;
+  right:0;
   z-index:99;
 }
 
