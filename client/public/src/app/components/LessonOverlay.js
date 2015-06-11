@@ -11,11 +11,17 @@ var LessonOverlay = React.createClass({
       <div className="Notification">
         {this.props.successDatabaseResponse}
       </div>
-      <video>
-      </video>
       </div>
     )
   }
 })
 
 module.exports = LessonOverlay;
+
+
+        // expect(aString).to.be.a("string");
+        // expect(aFunction).to.be.a("function");
+        // expect(aNumber).to.be.a("number");
+        // expect(aBoolean).to.be.a("boolean");
+        // expect(anObject).to.be.a("object");
+        // expect(anArray).to.be.a("object");

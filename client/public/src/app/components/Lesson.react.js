@@ -14,6 +14,7 @@ var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 var CodeResponseBox = require('./CodeResponseBox.react');
 var LessonOverlay = require('./LessonOverlay');
+var MoviePlayer = require('./MoviePlayer.react')
 
 var codeEval = require('../codeEval');
 
@@ -32,9 +33,11 @@ var Lesson = React.createClass({
         buttonIcon: "«"
       },
       successOverlay: {
-
         animation: "LessonAnimate",
-        visibility: "off"        
+        visibility: "off",      
+      },
+      movieState: {
+        toggle: "hide",
       }
     }
   },
@@ -97,16 +100,31 @@ var Lesson = React.createClass({
       successOverlay: {
         visibility: " ",
         animation: " "
-      }
+      },
+
     });
   },
   closeSuccess: function(){
     this.setState({
       successOverlay: {
         animation: "LessonAnimate",
-        visibility: "off"
+        visibility: "off",
+        videoSource: "nope",
+        videoClass: "none"
       }
     })
+  },
+  toggleVideo: function(){
+      var movieVar = " ";
+    if(this.state.movieState.toggle === "hide"){
+      
+    } else {
+      this.setState({
+        successOverlay: {
+          toggle: "hide"
+        }
+      })  
+    }
   },
 
   //Called when we need to evaluate the code in the codeBox. Called from clicking a button rendered in this file.
@@ -131,12 +149,14 @@ var Lesson = React.createClass({
             codeboxResponseClass: 'showActualResponseBox',
           codeResponseStatusClass: 'error'
         });
+        this.closeSuccess();
       } else {
         this.setState({ 
           codeResponse: ["Success!"], 
-            codeboxResponseClass: 'showActualResponseBox',
+            codeboxResponseClass: 'hideActualResponseBox',
           codeResponseStatusClass: 'success'
-        });          
+        });
+        this.fadeIn();          
         console.log( "It worked!", response.result );
       }
     }).bind( this );
@@ -209,6 +229,7 @@ var Lesson = React.createClass({
       sectionList = this.props.sectionList.map( callback );
     }
 
+      // <MoviePlayer movieState = { this.state.movieState } toggleVideo = { this.toggleVideo }/>
     return (
       <div className = "AppBodyContainer container">
       <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } successDatabaseResponse = {this.props.successDatabaseResponse}/>
@@ -231,8 +252,6 @@ var Lesson = React.createClass({
               <div className="submit-container">
                 <button onClick = { this.codeEvaluation } className = "btn btn-default submit-code"> Submit </button>
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
-                <button onClick = { this.fadeIn } className = "btn btn-default winbutton"> YOU ARE WINNER </button>
-
               </div>
               <CodeResponseBox
 
