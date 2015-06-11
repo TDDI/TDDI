@@ -25,13 +25,13 @@ module.exports = [
     sectionName: 'Pawing Through The Rubble',
     content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
     code: defunc(function() {
-      expect(aString).to.be.a( /*type of*/ );
-      expect(aFunction).to.be.a( /*type of*/ );
-      expect(aNumber).to.be.a( /*type of*/ );
-      expect(aBoolean).to.be.a( /*type of*/ );
-      expect(anObject).to.be.a( /*type of*/ );
-      expect(anArray).to.be.a( /*type of*/ );
-    }),
+// expect(aString).to.be.a( /*type of*/ );
+// expect(aFunction).to.be.a( /*type of*/ );
+// expect(aNumber).to.be.a( /*type of*/ );
+// expect(aBoolean).to.be.a( /*type of*/ );
+// expect(anObject).to.be.a( /*type of*/ );
+// expect(anArray).to.be.a( /*type of*/ );
+}),
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
@@ -87,58 +87,53 @@ module.exports = [
     sectionName: 'Get Your Bearings',
     content: "You just ended the world. No big deal. Every mistake is a learning experience. You are going to do testing from now on, right? Check to make sure each of these variables are the correct type.",
     code: defunc(function() {
-      expect(aString).to.be.a( /*type of*/ );
-      expect(aFunction).to.be.a( /*type of*/ );
-      expect(aNumber).to.be.a( /*type of*/ );
-      expect(aBoolean).to.be.a( /*type of*/ );
-      expect(anObject).to.be.a( /*type of*/ );
-      expect(anArray).to.be.a( /*type of*/ );
-    }),
+/* no code for you */
+}),
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
         scope: {
-          aString: "dangerous levels of radioactivity detected",
-          aFunction: function() {
-              undefined();
+          headline: "Bearer of bad news",
+          gatherFood: function() {
+            undefined();
           },
-          aNumber: Infinity,
-          aBoolean: false,
-            anObject: {
-                name: 'steve'
-            },
-            anArray: [0, 1, 2, 3, 4, 5]
-          }
+          temperature: 300,
+          isRadioactive: true,
+          isotopes: {
+            idk: true
+          },
+          employees: ['arin', 'barry', 'danny']
+        }
       }];
       failureCases = [{
-        failMessage: "Must check to see if aString is actually a string",
+        failMessage: "Must check to see if headline is a string",
         scope: {
-          aString: undefined
+          headline: undefined
         }
       }, {
-        failMessage: "Must check to see if aFunction is actually a function",
+        failMessage: "Must check to see if gatherFood is a function",
         scope: {
-          aFunction: undefined
+          gatherFood: undefined
         }
       }, {
-        failMessage: "Must check to see if aNumber is actually a number",
+        failMessage: "Must check to see if temperature is a number",
         scope: {
-          aNumber: undefined
+          temperature: undefined
         }
       }, {
-        failMessage: "Must check to see if aBoolean is actually a boolean",
+        failMessage: "Must check to see if isRadioactive is a boolean",
         scope: {
-          aBoolean: undefined
+          isRadioactive: undefined
         }
       }, {
-        failMessage: "Must check to see if anObject is actually an object",
+        failMessage: "Must check to see if isotopes is an object",
         scope: {
-          anObject: undefined
+          isotopes: undefined
         }
       }, {
-        failMessage: "Must check to see if anArray is actually an array",
+        failMessage: "Must check to see if employees is an array",
         scope: {
-          anArray: undefined
+          employees: undefined
         }
       }];
     })

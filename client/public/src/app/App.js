@@ -42,7 +42,7 @@ var App = React.createClass({
       overlayState: "none",
 
       //fake database success response
-      successDatabaseResponse: 'GRAPE SUCCESSFUL FAKE DATABASE'
+      successDatabaseResponse: 'YOU DID THE THING!'
     }
   },
   /* == == == == == == == == == == == == == == == == */
