@@ -4,12 +4,11 @@
   position: absolute;
 
 
-  top: 40%;
+  top: 35%;
   left: 25%;
 
   width: 50%;
-  min-width: 25em;
-  height: 10%;
+  height: 20%;
   z-index: 11;
   text-align: center;
   padding-top: 0.5em;
@@ -33,8 +32,9 @@
 }
 
 .LessonAnimate {
-  opacity: 0.1;
-  width: 95%;
+  opacity: 0.0;
+  margin-left: 10%;
+  width: 80%;
   height: 25%;
   left: 0%;
 }
