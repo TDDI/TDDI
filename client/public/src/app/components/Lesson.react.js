@@ -73,6 +73,7 @@ var Lesson = React.createClass({
     else {
       this.changeSection(1);
     }
+    this.closeSuccess();
   },
 
   toggleTableOfContents: function() {
@@ -117,10 +118,14 @@ var Lesson = React.createClass({
   toggleVideo: function(){
       var movieVar = " ";
     if(this.state.movieState.toggle === "hide"){
-      
+      this.setState({
+        movieState: {
+          toggle: " ",
+        }
+      })
     } else {
       this.setState({
-        successOverlay: {
+        movieState: {
           toggle: "hide"
         }
       })  
@@ -158,6 +163,10 @@ var Lesson = React.createClass({
         });
         this.fadeIn();          
         console.log( "It worked!", response.result );
+
+        if(this.props.currentSection===0){
+          this.toggleVideo();
+        }
       }
     }).bind( this );
 
@@ -229,10 +238,10 @@ var Lesson = React.createClass({
       sectionList = this.props.sectionList.map( callback );
     }
 
-      // <MoviePlayer movieState = { this.state.movieState } toggleVideo = { this.toggleVideo }/>
     return (
       <div className = "AppBodyContainer container">
       <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } successDatabaseResponse = {this.props.successDatabaseResponse}/>
+      <MoviePlayer movieState = { this.state.movieState } toggleVideo = { this.toggleVideo }/>
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
           <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
             <ul>
