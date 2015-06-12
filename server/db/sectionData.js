@@ -1,99 +1,19 @@
 var defunc =  require('./dbUtils.js');
 
 module.exports = [
+//================================================================================
   {
     lesson_id: '1',
     section_id: '1',
-    sectionName: 'An Embearassing Situation',
-    content: "Congratulations Teddi McMahon, you are the newest employee at "+
-             "BLASTCO, the largest thermonuclear plant in Urzastan. It's your " +
-             "first day on the job. Your supervisor is out getting coffee and " +
-             "some chocolate bear claws, so it's time to impress him! According " +
-             "to the manual you found, it looks like the start function needs " +
-             "to be called. Hand-scribbled notes say to put a 500 into the start " + 
-             "function. You should hurry before your boss comes back.",
-    code: 'start();',
-    preOp: defunc(function() {
-      successCases = [{
-        failMessage: "",
-        scope: {
-          start: function(tonsOfUranium) {
-            console.log("Nuclear meltdown imminent!");
-          }
-        }
-      }];
-      failureCases = [];
-    })
-  }, 
-  {
-    lesson_id: '1',
-    section_id: '2',
-    sectionName: 'Pawing Through The Rubble',
-    content: "Managing to survive the explosion, you sit in the rubble of your " +
-             "ruined facility. Sifting through the rubble, you find a manuscript " +
-             "about unit testing. According to this book, not testing your code leads to " +
-             "unexpected side effects...\n Having lived through the most major of " +
-             "side effects, it is your responsibility to make sure it doesn't happen" +
-             "again. You have to rebuild the world... with TDD. First, it would be " +
-             "good to familiarize yourself with the tenets of unit testing" +
-             "1. Test only one thing\n" +
-             "2. Make tests fast and simple\n" +
-             "3. Tests should be repeatable with no side effects\n" +
-             "4. Nothing should be hardcoded\n" +
-             "5. Provide verbose and concise feedback \n",
+    sectionName: 'Type Checking: Part 1',
+    content:
+      "You can use to.be.a to check if a variable is the expected type. "
+    + "Good for checking the results of functions. Here we will check "
+    + "a number of different variables. Uncomment them one at a time and "
+    + "click submit. Pay attention to the errors below and try to get all "
+    + "of the tests to pass!",
     code: defunc(function() {
-// expect(rule1).to.be.equal( /*First Rule*/ );
-// expect(rule2).to.be.equal( /*Second Rule*/ );
-// expect(rule3).to.be.equal( /*Third Rule*/ );
-// expect(rule4).to.be.equal( /*Fourth Rule*/ );
-// expect(rule5).to.be.equal( /*Fifth Rule*/ );
-}),
-    preOp: defunc(function() {
-      successCases = [{
-        failMessage: "",
-        scope: {
-          rule1: "Test one thing",
-          rule2: "Fast and simple",
-          rule3: "Repeatable",
-          rule4: "No hardcoding",
-          rule5: "Provide concise feedback"
-        }
-      }];
-      failureCases = [{
-        failMessage: "must test to see if rule1 is set correctly",
-        scope: {
-          rule1: undefined
-        }
-      }, {
-        failMessage: "must test to see if rule2 is set correctly",
-        scope: {
-          rule2: undefined
-        }
-      }, {
-        failMessage: "must test to see if rule3 is set correctly",
-        scope: {
-          rule3: undefined
-        }
-      }, {
-        failMessage: "must test to see if rule4 is set correctly",
-        scope: {
-          rule4: undefined
-        }
-      }, {
-        failMessage: "must test to see if rule5 is set correctly",
-        scope: {
-          rule5: undefined
-        }
-      }];
-    })
-  },
-  {
-    lesson_id: '1',
-    section_id: '3',
-    sectionName: 'Get Your Bearings',
-    content: "Get a bearing on what your surroundings actually are.",
-    code: defunc(function() {
-// expect(aString).to.be.a( /*type of*/ );
+// expect(aString).to.be.a( 'string' );
 // expect(aFunction).to.be.a( /*type of*/ );
 // expect(aNumber).to.be.a( /*type of*/ );
 // expect(aBoolean).to.be.a( /*type of*/ );
@@ -104,7 +24,7 @@ module.exports = [
       successCases = [{
         failMessage: "",
         scope: {
-          aString: "dangerous levels of radioactivity detected",
+          aString: "The quick brown fox jumps over the lazy dog",
           aFunction: function() {
               undefined();
           },
@@ -149,11 +69,14 @@ module.exports = [
       }];
     })
   },
+//================================================================================
   {
     lesson_id: '1',
-    section_id: '4',
-    sectionName: 'Identify the Bare Necessities',
-    content: "Teddi needs to find ",
+    section_id: '2',
+    sectionName: 'Type Checking: Part 2',
+    content:
+      "Now do the same thing again. This time you don't get any hints "
+    + "besides the responses you get from the error box below.",
     code: defunc(function() {
 /* no code for you */
 }),
@@ -206,83 +129,135 @@ module.exports = [
       }];
     })
   },
+//================================================================================
   {
     lesson_id: '1',
-    section_id: '5',
-    sectionName: 'Testing Grizzly Outcomes',
-    content: "You have more things to test. Don't be afraid to submit your incomplete tests. You will be given awesome feedback to help guide you.",
-    code: defunc(function() { /* no code for you */ }),
+    section_id: '3',
+    sectionName: 'Result Checking: Part 1',
+    content: "functions, test them",
+    code: defunc(function() { /* PUT CODE HERE */ }),
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
         scope: {
-          headline: "Bearer of bad news",
-          gatherFood: function() {
-            undefined();
+          //number
+          double: function( v ) { return v*2; },
+          //string
+          removeDuplicateChars: function( string ){ 
+            var obj    = { };
+            var result = '';
+            for(var i=0; i<arr.length; i++){
+              if(obj[string[i]]===undefined)
+                result.push(string[i]);
+              obj[string[i]]=true;
+            };
+            return result;
           },
-          temperature: 300,
-          isRadioactive: true,
-          isotopes: {
-            idk: true
-          },
-          employees: ['arin', 'barry', 'danny']
+          //boolean
+          isEven: function( val ) { return !(val%2) },
+          //object || array
+          merge: function(target, src) {
+            var array = Array.isArray(src);
+            var dst = array && [] || {};
+
+            if (array) {
+              target = target || [];
+              dst = dst.concat(target);
+              src.forEach(function(e, i) {
+                if (typeof dst[i] === 'undefined') {
+                  dst[i] = e;
+                } else if (typeof e === 'object') {
+                  dst[i] = deepmerge(target[i], e);
+                } else {
+                  if (target.indexOf(e) === -1) {
+                    dst.push(e);
+                  }
+                }
+              });
+            } else {
+              if (target && typeof target === 'object') {
+                Object.keys(target).forEach(function (key) {
+                  dst[key] = target[key];
+                })
+              }
+              Object.keys(src).forEach(function (key) {
+                if (typeof src[key] !== 'object' || !src[key]) {
+                  dst[key] = src[key];
+                }
+                else {
+                  if (!target[key]) {
+                    dst[key] = src[key];
+                  } else {
+                    dst[key] = deepmerge(target[key], src[key]);
+                  }
+                }
+              });
+            }
+            return dst;
+          }
         }
       }];
       failureCases = [{
-        failMessage: "Must check to see if headline is a string",
+        failMessage: "Must check to see if double returns the correct value",
         scope: {
-          headline: undefined
+          double: undefined
         }
       }, {
-        failMessage: "Must check to see if gatherFood is a function",
+        failMessage: "Must check to see if removeDuplicateChars returns the correct value",
         scope: {
-          gatherFood: undefined
+          removeDuplicateChars: undefined
         }
       }, {
-        failMessage: "Must check to see if temperature is a number",
+        failMessage: "Must check to see if isEven returns the correct value",
         scope: {
-          temperature: undefined
+          isEven: undefined
         }
       }, {
-        failMessage: "Must check to see if isRadioactive is a boolean",
+        failMessage: "Must check to see if merge returns the correct value",
         scope: {
-          isRadioactive: undefined
-        }
-      }, {
-        failMessage: "Must check to see if isotopes is an object",
-        scope: {
-          isotopes: undefined
-        }
-      }, {
-        failMessage: "Must check to see if employees is an array",
-        scope: {
-          employees: undefined
+          merge: undefined
         }
       }];
     })
   },
+//================================================================================
   {
     lesson_id: '1',
-    section_id: '6',
-    sectionName: 'Finding Pawsible Returns',
-    content: "You suck at coding because you don't test. You will now test and be good at coding.\n\
-  You have a variable named \"honey\" and you need to write a test to see if it is equal to 5.",
-    code: 'expect(honey).to.equal(/*put 5 here*/);',
+    section_id: '4',
+    sectionName: 'Result Checking: Part 2',
+    content: "MORE functions, test them",
+    code: defunc(function() { /* PUT CODE HERE */ }),
     preOp: defunc(function() {
       successCases = [{
-        failMessage: "...its 5",
+        failMessage: "",
         scope: {
-          honey: 5
+          //number
+          getLength: function( arr ) { return arr.length; },
+          //array
+          sort: function( arr ){ return arr.sort() },
+          //boolean
+          contains: function( arr, val ){ return arr.contains(val) } 
         }
       }];
       failureCases = [{
-        failMessage: "You suck",
+        failMessage: "Must check to see if getLength returns the correct value",
         scope: {
-          honey: 0
+          getLength: undefined
+        }
+      }, {
+        failMessage: "Must check to see if sort returns the correct value",
+        scope: {
+          sort: undefined
+        }
+      }, {
+        failMessage: "Must check to see if contains returns the correct value",
+        scope: {
+          contains: undefined
         }
       }];
     })
-  }, 
+  },
+//================================================================================
   {
     lesson_id: '1',
     section_id: '7',
@@ -377,6 +352,7 @@ module.exports = [
       }];
     })
   }, 
+//================================================================================
   {
     lesson_id: '1',
     section_id: '8',
@@ -465,6 +441,7 @@ module.exports = [
       ];
     })
   }, 
+//================================================================================
   {
     lesson_id: '1',
     section_id: '9',
@@ -544,6 +521,7 @@ module.exports = [
       }];
     })
   }, 
+//================================================================================
   {
     lesson_id: '1',
     section_id: '10',
@@ -602,6 +580,7 @@ module.exports = [
       }];
     })
   }, 
+//================================================================================
   {
     lesson_id: '2',
     section_id: '11',
@@ -653,30 +632,34 @@ module.exports = [
       }];
     })
   }, 
+//================================================================================
   {
+    lesson_id: '3',
     section_id: '1',
     sectionName: 'lesson3section1',
     content: 'came across someth',
     code: 'qw43er',
     preOp: 'ttww',
-    postOp: 'erjhjt',
-    lesson_id: '3'
+    postOp: 'erjhjt'
   }, 
+//================================================================================
   {
+    lesson_id: '3',
     section_id: '2',
     sectionName: 'lesson3section2',
     content: 'across someth',
     code: 'qaswer',
     preOp: 'wdfdert',
-    postOp: 'erdfdt',
-    lesson_id: '3'
-  }, {
+    postOp: 'erdfdt'
+  },
+//================================================================================
+  {
+    lesson_id: '3',
     section_id: '3',
     sectionName: 'lesson3section3',
     content: 'a team traded a to',
     code: 'qweewr',
     preOp: 'awert',
-    postOp: 'ecvrt',
-    lesson_id: '3'
+    postOp: 'ecvrt'
   }
 ];
