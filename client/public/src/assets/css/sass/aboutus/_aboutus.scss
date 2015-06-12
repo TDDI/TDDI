@@ -1,0 +1,35 @@
+.techStack {
+  height: 100%;
+  width: 100%;
+  min-height: 48.5em;
+  min-width: 30em;
+  // z-index:-2;
+  // background-color: #9fd5d0 ;
+  background-color: white;
+  opacity: 0.8;
+  text-align:center;
+  padding: 3em;
+  color:blue;
+
+  .techStackPic {
+    height: 20em;
+    width:20em;
+    z-index:-2;
+    background-color: #3F250B;
+    position:relative;
+    top:50%;
+    background-color: white;
+    border-color: #3F250B;
+    border-radius: 1.5em;
+    color: yellow;
+    margin: 10px;
+    overflow: hidden;
+    z-index:4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 0 20px black;
+  
+  }
+
+}

@@ -17,6 +17,7 @@ var FrontPage = require('./components/FrontPage.react');
 var Main = require('./components/Main.react');
 var Lesson = require('./components/Lesson.react');
 var Profile = require('./components/Profile.react');
+var AboutUs = require('./components/About_Us.react');
 
 var App = React.createClass({
   getInitialState: function( ) {
@@ -174,6 +175,8 @@ var App = React.createClass({
     var overlayState = this.state.overlayState;
     this.setState({ overlayState: "none" });
   },
+
+
   render: function( ) {
     var CurrentRoute;// our... Bearing... if you will...
     //pick a component to create based on the current route
@@ -181,6 +184,7 @@ var App = React.createClass({
       case '#lesson': CurrentRoute  = Lesson;  break;
       case '#profile': CurrentRoute = Profile; break;
       case '#selector': CurrentRoute = Main; break;
+      case '#aboutus': CurrentRoute = AboutUs; break;
       default: CurrentRoute = FrontPage;
     }
 
