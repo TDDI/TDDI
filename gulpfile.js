@@ -19,8 +19,10 @@ var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 // compile .scss -> .css compilation
 var sass = require('gulp-sass');
-// allow for use of shell commands
-//var shell = require('gulp-shell');
+// minifies images
+var imagemin = require('gulp-imagemin');
+// allows shell scripts to be executed
+var shell = require('gulp-shell');
 
 // sets options for the browsersync server
 var browserSyncOptions = {
@@ -45,7 +47,11 @@ var paths = {
   styles: mainPaths.src+'/assets/css/**/*.css',
   appScripts: mainPaths.src+'/app/**/*.js',
   html: mainPaths.src+'/index.html',
-  vendor: mainPaths.src+'/assets/lib/**/*.*',
+  vendor: [
+    mainPaths.src+'/assets/lib/**/chai.js',
+    mainPaths.src+'/assets/lib/**/jshint.js',
+    mainPaths.src+'/assets/lib/**/mocha.js'
+  ],
   server: mainPaths.server + '/**/*.js',
   overall: mainPaths.src+'/**/*.{html,js,css}',
   appsource: mainPaths.src+'/app/App.js',
@@ -54,7 +60,14 @@ var paths = {
   servertest: mainPaths.serverTest + '/server.spec.js',
   workers: mainPaths.src+'/assets/workers/*.js',
   distworkers: mainPaths.dist + '/assets/workers',
-  buildworkers: mainPaths.build + '/assets/workers'
+  buildworkers: mainPaths.build + '/assets/workers',
+  stylesInSpecificOrder:[
+    mainPaths.src+'/assets/lib/bootstrap/dist/css/bootstrap.css',
+    mainPaths.src+'/assets/css/codemirror.css',
+    mainPaths.src+'/assets/css/main.css',
+    mainPaths.src+'/assets/css/mbo.css'
+  ],
+  sectionData: mainPaths.server + '/db/sectionData.js'
 };
 
 // starts up nodemon with the included options
@@ -112,14 +125,14 @@ gulp.task('sass', function(cb) {
 
 // concatenates css files from source and places them in distribution folder
 gulp.task('css', function() {
-  return gulp.src(paths.styles)
+  return gulp.src(paths.stylesInSpecificOrder)
     .pipe(concat('main.css'))
     .pipe(gulp.dest(mainPaths.dist+'/assets/css'));
 });
 
 // same as css task, but also minifies css and puts it in the build folder
 gulp.task('css:min', function() {
-  return gulp.src(paths.styles)
+  return gulp.src(paths.stylesInSpecificOrder)
     .pipe(concat('main.css'))
     .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest(mainPaths.build+'/assets/css'));
@@ -134,6 +147,9 @@ gulp.task('img', function() {
 // tentatively planning to add the gulp imagemin plugin
 gulp.task('img:min', function() {
   return gulp.src(paths.images)
+    .pipe(imagemin({
+      progressive: true
+    }))
     .pipe(gulp.dest(mainPaths.build+'/assets/images'));
 });
 
@@ -160,9 +176,9 @@ gulp.task('workers:min', function() {
     .pipe(gulp.dest(paths.buildworkers));
 });
 
-// gulp.task('populate-db', shell.task([
-//   'node populateDB.js'
-// ]));
+gulp.task('populate-db', shell.task([
+  'node populateDB.js'
+]));
 
 // prepares js, css, html, and images through their seperate build tasks,
 // starts a backend server, connects browserSync server to our existing backend
@@ -182,6 +198,7 @@ gulp.task('serve',['browserify','workers','sass','html','css','img','vendor','se
   gulp.watch(paths.vendor, ['vendor-watch']);
   gulp.watch(paths.sassStyles+"/**/*.scss", ['sass']);
   gulp.watch(paths.workers,['workers']);
+  gulp.watch(paths.sectionData,['sectionData-watch']);
 });
 
 // watch tasks that handle assets and then reload the browsersync server
@@ -190,6 +207,7 @@ gulp.task('css-watch', ['css'], browserSync.reload);
 gulp.task('img-watch', ['img'], browserSync.reload);
 gulp.task('jsx-watch', ['browserify'], browserSync.reload);
 gulp.task('vendor-watch', ['vendor'], browserSync.reload);
+gulp.task('sectionData-watch', ['populate-db'], browserSync.reload);
 
 
 // builds out assets in the dist folder for the dev environment
