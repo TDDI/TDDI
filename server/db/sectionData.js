@@ -133,7 +133,7 @@ module.exports = [
   {
     lesson_id: '1',
     section_id: '3',
-    sectionName: 'What does it return: Part 1',
+    sectionName: 'Result Checking: Part 1',
     content: "functions, test them",
     code: defunc(function() { /* PUT CODE HERE */ }),
     preOp: defunc(function() {
@@ -154,7 +154,7 @@ module.exports = [
             return result;
           },
           //boolean
-          toggle: function( b ) { return !b },
+          isEven: function( val ) { return !(val%2) },
           //object || array
           merge: function(target, src) {
             var array = Array.isArray(src);
@@ -208,9 +208,9 @@ module.exports = [
           removeDuplicateChars: undefined
         }
       }, {
-        failMessage: "Must check to see if toggle returns the correct value",
+        failMessage: "Must check to see if isEven returns the correct value",
         scope: {
-          toggle: undefined
+          isEven: undefined
         }
       }, {
         failMessage: "Must check to see if merge returns the correct value",
@@ -223,26 +223,40 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '1',
-    section_id: '6',
-    sectionName: 'Finding Pawsible Returns',
-    content: "You suck at coding because you don't test. You will now test and be good at coding.\n\
-  You have a variable named \"honey\" and you need to write a test to see if it is equal to 5.",
-    code: 'expect(honey).to.equal(/*put 5 here*/);',
+    section_id: '4',
+    sectionName: 'Result Checking: Part 2',
+    content: "MORE functions, test them",
+    code: defunc(function() { /* PUT CODE HERE */ }),
     preOp: defunc(function() {
       successCases = [{
-        failMessage: "...its 5",
+        failMessage: "",
         scope: {
-          honey: 5
+          //number
+          getLength: function( arr ) { return arr.length; },
+          //array
+          sort: function( arr ){ return arr.sort() },
+          //boolean
+          contains: function( arr, val ){ return arr.contains(val) } 
         }
       }];
       failureCases = [{
-        failMessage: "You suck",
+        failMessage: "Must check to see if getLength returns the correct value",
         scope: {
-          honey: 0
+          getLength: undefined
+        }
+      }, {
+        failMessage: "Must check to see if sort returns the correct value",
+        scope: {
+          sort: undefined
+        }
+      }, {
+        failMessage: "Must check to see if contains returns the correct value",
+        scope: {
+          contains: undefined
         }
       }];
     })
-  }, 
+  },
 //================================================================================
   {
     lesson_id: '1',
