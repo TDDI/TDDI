@@ -30,8 +30,16 @@
     padding: 3px;
   }
 
+  ul {
+    list-style-position: inside;
+    border-color: white;
+    border-width: 2em;
+    border-radius: 2em;
+  }
+
   li {
     list-style:none;
+
     // display: none;
     // display: block;
     text-align: center;

@@ -163,10 +163,6 @@ var Lesson = React.createClass({
         });
         this.fadeIn();          
         console.log( "It worked!", response.result );
-
-        if(this.props.currentSection===0){
-          this.toggleVideo();
-        }
       }
     }).bind( this );
 

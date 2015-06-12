@@ -1,11 +1,12 @@
 html, body {
   height: 100%;
-  background-color: transparent;
-  background-image: url('/assets/images/metaltexture.jpg');
+  // background-color: transparent;
   background-size: 100% 100%;
+  background-color: #738F9B;
   overflow: auto;
   // background-color: #3F250B;
   // background-color: #738F9B;
+  font-family: "Open Sans", Arial, sans-serif;
 }
 
 ul {
@@ -46,20 +47,20 @@ ul {
   border-width: 4px;
 }
 
-.bgvid {
-  position: fixed;
-  top: 45%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  background: url(http://i.imgur.com/hOWgXVj.png) no-repeat;
-  background-size: cover;
-}
+// .bgvid {
+//   position: fixed;
+//   top: 45%;
+//   left: 50%;
+//   min-width: 100%;
+//   min-height: 100%;
+//   width: auto;
+//   height: auto;
+//   z-index: -100;
+//   -webkit-transform: translateX(-50%) translateY(-50%);
+//   transform: translateX(-50%) translateY(-50%);
+//   background: url(http://i.imgur.com/hOWgXVj.png) no-repeat;
+//   background-size: cover;
+// }
 
 .Debugger {
   position: absolute;

@@ -14,7 +14,7 @@ var Main = React.createClass({
     return (
       <span>
       <div className="LessonSelectHeader">
-        <h3>Get yourself out of Technical Debt</h3>
+        <h1>Get yourself out of Technical Debt</h1>
         <p>Try one of our lessons today</p>
       </div>
       <div className="innerLessonsContainer container-fluid flex-container">
