@@ -17,14 +17,8 @@ describe('ContentPanel component', function(){
       'LessonOverlay'
     );
 
-    var videoComponent = TestUtils.findRenderedDOMComponentWithTag(
-      renderedComponent,
-      'video'
-    );
-
     this.componentObject = renderedComponent;
     this.containerElement = containerComponent.getDOMNode();
-    this.videoElement = videoComponent.getDOMNode();
   });
 
   it('component should not store a state', function() {

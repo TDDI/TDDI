@@ -6,7 +6,7 @@
 */
 window.React = require('react');
 $ = jQuery = require('jquery');
-require('../assets/lib/bootstrap/dist/js/bootstrap.min.js');
+require('../assets/lib/bootstrap/js/collapse.js');
 
 /*  ========  Components  =======  */
 var NavigationBar = require('./components/NavigationBar');
