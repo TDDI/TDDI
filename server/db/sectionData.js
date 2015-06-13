@@ -24,7 +24,7 @@ expect(aBoolean).to.be.a( 'boolean' );
 expect(anObject).to.be.a( 'object' );
 expect(anArray).to.be.a( 'array' );
 }),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: 'successCases=[{scope:{}}];failureCases=[{scope:{}}];'
   },
 //================================================================================
   {
@@ -299,6 +299,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '6',
     sectionName: 'Property Check: Part 1',
     content: "Check if things have properties",
+    success_response: "",
     code: defunc(function() {
 //expect(object).to.have.property( /*property*/ );
 }),
@@ -332,7 +333,8 @@ expect(anArray).to.be.a( 'array' );
     lesson_id: '1',
     section_id: '7',
     sectionName: 'Property Check: Part 2',
-    content: "Check if things have properties",
+    content: "Check if things have properties and make sure they do things",
+    success_response: "",
     code: defunc(function() {
 /* PUT CODE HERE */
 }),
@@ -340,23 +342,28 @@ expect(anArray).to.be.a( 'array' );
       successCases = [{
         failMessage: "",
         scope: {
-          object: {a:1,b:2,c:3}
+          object: {aString:"",aFunction:function(v){return v;},anArray:[]}
         }
       }];
       failureCases = [{
-        failMessage: "Must check to see if object has an 'a' property",
+        failMessage: "Must check aString property",
         scope: {
-          object: {a:1,b:2}
+          object: {aString:undefined,aFunction:function(v){return v;},anArray:[]}
         }
       }, {
-        failMessage: "Must check to see if object has an 'b' property",
+        failMessage: "Must check to see if aFunction property exists",
         scope: {
-          object: {a:1,c:3}
+          object: {aString:"",aFunction:function(v){undefined()},anArray:[]}
         }
       }, {
-        failMessage: "Must check to see if object has an 'c' property",
+        failMessage: "Must check to see if aFunction works right",
         scope: {
-          object: {b:2,c:3}
+          object: {aString:"",aFunction:function(v){undefined()},anArray:[]}
+        }
+      }, {
+        failMessage: "Must check anArray",
+        scope: {
+          object: {aString:"",aFunction:function(v){return v;},anArray:undefined}
         }
       }];
     })
@@ -366,18 +373,134 @@ expect(anArray).to.be.a( 'array' );
     lesson_id: '1',
     section_id: '8',
     sectionName: 'Side effects: Part 1',
-    content: "",
-    code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    content: "event system. TEST IT!",
+    success_response: "",
+    code: defunc(function() {
+var itWorked=false;
+on('test', function(){itWorked=true;});
+trigger('test');
+expect(itWorked).to.equal(true);
+off('test');
+expect(events[test]).to.equal(undefined);
+}),
+    preOp: defunc(function() {
+    successCases = [{
+      failMessage:"",
+      scope:{
+        events:{ },
+        on:function( event, cb ){
+          events[event] = cb;
+        },
+        off:function( event ){
+          events[ event ] = undefined;
+        },
+        trigger:function( event ){
+          if(events[event])
+            events[event].apply(undefined, Array.prototype.slice.call(arguments, 1));
+        }
+      }
+    }];
+    failureCases = [{
+      failMessage:"on is broken...",
+      scope:{
+        events:{ },
+        on:undefined,
+        off:function( event ){
+          events[ event ] = undefined;
+        },
+        trigger:function( event ){
+          if(events[event])
+            events[event].apply(undefined, Array.prototype.slice.call(arguments, 1));
+        }
+      }
+    }, {
+      failMessage:"off is broken...",
+      scope:{
+        events:{ },
+        on:function( event, cb ){
+          events[event] = cb;
+        },
+        off:undefined,
+        trigger:function( event ){
+          if(events[event])
+            events[event].apply(undefined, Array.prototype.slice.call(arguments, 1));
+        }
+      }
+    }, {
+      failMessage:"trigger is broken",
+      scope:{
+        events:{ },
+        on:function( event, cb ){
+          events[event] = cb;
+        },
+        off:function( event ){
+          events[ event ] = undefined;
+        },
+        trigger:undefined
+      }
+    }];
+})
   },
 //================================================================================
   {
     lesson_id: '1',
     section_id: '9',
     sectionName: 'Side effects: Part 2',
-    content: "",
-    code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    content: "Money money money money money",
+    success_response: "",
+    code: defunc(function() {
+/* PUT CODE HERE */
+}),
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+            wallet: 0,
+            addDollar:     function() { wallet+=1.00; },
+            addQuarter:    function() { wallet+=0.25; },
+            addDime:       function() { wallet+=0.10; },
+            addNickle:     function() { wallet+=0.05; },
+            addPennny:     function() { wallet+=0.01; },
+            removeDollar:  function() { wallet-=1.00; },
+            removeQuarter: function() { wallet-=0.25; },
+            removeDime:    function() { wallet-=0.10; },
+            removeNickle:  function() { wallet-=0.05; },
+            removePennny:  function() { wallet-=0.01; }
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"Make sure that dollars are added and removed correctly",
+          scope:{
+            addDollar:     function() { wallet+=0.99; },
+            removeDollar:  function() { wallet-=0.99; }
+          }
+        },
+        {
+          failMessage:"Make sure that quarters are added and removed correctly",
+          scope:{
+            addQuarter:    function() { wallet+=0.29; },
+            removeQuarter: function() { wallet-=0.29; }
+          }
+        },
+        {
+          failMessage:"Make sure that dimes are added and removed correctly",
+          scope:{
+            addDime:       function() { wallet+=1337; },
+            removeDime:    function() { wallet-=1337; }
+          }
+        },
+        {
+          failMessage:"Make sure that pennies are added and removed correctly",
+          scope:{
+            addPennny:     function() { wallet+=0.11; },
+            removePennny:  function() { wallet-=0.11; }
+          }
+        },
+      ];
+    })
   },
 //================================================================================
   {
@@ -385,8 +508,26 @@ expect(anArray).to.be.a( 'array' );
     section_id: '10',
     sectionName: 'When does it error: Part 1',
     content: "",
+    success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+    })
   },
 //================================================================================
   {
@@ -394,8 +535,26 @@ expect(anArray).to.be.a( 'array' );
     section_id: '11',
     sectionName: 'When does it error: Part 2',
     content: "",
+    success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+    })
   },
 //================================================================================
   {
@@ -403,8 +562,26 @@ expect(anArray).to.be.a( 'array' );
     section_id: '12',
     sectionName: 'How does it handle edge cases: Part 1',
     content: "",
+    success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+    })
   },
 //================================================================================
   {
@@ -412,8 +589,26 @@ expect(anArray).to.be.a( 'array' );
     section_id: '13',
     sectionName: 'How does it handle edge cases: Part 2',
     content: "",
+    success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+    })
   },
 //================================================================================
   {
@@ -421,8 +616,26 @@ expect(anArray).to.be.a( 'array' );
     section_id: '14',
     sectionName: 'Pulling it all together',
     content: "",
+    success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
-    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+    preOp: defunc(function() {
+      successCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+      failureCases=[
+        {
+          failMessage:"",
+          scope:{
+
+          }
+        }
+      ];
+    })
   },
 //================================================================================
   {
