@@ -42,14 +42,14 @@ describe('NavigationBar component', function(){
 
 
   var usernameFilter = function(component){
-    if (component.textContent.includes("Login")) {
+    if (component.textContent.includes("About Us")) {
       return true;
     } else {
       return false;
     }
   };
 
-  it('<ul> should have username displayed in an <li> once', function() {
+  it('<ul> should have About Us displayed in an <li> once', function() {
     assert(TestUtils.findAllInRenderedTree(this.settingsNav, usernameFilter).length === 1);
   });
 
