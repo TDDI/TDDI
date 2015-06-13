@@ -84,3 +84,13 @@ ul {
   resize: vertical;
   overflow: auto;
 }
+
+.flex-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: baseline;
+}
+

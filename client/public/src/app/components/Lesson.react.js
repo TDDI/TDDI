@@ -240,6 +240,9 @@ var Lesson = React.createClass({
       <MoviePlayer movieState = { this.state.movieState } toggleVideo = { this.toggleVideo }/>
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
           <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
+          <div className = "TableOfContentsHeader " style= { { display: this.state.tableOfContentsState.liDisplay } } >
+          Unit Testing
+          </div>
             <ul>
               { sectionList }
             </ul>

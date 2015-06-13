@@ -1,12 +1,4 @@
-.header-container {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    color: white;
-}
+
 
 .title-container {
   text-align: center;
@@ -18,11 +10,9 @@
   }
 }
 
-.LessonSelectHeader {
+.LessonSelectContainer {
   text-align: center;
   // background-color: #3F250B;
-  font-family: 'Righteous';
-  margin: 0 auto;
   // color: #FFEFDB;
   color: white;
 
@@ -89,21 +79,12 @@
   
 }
 
-.flex-container {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: stretch;
-    align-items: baseline;
-}
-
-
 .LessonTextDescription {
   margin: 2em;
 
   h3 {
     text-align: center;
+    margin-bottom: 1.5em;
   }
 }
 

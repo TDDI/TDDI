@@ -11,8 +11,8 @@ var FrontPage = React.createClass({
       <div className="title-container">
         <h1 className="Title">TDDI</h1>
         <p className="SubTitle">Test Driven Development Initializer</p>
-        <a className="btn btn-info" href="/#lesson">Start Testing</a>
-        <a className="btn btn-info" href="/#selector">See All Lessons</a>
+        <a className="btn btn-info headerButtons" href="/#lesson">Start Testing</a>
+        <a className="btn btn-info headerButtons" href="/#selector">See All Lessons</a>
         <hr />
       </div>
 
@@ -30,7 +30,8 @@ var FrontPage = React.createClass({
           </div>
       </section>
 
-      
+      <section className="descriptors">
+      </section>
       
 
       <section className="aboutus">
