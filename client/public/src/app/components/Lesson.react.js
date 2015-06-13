@@ -41,7 +41,21 @@ var Lesson = React.createClass({
       }
     }
   },
-
+  componentWillMount: function( ) {
+    //whenever the hash changes, reset the code response
+    window.addEventListener('hashchange', (
+      function(){
+        this.setState({
+                        codeResponse:[],
+                        codeboxResponseClass:'hideActualResponseBox'
+                      });
+      }).bind(this)
+    );
+  },
+  componentWillUnmount: function( ) {
+    //when unmounted, remove the hash listener
+    window.removeEventListener('hashchange');
+  },
   updateCode: function(newCode) {
     var sectionData = this.props.sectionData[this.props.currentSection];
     //if the section data exists
@@ -211,7 +225,16 @@ var Lesson = React.createClass({
       theme:       "mbo"
     };
     
-    var section = this.props.sectionData[this.props.currentSection];
+    var section = this.props.sectionData[this.props.currentSection] || {
+      lesson_id: 0,
+      section_id: 0,
+      sectionName: '',
+      content: '',
+      success_response: '',
+      code: '',
+      preOp: '',
+      postOp: ''
+    };
     var code    = section ? section.code    || "" : "";
     var content = section ? section.content || "" : "";
 
