@@ -7,6 +7,7 @@ module.exports = [
     section_id: '1',
     sectionName: 'A simple look at TDD',
     content:   "Things and stuff",
+    success_response: "You may have done the thing",
     code: defunc(function() {
 //edit these so they contain the correct type of data. aString is done for you.
 var aString = 'The quick brown fox jumps over the lazy dog';
@@ -36,6 +37,7 @@ expect(anArray).to.be.a( 'array' );
     + "a number of different variables. Uncomment them one at a time and "
     + "click submit. Pay attention to the errors below and try to get all "
     + "of the tests to pass!",
+    success_response: "You totally did the thing",
     code: defunc(function() {
 // expect(aString).to.be.a( 'string' );
 // expect(aFunction).to.be.a( /*type of*/ );
@@ -101,6 +103,7 @@ expect(anArray).to.be.a( 'array' );
     content:
       "Now do the same thing again. This time you don't get any hints "
     + "besides the responses you get from the error box below.",
+    success_response: "You totally did the thing again!",
     code: defunc(function() {
 /* no code for you */
 }),
@@ -159,6 +162,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '4',
     sectionName: 'Result Checking: Part 1',
     content: "functions, test them",
+    success_response: "You totally did the thing for a third time",
     code: defunc(function() {
 //expect(double(2)).to.equal(4);
 //expect(removeDuplicateChars('aabbcc')).to.equal( /* result */ );
@@ -255,6 +259,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '5',
     sectionName: 'Result Checking: Part 2',
     content: "MORE functions, test them",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() {
 /* PUT CODE HERE */
 }),
@@ -426,6 +431,7 @@ expect(anArray).to.be.a( 'array' );
     sectionName: "Side effects: Part something",
     content: "You got spunk, kid. Alright. Here's a harder test.\n\
   You have a variable in your scope called \"Tree\". It is a pseudo-classical Tree object with an addChild method and you need to make sure it isn't terrible.",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() {
       var tree = new Tree();
       expect(tree).to.have.property('addChild');
@@ -521,6 +527,7 @@ expect(anArray).to.be.a( 'array' );
     sectionName: "Checking Koalafications",
     content: "Try not to break this code. please.<br>\
   You have a variable in your scope called \"Stack\". It is a pseudo-clasical Stack object. You know whats up. Get to it.",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() { //TODO: write tests for Stack
 
     }),
@@ -609,6 +616,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '3',
     sectionName: "Controlling the Pandamonium",
     content: "You have a variable in your scope called \"MakeLinkedList\". It is something, idk. You figure it out. Stop making me do your job.",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() { //TODO: write tests for MakeLinkedList
 
     }),
@@ -689,6 +697,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '4',
     sectionName: "Berry Dangerous Side Effects",
     content: "blah blah blah blah MakeQueue Blah blah",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() { //TODO: write tests for MakeQueue
 
     }),
@@ -748,6 +757,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '5',
     sectionName: "Berry Dangerous Side Effects",
     content: "Given an array of numbers, the sumArray function will calculate the greatest contiguous sum of numbers in it. A single array item will count as a contiguous sum. Test it, brah.",
+    success_response: "You totally did the thing for a 4th time",
     code: defunc(function() { //TODO: write tests for sumArray
 
     }),
@@ -800,6 +810,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '1',
     sectionName: 'lesson3section1',
     content: 'came across someth',
+    success_response: "You totally did the thing for a 4th time",
     code: 'qw43er',
     preOp: 'ttww',
     postOp: 'erjhjt'
@@ -810,6 +821,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '2',
     sectionName: 'lesson3section2',
     content: 'across someth',
+    success_response: "You totally did the thing for a 4th time",
     code: 'qaswer',
     preOp: 'wdfdert',
     postOp: 'erdfdt'
@@ -820,6 +832,7 @@ expect(anArray).to.be.a( 'array' );
     section_id: '3',
     sectionName: 'lesson3section3',
     content: 'a team traded a to',
+    success_response: "You totally did the thing for a 4th time",
     code: 'qweewr',
     preOp: 'awert',
     postOp: 'ecvrt'

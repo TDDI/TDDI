@@ -36,7 +36,8 @@ var Section = sequelize.define('Section', {
   preOp: Sequelize.TEXT,
   postOp: Sequelize.TEXT,
   lesson_id: Sequelize.INTEGER,
-  active: Sequelize.INTEGER
+  active: Sequelize.INTEGER,
+  success_response: Sequelize.TEXT
 });
 
 // initializing databases

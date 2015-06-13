@@ -9,7 +9,7 @@ var LessonOverlay = React.createClass({
       <div className= { "LessonOverlay " + this.props.successOverlay.animation + " " + this.props.successOverlay.visibility }>
       <button className = "closeWindow" onClick={ this.props.closeSuccess } >X</button>
       <div className="Notification">
-        {this.props.successDatabaseResponse}
+        {this.props.successResponse}
       </div>
       </div>
     )
