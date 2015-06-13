@@ -259,10 +259,9 @@ var Lesson = React.createClass({
                 <button onClick = { this.nextSection } className = "btn btn-default submit-next"> Next </button>
               </div>
               <CodeResponseBox
-
-                codeResponseStatusClass = { this.state.codeResponseStatusClass }
-                  codeboxResponseClass = {this.state.codeboxResponseClass}
                 responses = { this.state.codeResponse } 
+                codeResponseStatusClass = { this.state.codeResponseStatusClass }
+                codeboxResponseClass = {this.state.codeboxResponseClass}
                 />
             </div>
           </div>

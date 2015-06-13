@@ -21,12 +21,8 @@ describe('ContentPanel component', function(){
     this.containerElement = containerComponent.getDOMNode();
   });
 
-  it('component should store contents in props', function() {
-    assert(this.componentObject.props.contents === "foo bar");
-  });
-
-  it('component should not store a state', function() {
-    assert(this.componentObject.state === null);
+  it('component should be a React composite component', function(){
+    TestUtils.isCompositeComponent(this.componentObject);
   });
   
   it('<div> should have class "ContentContainer"', function() {
@@ -41,8 +37,8 @@ describe('ContentPanel component', function(){
       return false;
     }
   }
-  it('<div> should render passed in contents at least once', function() {
-    assert(TestUtils.findAllInRenderedTree(this.containerElement, foobarFilter).length > 0);
+  it('<div> should render passed in contents once', function() {
+    assert(TestUtils.findAllInRenderedTree(this.containerElement, foobarFilter).length === 1);
   });
 
   

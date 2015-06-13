@@ -9,16 +9,18 @@ var FrontPage = React.createClass({
     <span>
     <section className="header-container">
       <div className="title-container">
-        <h1>TDDI</h1>
-        <h3>Test Driven Development Initializer</h3>
-        <div className="col-md-3 splashquickstart">
-        </div>
+        <h1 className="Title">TDDI</h1>
+        <p className="SubTitle">Test Driven Development Initializer</p>
+        <a className="btn btn-info" href="/#lesson">Start Testing</a>
+        <a className="btn btn-info" href="/#selector">See All Lessons</a>
+        <hr />
       </div>
+
     </section>
     
       <section className="row splashbox">
           <div className="col-md-5 splashwords">
-          <h1>Learn what testing is, and learn how to do it before instead of after</h1>
+          <h1>Learn what testing is, and learn how to do it <strong>before</strong> instead of <i>after</i></h1>
           <p>TDDI is here to help you get started</p>
           </div>
 
