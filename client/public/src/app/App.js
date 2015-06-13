@@ -43,7 +43,7 @@ var App = React.createClass({
       overlayState: "none",
 
       //fake database success response
-      successDatabaseResponse: 'YOU DID THE THING!'
+      successResponse: 'YOU DID THE THING!'
     }
   },
   /* == == == == == == == == == == == == == == == == */
@@ -217,7 +217,6 @@ var App = React.createClass({
           sectionList    = {this.state.sectionList}
           lessonData     = {this.state.lessonData}
           sectionData    = {sectionData}
-          successDatabaseResponse = {this.state.successDatabaseResponse}
         />
       </div>
     );

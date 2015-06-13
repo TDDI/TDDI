@@ -236,7 +236,7 @@ var Lesson = React.createClass({
 
     return (
       <div className = "AppBodyContainer container">
-      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } successDatabaseResponse = {this.props.successDatabaseResponse}/>
+      <LessonOverlay successOverlay = { this.state.successOverlay } closeSuccess = { this.closeSuccess } successResponse = {section.success_response}/>
       <MoviePlayer movieState = { this.state.movieState } toggleVideo = { this.toggleVideo }/>
           <div className = "TableOfContentsContainer" style= { { width: this.state.tableOfContentsState.width } }>
           <button className = "closePanel btn btn-default" onClick = { this.toggleTableOfContents}>{ this.state.tableOfContentsState.buttonIcon }</button>
