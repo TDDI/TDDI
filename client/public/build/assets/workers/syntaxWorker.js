@@ -1,0 +1,1 @@
+onmessage=function(r){var t=r.data[0],a=(r.data[1],r.data[2]),s=a.scripts,o=void 0,e=!1;for(var i in s)importScripts(s[i]);try{JSHINT(t);var n=JSHINT.data();n.errors&&n.errors.length?e=n.errors:o=!0}catch(r){e=r.toString()}postMessage({result:o,error:e})};
