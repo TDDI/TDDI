@@ -25,6 +25,7 @@
   // -webkit-box-shadow:0 0 20px green; 
   // -moz-box-shadow: 0 0 20px green; 
   // box-shadow:0 0 20px green;
+  display: table;
 
   transition: width 0.5s, height 0.5s, opacity 1.5s, color 2s, top 0.5s;
 
@@ -42,12 +43,21 @@
   z-index: -100;
 }
 
+.overlay-container {
+  padding: 1em;
+  position: relative;
+  height: 100%;
+  display: table;
+}
+
 .Notification {
-  padding-top: 3em;
-  margin: 0.5em;
+  display: table-cell;
+  vertical-align: middle;
 }
 .closeWindow {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
   font-size: 0.75em;
   background-color: transparent;
   border-width: 0;
