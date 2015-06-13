@@ -1,3 +1,36 @@
+.header-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+}
+
+.title-container {
+  text-align: center;
+
+  img {
+    height: 120px; 
+    width: 120px;
+
+  }
+}
+
+.LessonSelectHeader {
+  text-align: center;
+  // background-color: #3F250B;
+  font-family: 'Righteous';
+  margin: 0 auto;
+  // color: #FFEFDB;
+  color: white;
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
 .innerLessonsContainer {
   min-height: 100%;
   min-height: 100vh;
@@ -5,18 +38,22 @@
   display: flex;
   padding: 5%;
   background-color: #738F9B;
+  // background-color: #01b5d8;
 
 
   .LessonArticle {
     align-items: center;
-    background-color: white;
+    // background-color: white;
+    background-color: #FFEFDB;
+    color: #5f3817;
+    // color: white;
     margin: 3em;
     width: 25em;
     height: 35em;
     border-radius: 3em;
     border-width: 3em;
     // border-color: black;
-
+    // cursor: pointer;
     -webkit-box-shadow:0 0 30px black; 
     -moz-box-shadow: 0 0 30px black; 
     box-shadow:0 0 30px black;
@@ -61,13 +98,6 @@
     align-items: baseline;
 }
 
-.LessonSelectHeader {
-  text-align: center;
-  // background-color: #3F250B;
-  font-family: 'Righteous';
-  margin: 0 auto;
-  color: white;
-}
 
 .LessonTextDescription {
   margin: 2em;
