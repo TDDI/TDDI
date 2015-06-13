@@ -1,3 +1,13 @@
+.header-container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    color: white;
+    margin: 2em;
+}
 .Title {
   font-size: 4.5em;
   margin-bottom: 0;
@@ -8,10 +18,22 @@
   margin-bottom: 5em;
 }
 
+.headerButtons {
+  margin-left: 1em;
+  margin-right: 1em;
+  // background-color: #FFEFDB;
+  background-color: #327aa3;
+  // color: #5f3817;
+  border-color: white;
+}
+.headerButtons:hover {
+  background-color: #4281A4;
+  border-color: white;
+}
 .splashbox {
-  height: 100%;
+  height: 40%;
   width: 101%;
-  min-height: 55em;
+  min-height:40em;
   min-width: 30em;
   background-color: #FFEFDB;
   // background-color: white;

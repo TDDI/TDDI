@@ -42,7 +42,6 @@ describe('CodeResponseBox component', function(){
   });
 
   it('Component should have response data in each <li> element', function() {
-    // assert(TestUtils.scryRenderedDOMComponentsWithTag(this.componentObject, 'li').length === 2);
     var reactLiArray = TestUtils.scryRenderedDOMComponentsWithTag(this.componentObject, 'li');
     var responseArray = ["Must check to see if aString is actually a string 'aString':undefined", "Another value"];
     for(var i = 0; i < reactLiArray.length; i++){

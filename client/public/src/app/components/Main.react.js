@@ -13,9 +13,12 @@ var Main = React.createClass({
   render: function() {
     return (
       <span>
-      <div className="LessonSelectHeader">
-        <h1>Get yourself out of Technical Debt</h1>
-        <p>Try one of our lessons today</p>
+      <div className="LessonSelectContainer flex-container">
+        <div className = "LessonSelectHeader">
+          <h1>Get yourself out of Technical Debt</h1>
+          <p>Try out a lesson today</p>
+        <hr />
+        </div>
       </div>
       <div className="innerLessonsContainer container-fluid flex-container">
 

@@ -13,6 +13,7 @@
   box-shadow: ($custom-border-shadow - 2);
   z-index: 3;
   margin:0;
+  color: white;
 
   .navbar-brand {
     padding-top: 0.5em;
@@ -39,11 +40,20 @@
 
     .navBarItem {
       // padding: 10px 25px;
-      font-size: 20px;
+      color: white;
+      font-size: 1.1em;
       text-transform: uppercase;
     }
   }
 
+}
+
+.navbar-nav > li > a {
+  color: #5f3817 !important;
+}
+
+.navbar-nav > li > a:hover {
+  color: #327aa3 !important;
 }
 
 .cleanLogo {

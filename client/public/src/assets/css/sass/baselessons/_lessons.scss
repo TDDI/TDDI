@@ -60,7 +60,7 @@
 
       background-color: $custom-background-color;
       opacity: $custom-background-opacity;
-
+      
       // min-height: 25%;
       height: 45%;
       width: 100%;
@@ -162,8 +162,20 @@ padding: 5px;
 
 // ANIMATIONS
 
-.TableOfContentsContainer {
-  animation-duration: 2s;
-  animation-name: slidein;
+.TableOfContentsContainer li{
+  // animation-duration: 2s;
+  // animation-name: slidein;
+  display: block;
+  border-width: 5px;
+}
+
+.TableOfContentsHeader {
+  text-align: center;
+  border-width: 1em;
+  border-color: white;
+  font-size: 1.5em;
+  color: white;
+  background-color: #252b30;
+  padding: 0.4em;
 }
 
