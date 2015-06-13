@@ -29,53 +29,6 @@ var FrontPage = React.createClass({
           <a className="btn btn-info lessonSelectRedirect" href="/#selector">Or Check Out <br />Our Lessons</a>
           </div>
       </section>
-
-      <section className="descriptors">
-      </section>
-      
-
-      <section className="aboutus">
-        <div>
-          <h3>About Us</h3>
-        </div>
-
-          <div className="Person col-md-3">
-            <div className="Portrait Lu">
-            </div>
-            <p>
-              Legendary Lu is Ludicrous.
-            </p>
-            <a href="https://github.com/lugyin" className="GithubIconDiv"></a>
-          </div>
-
-          <div className="Person col-md-3">
-            <div className="Portrait Kurt">
-            </div>
-            <p>
-              Kingly Kurt is Krazy.
-            </p>
-            <a href="https://github.com/kurtbartholomew" className="GithubIconDiv"></a>
-          </div>
-
-          <div className="Person col-md-3">
-            <div className="Portrait John">
-            </div>
-            <p>
-              Judicious John is Jesting.
-            </p>
-            <a href="https://github.com/awatemonosan" className="GithubIconDiv"></a>
-          </div>
-
-          <div className="Person col-md-3">
-            <div className="Portrait Brian">
-            </div>
-            <p>
-              Bearish Brian is Belligerent.
-            </p>
-            <a href="https://github.com/bcjl" className="GithubIconDiv"></a>
-          </div>
-      </section>
-
     </span>
     )
   }

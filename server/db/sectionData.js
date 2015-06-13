@@ -6,8 +6,16 @@ module.exports = [
     lesson_id: '1',
     section_id: '1',
     sectionName: 'A simple look at TDD',
-    content:   "Things and stuff",
-    success_response: "You may have done the thing",
+    content:  "<p>First, we want you to understand that to test means to set "
+            + "expectations for your program.</br> Below you will "
+            + "see that we expect specific details about our code (<i>literally using "
+            + "expect</i>).</p><p><b>Submit, read feedback from the error box below, and define "
+            + "variables in your program to match existing expectations.</b> "
+            + "</p><p>For example, the second test expects aFunction to be a function.</br> Satisfy "
+            + "the test expectations by writing a simple function like <i>function(){ return 1 };</i> </p>",
+    success_response: "Congratulations. You've successfully used a basic implementation "
+                    + "of test driven development. In the following sections, you'll learn "
+                    + "how to compose the tests you saw here.",
     code: defunc(function() {
 //edit these so they contain the correct type of data. aString is done for you.
 var aString = 'The quick brown fox jumps over the lazy dog';
