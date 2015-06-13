@@ -5,6 +5,30 @@ module.exports = [
   {
     lesson_id: '1',
     section_id: '1',
+    sectionName: 'A simple look at TDD',
+    content:   "Things and stuff",
+    code: defunc(function() {
+//edit these so they contain the correct type of data. aString is done for you.
+var aString = 'The quick brown fox jumps over the lazy dog';
+var aFunction;
+var aNumber;
+var aBoolean;
+var anObject;
+var anArray;
+//You don't have to change anything below here.
+expect(aString).to.be.a( 'string' );
+expect(aFunction).to.be.a( 'function' );
+expect(aNumber).to.be.a( 'number' );
+expect(aBoolean).to.be.a( 'boolean' );
+expect(anObject).to.be.a( 'object' );
+expect(anArray).to.be.a( 'array' );
+}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '2',
     sectionName: 'Type Checking: Part 1',
     content:
       "You can use to.be.a to check if a variable is the expected type. "
@@ -72,7 +96,7 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '1',
-    section_id: '2',
+    section_id: '3',
     sectionName: 'Type Checking: Part 2',
     content:
       "Now do the same thing again. This time you don't get any hints "
@@ -132,10 +156,15 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '1',
-    section_id: '3',
+    section_id: '4',
     sectionName: 'Result Checking: Part 1',
     content: "functions, test them",
-    code: defunc(function() { /* PUT CODE HERE */ }),
+    code: defunc(function() {
+//expect(double(2)).to.equal(4);
+//expect(removeDuplicateChars('aabbcc')).to.equal( /* result */ );
+//expect(isEven(1)).to.equal( /* result */ );
+//expect(merge({a:1},{b:2})).to.equal( /* result */ );
+}),
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
@@ -223,10 +252,12 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '1',
-    section_id: '4',
+    section_id: '5',
     sectionName: 'Result Checking: Part 2',
     content: "MORE functions, test them",
-    code: defunc(function() { /* PUT CODE HERE */ }),
+    code: defunc(function() {
+/* PUT CODE HERE */
+}),
     preOp: defunc(function() {
       successCases = [{
         failMessage: "",
@@ -260,8 +291,139 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '1',
+    section_id: '6',
+    sectionName: 'Property Check: Part 1',
+    content: "Check if things have properties",
+    code: defunc(function() {
+//expect(object).to.have.property( /*property*/ );
+}),
+    preOp: defunc(function() {
+      successCases = [{
+        failMessage: "",
+        scope: {
+          object: {a:1,b:2,c:3}
+        }
+      }];
+      failureCases = [{
+        failMessage: "Must check to see if object has an 'a' property",
+        scope: {
+          object: {a:1,b:2}
+        }
+      }, {
+        failMessage: "Must check to see if object has an 'b' property",
+        scope: {
+          object: {a:1,c:3}
+        }
+      }, {
+        failMessage: "Must check to see if object has an 'c' property",
+        scope: {
+          object: {b:2,c:3}
+        }
+      }];
+    })
+  },
+//================================================================================
+  {
+    lesson_id: '1',
     section_id: '7',
-    sectionName: "They Come Bearing Gifts",
+    sectionName: 'Property Check: Part 2',
+    content: "Check if things have properties",
+    code: defunc(function() {
+/* PUT CODE HERE */
+}),
+    preOp: defunc(function() {
+      successCases = [{
+        failMessage: "",
+        scope: {
+          object: {a:1,b:2,c:3}
+        }
+      }];
+      failureCases = [{
+        failMessage: "Must check to see if object has an 'a' property",
+        scope: {
+          object: {a:1,b:2}
+        }
+      }, {
+        failMessage: "Must check to see if object has an 'b' property",
+        scope: {
+          object: {a:1,c:3}
+        }
+      }, {
+        failMessage: "Must check to see if object has an 'c' property",
+        scope: {
+          object: {b:2,c:3}
+        }
+      }];
+    })
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '8',
+    sectionName: 'Side effects: Part 1',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '9',
+    sectionName: 'Side effects: Part 2',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '10',
+    sectionName: 'When does it error: Part 1',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '11',
+    sectionName: 'When does it error: Part 2',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '12',
+    sectionName: 'How does it handle edge cases: Part 1',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '13',
+    sectionName: 'How does it handle edge cases: Part 2',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '1',
+    section_id: '14',
+    sectionName: 'Pulling it all together',
+    content: "",
+    code: defunc(function() { /* PUT CODE HERE */}),
+    preOp: "successCases=[{scope:[]}];failureCases=[{scope:[]}];"
+  },
+//================================================================================
+  {
+    lesson_id: '2',
+    section_id: '1',
+    sectionName: "Side effects: Part something",
     content: "You got spunk, kid. Alright. Here's a harder test.\n\
   You have a variable in your scope called \"Tree\". It is a pseudo-classical Tree object with an addChild method and you need to make sure it isn't terrible.",
     code: defunc(function() {
@@ -354,8 +516,8 @@ module.exports = [
   }, 
 //================================================================================
   {
-    lesson_id: '1',
-    section_id: '8',
+    lesson_id: '2',
+    section_id: '2',
     sectionName: "Checking Koalafications",
     content: "Try not to break this code. please.<br>\
   You have a variable in your scope called \"Stack\". It is a pseudo-clasical Stack object. You know whats up. Get to it.",
@@ -443,8 +605,8 @@ module.exports = [
   }, 
 //================================================================================
   {
-    lesson_id: '1',
-    section_id: '9',
+    lesson_id: '2',
+    section_id: '3',
     sectionName: "Controlling the Pandamonium",
     content: "You have a variable in your scope called \"MakeLinkedList\". It is something, idk. You figure it out. Stop making me do your job.",
     code: defunc(function() { //TODO: write tests for MakeLinkedList
@@ -523,8 +685,8 @@ module.exports = [
   }, 
 //================================================================================
   {
-    lesson_id: '1',
-    section_id: '10',
+    lesson_id: '2',
+    section_id: '4',
     sectionName: "Berry Dangerous Side Effects",
     content: "blah blah blah blah MakeQueue Blah blah",
     code: defunc(function() { //TODO: write tests for MakeQueue
@@ -583,7 +745,7 @@ module.exports = [
 //================================================================================
   {
     lesson_id: '2',
-    section_id: '11',
+    section_id: '5',
     sectionName: "Berry Dangerous Side Effects",
     content: "Given an array of numbers, the sumArray function will calculate the greatest contiguous sum of numbers in it. A single array item will count as a contiguous sum. Test it, brah.",
     code: defunc(function() { //TODO: write tests for sumArray
