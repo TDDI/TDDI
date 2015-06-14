@@ -55,7 +55,9 @@ onmessage = function(e) {
     }
     return dst;
   }
-
+  var safeToString = function( o ){
+    return o===undefined ? 'undefined' : o.toString();
+  }
   var test = function( ){
     return (function( ){
       //mask some variables
@@ -84,7 +86,7 @@ onmessage = function(e) {
   var scripts = options.scripts;
 
   var result  = undefined;
-  var error   = false;
+  var error   = undefined;
 
   var expect;
 
@@ -105,9 +107,9 @@ onmessage = function(e) {
     var response = injectThen(successCase.scope, test);
     //response means there is an error
     if(response){
-      error  = response + '\n' + successCase.failMessage;
+      error  = [ response, successCase.failMessage ];
       for(var key in successCase.scope){
-        error += "\n  '" + key + "':" + successCase.scope[key].toString();
+        error.push( key + " = " + safeToString(successCase.scope[key]) );
       }
       break;
     }
@@ -118,17 +120,20 @@ onmessage = function(e) {
     for(var i in failureCases){
       var failureCase = failureCases[i];
       var successCase = merge({}, successCases[0]);
-      var response = injectThen(merge(successCase.scope,failureCase.scope), test);
+      var finalFailureCase = merge(successCase,failureCase);
+      var response = injectThen(finalFailureCase.scope, test);
+      console.log(response);
       //no response? the tests are not covering a case
       if(!response){
-        error  = failureCase.failMessage;
-        for(var key in failureCase.scope){
-          error += "\n  '" + key + "':" + failureCase.scope[key];
+        error  = [ response, finalFailureCase.failMessage ];
+        for(var key in finalFailureCase.scope){
+          error.push( key + " = " + safeToString(finalFailureCase.scope[key]) );
         }
         break;
       }
     }
   }
 
+  console.log(error);
   postMessage({result:result, error:error});
 };
