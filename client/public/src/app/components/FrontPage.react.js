@@ -17,18 +17,32 @@ var FrontPage = React.createClass({
       </div>
 
     </section>
-    
-      <section className="row splashbox">
-          <div className="col-md-5 splashwords">
-          <h1>Learn what testing is, and learn how to do it <strong>before</strong> instead of <i>after</i></h1>
-          <p>TDDI is here to help you get started</p>
-          </div>
+  
+      <section className="descriptorsContainer">
+      <div className="splashwords">
+        <h1>Learn what testing is, and learn how to do it <strong>before</strong> instead of <i>after</i></h1>
+      <p>TDDI is here to help you get started</p>
+      </div>
 
-          <div className="col-md-3 splashquickstart">
-          <a href="/#lesson"><img src="https://i.imgur.com/NPluqP5.png?1"></img></a>
-          <a className="btn btn-info lessonSelectRedirect" href="/#selector">Or Check Out <br />Our Lessons</a>
-          </div>
-      </section>
+      <div className="splashquote">
+        <p>"Program testing can be used to show the presence of bugs, but never to show their absence!" -Edsger Dijkstra</p>
+        <p>"Testing leads to failure, and failure leads to understanding."-Burt Rutan</p>
+      </div>
+      <div className="descriptors">
+        <h3>First blah</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      </div>
+      <div className="descriptors">
+        <h3>Second blah</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>        
+      </div>
+      <div className="descriptors">
+        <h3>Third blah</h3>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>        
+      </div>
+
+      </section >
+      
     </span>
     )
   }

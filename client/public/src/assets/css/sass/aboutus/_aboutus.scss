@@ -1,5 +1,5 @@
 .techStack {
-  height: 100%;
+  height: 90%;
   width: 100%;
   min-height: 48.5em;
   min-width: 30em;
@@ -12,8 +12,8 @@
   color:blue;
 
   .techStackPic {
-    height: 20em;
-    width:20em;
+    height: 15em;
+    width:15em;
     z-index:-2;
     background-color: #3F250B;
     position:relative;
@@ -32,4 +32,58 @@
   
   }
 
+}
+
+
+.aboutus {
+  height: 100%;
+  width: 100%;
+  min-height: 45em;
+  min-width: 30em;
+  z-index:-2;
+  // background-color: #9fd5d0 ;
+  background-color: #327aa3;
+  opacity: 0.8;
+  text-align:center;
+  padding: 8em;
+  color:white;
+  // color: #FFEFDB;
+
+  .Person {
+    top:10%;
+  }
+
+  .Portrait {
+    height: 15em;
+    width:15em;
+    position:relative;
+    top:50%;
+    background-color: white;
+    border-color: #3F250B;
+    border-radius: 5.5em;
+    color: yellow;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    overflow: hidden;
+    z-index:4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-shadow: 0 0 20px black;
+
+  }
+
+  .Kurt {
+    background-image: url('https://avatars3.githubusercontent.com/u/8601772?v=3&s=460');
+  }
+  .Brian {
+    background-image: url('https://avatars1.githubusercontent.com/u/8295920?v=3&s=460');
+  }
+
+  .John {
+    background-image: url('https://avatars2.githubusercontent.com/u/10604446?v=3&s=460');
+  }
+  .Lu {
+    background-image: url('https://avatars1.githubusercontent.com/u/8801819?v=3&s=460');
+  }
 }
