@@ -6,7 +6,7 @@
     align-content: center;
     align-items: center;
     color: white;
-    margin: 2em;
+    margin: 1.25em;
 }
 .Title {
   font-size: 4.5em;
@@ -15,12 +15,12 @@
 
 .SubTitle {
   margin-top: 0;
-  margin-bottom: 5em;
+  margin-bottom: 3.5em;
 }
 
 .headerButtons {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
   // background-color: #FFEFDB;
   background-color: #327aa3;
   // color: #5f3817;
@@ -29,65 +29,6 @@
 .headerButtons:hover {
   background-color: #4281A4;
   border-color: white;
-}
-.splashbox {
-  height: 40%;
-  width: 101%;
-  min-height:40em;
-  min-width: 30em;
-  background-color: #FFEFDB;
-  // background-color: white;
-  // background: radial-gradient(ellipse, #FFEFDB, #f4bf11);
-  // background: radial-gradient(#FFEFDB, #EFDD6F);
-  text-align: center;
-  padding: 10em;
-  padding-left: 20%;
-
-  .splashwords {
-    display: inline-block;
-    width: 30em;
-    height: 20em;
-    border-radius: 15em;
-    // background: #FFEFDB;
-    color: #5f3817;
-    font-family: 'Righteous';
-    // font-family: 'Dancing Script','Pacifico','Lobster', 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-    h1 {
-      top: 20%;
-      position:relative;
-      display: inline-block;
-    }
-
-    p {
-      top: 20%;
-      position: relative;
-      display: inline-block;
-    }
-  }
-
-  .splashquickstart {
-    display: inline-block;
-    height: 25em;
-    width: 30em;
-    border-radius: .5em;
-    color: gray;
-
-    img {
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 3em;
-      transition: transform 0.75s;
-    }
-
-    img:hover {
-      transform: translateY(-8%);
-    }
-    .LessonTextLink {
-      display: block;
-      text-align: center;
-    }
-  }
 }
 
 
@@ -196,3 +137,47 @@
 }
 
 
+.descriptorsContainer {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 5em;
+  width: 100%;
+  background-color: #FFEFDB;
+  color: #5f3817;
+
+
+  .splashwords {
+    height: 20em;
+    width: 40em;
+    padding: 2em;
+    text-align: center;
+    float: right;
+  }
+  .splashquote {
+    height: 20em;
+    width: 35em;
+    text-align:center;
+    font-size: 1.1em;
+    padding: 2.5em;
+    p {
+      float: right;
+    }
+  }
+  .descriptors {
+    text-align: center;
+    padding: 1em;
+    margin: 2em;
+    width: 25em;
+    height: 30em;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 200px;
+    background-color: transparent;
+  }
+}
