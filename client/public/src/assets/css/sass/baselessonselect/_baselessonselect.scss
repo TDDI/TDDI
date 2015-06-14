@@ -57,6 +57,8 @@
 
   .LessonPicture {
     display: block;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
     background-position: center;
     background-size: 25em 16em;
     overflow: hidden;
@@ -91,8 +93,12 @@
 .UnderConstruction {
   transition: all 0.2s ease;
   -webkit-filter: grayscale(0) brightness(1.0);
+  filter: grayscale(0) brightness(1.0);
+  overflow: hidden;
 }
 .UnderConstruction:hover{
   transition: all 0.2s ease;
   -webkit-filter: grayscale(0.8) brightness(0.5);
+  filter: grayscale(0.8) brightness(0.5);
+  overflow: hidden;
 }
