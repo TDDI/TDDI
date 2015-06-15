@@ -40,12 +40,11 @@ expect(anArray).to.be.a( 'array' );
     section_id: '2',
     sectionName: 'Type Checking: Part 1',
     content:
-      "You can use to.be.a to check if a variable is the expected type. "
-    + "Good for checking the results of functions. Here we will check "
-    + "a number of different variables. Uncomment them one at a time and "
-    + "click submit. Pay attention to the errors below and try to get all "
-    + "of the tests to pass!",
-    success_response: "You totally did the thing",
+      "<p>The most basic expectations we can have in testing are that variables are "
+    + "what we assume them to be.</p><p><b>Fill in your expectations of what type each of "
+    + "the variables will be.</b></p>",
+    success_response: "Nice job! Remember, in addition to checking types, this "
+    + "will also function to check if variables exist, which is incredibly important.",
     code: defunc(function() {
 // expect(aString).to.be.a( 'string' );
 // expect(aFunction).to.be.a( /*type of*/ );
@@ -109,9 +108,12 @@ expect(anArray).to.be.a( 'array' );
     section_id: '3',
     sectionName: 'Type Checking: Part 2',
     content:
-      "Now do the same thing again. This time you don't get any hints "
-    + "besides the responses you get from the error box below.",
-    success_response: "You totally did the thing again!",
+      "<p>Sometimes you may have no idea if a variable will always be the same "
+    + "type.</br> You may also have to guess a type based on the name of the variable. "
+    + "</p><p><b>Confirm your expectations about what type a variable is by writing tests "
+    + "for them below. Write tests based on submission feedback.</b></p>",
+    success_response: "Wonderful! Sometimes it is difficult to tell what input "
+    + "you're getting, but with typechecking you can test what your inputs are consistently.",
     code: defunc(function() {
 /* no code for you */
 }),
@@ -169,8 +171,13 @@ expect(anArray).to.be.a( 'array' );
     lesson_id: '1',
     section_id: '4',
     sectionName: 'Result Checking: Part 1',
-    content: "functions, test them",
-    success_response: "You totally did the thing for a third time",
+    content: "<p>Checking what a function gives you is also among the top preparations "
+           + "you can make with testing.</br> Make sure that functions return results "
+           + "that are consistent with expectations set by the name or context. "
+           + "<p></p><b>Finish filling in your assumptions below on what the returned outputs "
+           + "should be based on function names.</b></p>",
+    success_response: "Great! You never can tell if functions will always give "
+           + "back the same results, so test every result you can!",
     code: defunc(function() {
 //expect(double(2)).to.equal(4);
 //expect(removeDuplicateChars('aabbcc')).to.equal( /* result */ );
@@ -266,8 +273,14 @@ expect(anArray).to.be.a( 'array' );
     lesson_id: '1',
     section_id: '5',
     sectionName: 'Result Checking: Part 2',
-    content: "MORE functions, test them",
-    success_response: "You totally did the thing for a 4th time",
+    content: "<p>We're using a number of different functions in our sample " 
+           + "application.</p><p><b>Please test the list below to make sure they are "
+           + "working properly.</b></p>A getLength function that returns the length " 
+           + "of an array</br> A sort function that returns a sorted array</br>A "
+           + "contains function that checks if a passed value in an array ",
+    success_response: "Fantastic! It is hopefully apparent to you the power that "
+           + "result checking holds in guaranteeing what kind of variables the "
+           + "rest of your functions are working with.",
     code: defunc(function() {
 /* PUT CODE HERE */
 }),
