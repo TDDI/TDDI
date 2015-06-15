@@ -29,16 +29,16 @@ var FrontPage = React.createClass({
         <p>"Testing leads to failure, and failure leads to understanding."-Burt Rutan</p>
       </div>
       <div className="descriptors">
-        <h3>First blah</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        <h3>Why Test At All?</h3>
+        <p>In 2013, Knight Capital Group lost 450 million dollars in the course of 45 minutes due to a dependency not being loaded in their build process. A simple test checking for the existence of this dependency (less than 30 lines of code) would have prevented that unfortunate event.</p>
       </div>
       <div className="descriptors">
-        <h3>Second blah</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>        
+        <h3>Why Create TDDI?</h3>
+        <p>When it came to learning Test Driven Development ourselves, we found that there were no easy  patterns to follow. Where do you start? What do you start testing for? These are simple questions that we never found a list, so we created our own after careful research.</p>        
       </div>
       <div className="descriptors">
-        <h3>Third blah</h3>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>        
+        <h3>What Does TDDI Do?</h3>
+        <p>TDDI offers a simple enumerated list of ways to test your program. This application should teach you not just the syntax for testing, but also the reasons and advantages of testing  before you build a mountain of technical debt.</p>        
       </div>
 
       </section >
