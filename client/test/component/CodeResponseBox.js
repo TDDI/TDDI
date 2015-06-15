@@ -5,12 +5,13 @@ var React = require('react/addons'),
     CodeResponseBox = require('../../public/src/app/components/CodeResponseBox.react.js'),
     TestUtils = React.addons.TestUtils;
 
+
 describe('CodeResponseBox component', function(){
   before('render and locate element', function() {
     var responseArray = ["Must check to see if aString is actually a string 'aString':undefined", "Another value"];
 
     var renderedComponent = TestUtils.renderIntoDocument(
-      <CodeResponseBox                
+      <CodeResponseBox      
         codeResponseStatusClass = "error"
         codeboxResponseClass = "showActualResponseBox"
         responses = { responseArray }/>
@@ -25,6 +26,7 @@ describe('CodeResponseBox component', function(){
 
     this.componentObject = renderedComponent;
     this.containerElement = containerComponent.getDOMNode();
+
   });
 
   it('component should be a React composite component', function(){
@@ -42,7 +44,7 @@ describe('CodeResponseBox component', function(){
   });
 
   it('Component should have response data in each <li> element', function() {
-    var reactLiArray = TestUtils.scryRenderedDOMComponentsWithTag(this.componentObject, 'li');
+    var reactLiArray = TestUtils.scryRenderedDOMComponentsWithTag(this.componentObject, 'li');    
     var responseArray = ["Must check to see if aString is actually a string 'aString':undefined", "Another value"];
     for(var i = 0; i < reactLiArray.length; i++){
       assert(reactLiArray[i].props.children === responseArray[i]);

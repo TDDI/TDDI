@@ -61,6 +61,8 @@ var aboutUs = React.createClass({
                 <img className ="techStackPic" src="/assets/images/React.png"> </img>
                 <img className ="techStackPic" src="/assets/images/Sass.png"> </img>
                 <img className ="techStackPic" src="/assets/images/Testing.png"> </img>
+                <img className ="techStackPic" src="/assets/images/Travis_CI.jpeg"> </img>
+                <img className ="techStackPic" src="/assets/images/HTML5_CSS3.jpeg"> </img>
               </div>
             </section>
       </div>
