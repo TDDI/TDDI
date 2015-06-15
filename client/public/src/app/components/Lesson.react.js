@@ -160,7 +160,7 @@ var Lesson = React.createClass({
     //Create callback function for passing into codeEval
     var evalCallback = (function( response ){
       if( response.error ) {
-        codeResponse.push(response.error);
+        codeResponse = response.error;
         console.log("ERROR! ", response.error);
 
         this.setState({ 
