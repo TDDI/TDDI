@@ -19,7 +19,7 @@ var aboutUs = React.createClass({
               <div className="Portrait Lu">
               </div>
               <p>
-                Legendary Lu is Ludicrous.
+                Lu Yin
               </p>
               <a href="https://github.com/lugyin" className="GithubIconDiv"></a>
             </div>
@@ -28,7 +28,7 @@ var aboutUs = React.createClass({
               <div className="Portrait Kurt">
               </div>
               <p>
-                Kingly Kurt is Krazy.
+                Kurt Bartholomew
               </p>
               <a href="https://github.com/kurtbartholomew" className="GithubIconDiv"></a>
             </div>
@@ -37,7 +37,7 @@ var aboutUs = React.createClass({
               <div className="Portrait John">
               </div>
               <p>
-                Judicious John is Jesting.
+                John Winstead
               </p>
               <a href="https://github.com/awatemonosan" className="GithubIconDiv"></a>
             </div>
@@ -46,7 +46,7 @@ var aboutUs = React.createClass({
               <div className="Portrait Brian">
               </div>
               <p>
-                Bearish Brian is Belligerent.
+                Brian Liu
               </p>
               <a href="https://github.com/bcjl" className="GithubIconDiv"></a>
             </div>
