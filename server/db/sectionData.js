@@ -393,7 +393,7 @@ expect(anArray).to.be.a( 'array' );
   {
     lesson_id: '1',
     section_id: '8',
-    sectionName: 'Side effects: Part 1',
+    sectionName: 'Side Effects: Part 1',
     content: "event system. TEST IT!",
     success_response: "",
     code: defunc(function() {
@@ -466,7 +466,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '9',
-    sectionName: 'Side effects: Part 2',
+    sectionName: 'Side Effects: Part 2',
     content: "Money money money money money",
     success_response: "",
     code: defunc(function() {
@@ -527,7 +527,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '10',
-    sectionName: 'When does it error: Part 1',
+    sectionName: 'When Does It Error: Part 1',
     content: "",
     success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
@@ -554,7 +554,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '11',
-    sectionName: 'When does it error: Part 2',
+    sectionName: 'When Does It Error: Part 2',
     content: "",
     success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
@@ -581,7 +581,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '12',
-    sectionName: 'How does it handle edge cases: Part 1',
+    sectionName: 'Handling Edge Cases: Part 1',
     content: "",
     success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
@@ -608,7 +608,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '13',
-    sectionName: 'How does it handle edge cases: Part 2',
+    sectionName: 'Handling Edge Cases: Part 2',
     content: "",
     success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
@@ -635,7 +635,7 @@ expect(events[test]).to.equal(undefined);
   {
     lesson_id: '1',
     section_id: '14',
-    sectionName: 'Pulling it all together',
+    sectionName: 'Bringing It All Together',
     content: "",
     success_response: "",
     code: defunc(function() { /* PUT CODE HERE */}),
