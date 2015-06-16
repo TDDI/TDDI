@@ -6,13 +6,13 @@ module.exports = [
     lesson_id: '1',
     section_id: '1',
     sectionName: 'A simple look at TDD',
-    content:  "<p>First, we want you to understand that to test means to set "
+    content:  "First, we want you to understand that to test means to set "
             + "expectations for your program.</br> Below you will "
             + "see that we expect specific details about our code (<i>literally using "
-            + "expect</i>).</p><p><b>Submit, read feedback from the error box below, and define "
+            + "expect</i>).</br></br><b>Submit, read feedback from the error box below, and define "
             + "variables in your program to match existing expectations.</b> "
-            + "</p><p>For example, the second test expects aFunction to be a function.</br> Satisfy "
-            + "the test expectations by writing a simple function like <i>function(){ return 1 };</i> </p>",
+            + "</br></br>For example, the second test expects aFunction to be a function.</br> Satisfy "
+            + "the test expectations by writing a simple function like <i>function(){ return 1 };</i>",
     success_response: "Congratulations. You've successfully used a basic implementation "
                     + "of test driven development. In the following sections, you'll learn "
                     + "how to compose the tests you saw here.",
