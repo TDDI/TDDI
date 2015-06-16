@@ -27,9 +27,9 @@ var Lesson = React.createClass({
       codeResponseStatusClass: 'success',
       tableOfContentsState: {
         status: "on",
-        width: "13em",
+        width: "16em",
         liDisplay: "block",
-        lessonMargin: "14em",
+        lessonMargin: "17em",
         buttonIcon: "«"
       },
       successOverlay: {
@@ -103,9 +103,9 @@ var Lesson = React.createClass({
     } else if (toC.status === "off") {
       this.setState({tableOfContentsState: {
         status: "on",
-        width: "13em",
+        width: "16em",
         liDisplay: "block",
-        lessonMargin: "14em",
+        lessonMargin: "17em",
         buttonIcon: "«"
       }})
     } 
