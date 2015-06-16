@@ -14,7 +14,7 @@ var CodeMirror = require('./CodeMirror');
 var ContentPanel = require('./ContentPanel');
 var CodeResponseBox = require('./CodeResponseBox.react');
 var LessonOverlay = require('./LessonOverlay');
-var MoviePlayer = require('./MoviePlayer.react')
+var MoviePlayer = require('./MoviePlayer.react');
 
 var codeEval = require('../codeEval');
 

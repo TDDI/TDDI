@@ -8,7 +8,7 @@ var ContentPanel = React.createClass({
   render: function() {
     return (
       <div className="ContentContainer">
-        <p dangerouslySetInnerHTML={{__html: this.props.contents}}/>
+        <p dangerouslySetInnerHTML={{__html: this.props.contents}}></p>
       </div>
     )
   }
