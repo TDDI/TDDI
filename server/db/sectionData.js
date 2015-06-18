@@ -32,7 +32,7 @@ expect(aBoolean).to.be.a( 'boolean' );
 expect(anObject).to.be.a( 'object' );
 expect(anArray).to.be.a( 'array' );
 }),
-    preOp: 'successCases=[{scope:{}}];failureCases=[{scope:{}}];'
+    preOp: 'successCases=[{scope:{}}];failureCases=[];'
   },
 //================================================================================
   {
