@@ -22,11 +22,11 @@
 }
 
 .innerLessonsContainer {
-  min-height: 100%;
-  min-height: 100vh;
+  //min-height: 100%;
+  //min-height: 100vh;
   display: -webkit-flex;
   display: flex;
-  padding: 5%;
+  // padding: 5%;
   background-color: #738F9B;
   // background-color: #01b5d8;
 
@@ -37,7 +37,7 @@
     background-color: #FFEFDB;
     color: #5f3817;
     // color: white;
-    margin: 3em;
+    margin: 0 3em ;
     width: 25em;
     height: 35em;
     border-radius: 3em;
