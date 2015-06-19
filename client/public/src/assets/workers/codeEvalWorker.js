@@ -17,6 +17,10 @@ onmessage = function(e) {
   };
 
   function merge(target, src) {
+    console.log(target,src);
+    if(Array.isArray(target)!==Array.isArray(src))
+      return src;
+
     var array = Array.isArray(src);
     var dst = array && [] || {};
 
@@ -52,11 +56,18 @@ onmessage = function(e) {
           }
         }
       });
+      //clean up all undefined properties
+      Object.keys(dst).forEach(function (key) {
+        if(dst[key]===undefined){
+          console.log('pruning: '+key);
+          delete dst[key];
+        }
+      });
     }
     return dst;
   }
   var safeToString = function( o ){
-    return o===undefined ? 'undefined' : o.toString();
+    return o===undefined ? 'undefined' : o===null ? 'null' : o.toString();
   }
   var test = function( ){
     return (function( ){
@@ -121,8 +132,8 @@ onmessage = function(e) {
       var failureCase = failureCases[i];
       var successCase = merge({}, successCases[0]);
       var finalFailureCase = merge(successCase,failureCase);
+
       var response = injectThen(finalFailureCase.scope, test);
-      console.log(response);
       //no response? the tests are not covering a case
       if(!response){
         error  = [ response, finalFailureCase.failMessage ];
@@ -134,6 +145,5 @@ onmessage = function(e) {
     }
   }
 
-  console.log(error);
   postMessage({result:result, error:error});
 };
