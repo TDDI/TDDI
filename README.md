@@ -2,10 +2,9 @@
 
 TDDI is an educational platform for learning the foundations of test driven development
 
-* **Easily Digestible TDD Basics: ** TDDI presents an easily understood outline of what it means to do TDD 
+* **Easily Digestible Testing Basics:** TDDI presents an easily understood outline of what to test and how
 * **Real-time In-browser Code Evaluation:** Solve testing issues in browser with dynamic feedback
-* **Lesson Creation Interface:** Authenticated users can create additional lessons focusing on framework specific testing (Angular, React, Backbone, etc...)
-* **Immersive Lesson Narrative:** Curated content that creates mneumonic devices through a unique narrative experience.
+* **Real World Applications:** Each section is created to support a step by step plan for testing properly
 
 ## Quick Start
 
@@ -15,14 +14,22 @@ In your repo type:
 npm install
 ```
 
-This command will install all dependencies and build a production
+This command will install all dependencies and build a development
 version of the app.
+
+**NOTE**: You will need a PostgreSQL database with the appropriate database and user to properly populate the database.
+
+```
+node populateDB.js
+```
+
+This command will populate the database with the data held in sectionData.js
 
 ```
 npm start
 ```
 
-This command will start a development server and opens a browser window. All files in src folder will be watched for changes and automatically reload either the server or frontend depending on location of the file.
+This command will start a development server and opens a browser window. All files in src folder will be watched for changes and automatically reload either the server or frontend depending on location of the file. (this command will also attempt to populate the database)
 
 
 ## Table of Contents
@@ -34,11 +41,7 @@ This command will start a development server and opens a browser window. All fil
 
 ## Usage
 
-To look at an example of the interface, visit [this link](https://tddi.herokuapp.com)
-
-Here are some images: 
-
-TODO: Screenshots go here
+To interact with the site directly, visit [this link](https://tddi.herokuapp.com)
 
 ## Requirements
 
